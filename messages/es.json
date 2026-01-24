@@ -1,0 +1,223 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "cases": "Casos de Éxito",
+    "about": "Nosotros",
+    "pricing": "Precios",
+    "faq": "FAQ",
+    "contact": "Contacto",
+    "getStarted": "Empezar Ahora"
+  },
+  "home": {
+    "slogan": "Human strategy. Artificial intelligence.",
+    "hero": {
+      "title": "Construyendo el",
+      "titleHighlight": "futuro digital",
+      "description": "Transformamos tu presencia digital con estrategias impulsadas por inteligencia artificial. Resultados medibles, creatividad sin límites.",
+      "cta": {
+        "primary": "Empezar Proyecto",
+        "secondary": "Conocer Servicios"
+      },
+      "scrollDown": "Descubre más"
+    },
+    "services": {
+      "title": "Nuestros Servicios",
+      "description": "Soluciones integrales de marketing digital potenciadas por IA para impulsar tu negocio al siguiente nivel",
+      "viewAll": "Ver todos los servicios"
+    },
+    "stats": {
+      "projects": "Proyectos Exitosos",
+      "satisfaction": "Satisfacción del Cliente",
+      "roi": "ROI Promedio",
+      "clients": "Clientes Activos"
+    },
+    "cases": {
+      "title": "Casos de Éxito",
+      "description": "Resultados reales que hablan por sí mismos. Descubre cómo ayudamos a nuestros clientes a alcanzar sus objetivos.",
+      "viewAll": "Ver todos los casos",
+      "viewCase": "Ver caso completo"
+    },
+    "contact": {
+      "title": "Hablemos de tu Proyecto",
+      "description": "Estamos listos para transformar tu visión en realidad. Cuéntanos sobre tu proyecto y descubre cómo podemos ayudarte.",
+      "cta": "Contáctanos"
+    }
+  },
+  "services": {
+    "meta": {
+      "title": "Servicios de Marketing Digital e IA | j.marIA",
+      "description": "Servicios profesionales de marketing digital potenciados por inteligencia artificial. Automatización, estrategia y resultados medibles."
+    },
+    "title": "Nuestros Servicios",
+    "description": "Soluciones integrales de marketing digital potenciadas por IA",
+    "items": {
+      "aiAutomation": {
+        "title": "Automatización IA",
+        "description": "Implementamos soluciones de inteligencia artificial que automatizan procesos, optimizan campañas y predicen tendencias.",
+        "slug": "automatizacion-ia"
+      },
+      "digitalMarketing": {
+        "title": "Marketing Digital",
+        "description": "Estrategias multicanal que impulsan tu marca. SEO, SEM, Social Media y contenido que convierte.",
+        "slug": "marketing-digital"
+      },
+      "contentStrategy": {
+        "title": "Estrategia de Contenido",
+        "description": "Creamos narrativas que conectan. Contenido optimizado por IA para máximo engagement y conversión.",
+        "slug": "estrategia-contenido"
+      },
+      "analytics": {
+        "title": "Analytics & Datos",
+        "description": "Tomamos decisiones basadas en datos. Dashboard personalizados, reportes en tiempo real y insights accionables.",
+        "slug": "analytics-datos"
+      },
+      "growthHacking": {
+        "title": "Growth Hacking",
+        "description": "Crecimiento acelerado con técnicas innovadoras. Experimentación constante y optimización de funnel.",
+        "slug": "growth-hacking"
+      },
+      "consulting": {
+        "title": "Consultoría Digital",
+        "description": "Asesoramiento estratégico personalizado. Transformación digital y optimización de procesos de marketing.",
+        "slug": "consultoria-digital"
+      }
+    },
+    "learnMore": "Más información"
+  },
+  "cases": {
+    "meta": {
+      "title": "Casos de Éxito | j.marIA",
+      "description": "Portfolio de proyectos exitosos. Descubre cómo ayudamos a nuestros clientes a alcanzar sus objetivos de marketing digital."
+    },
+    "title": "Casos de Éxito",
+    "description": "Resultados reales que hablan por sí mismos",
+    "filters": {
+      "all": "Todos",
+      "ecommerce": "E-commerce",
+      "b2b": "B2B",
+      "branding": "Branding"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "Sobre Nosotros | j.marIA",
+      "description": "Conoce al equipo de j.marIA. Nuestra misión, valores y por qué somos tu mejor opción en marketing digital con IA."
+    },
+    "title": "Sobre j.marIA",
+    "mission": {
+      "title": "Nuestra Misión",
+      "description": "Democratizar el poder de la inteligencia artificial en el marketing digital, haciendo que las estrategias más avanzadas sean accesibles para empresas de todos los tamaños."
+    },
+    "why": {
+      "title": "Por Qué Elegirnos",
+      "description": "Combinamos lo mejor de la estrategia humana con el poder de la inteligencia artificial"
+    }
+  },
+  "pricing": {
+    "meta": {
+      "title": "Planes y Precios | j.marIA",
+      "description": "Planes flexibles de marketing digital con IA. Encuentra el plan perfecto para tu negocio."
+    },
+    "title": "Planes y Precios",
+    "description": "Encuentra el plan perfecto para tu negocio",
+    "plans": {
+      "basic": {
+        "name": "Básico",
+        "description": "Ideal para emprendedores y pequeños negocios",
+        "cta": "Empezar"
+      },
+      "professional": {
+        "name": "Profesional",
+        "description": "Para empresas en crecimiento",
+        "cta": "Elegir Plan"
+      },
+      "enterprise": {
+        "name": "Empresarial",
+        "description": "Soluciones personalizadas para grandes empresas",
+        "cta": "Contactar"
+      },
+      "custom": {
+        "name": "Personalizado",
+        "description": "Diseñado específicamente para tus necesidades",
+        "cta": "Hablar con Experto"
+      }
+    },
+    "features": "Características incluidas",
+    "compareThreshold": "Comparar planes"
+  },
+  "faq": {
+    "meta": {
+      "title": "Preguntas Frecuentes | j.marIA",
+      "description": "Respuestas a las preguntas más comunes sobre nuestros servicios de marketing digital e IA."
+    },
+    "title": "Preguntas Frecuentes",
+    "description": "Encuentra respuestas a las preguntas más comunes",
+    "search": "Buscar pregunta...",
+    "categories": {
+      "general": "General",
+      "services": "Servicios",
+      "pricing": "Precios y Facturación",
+      "process": "Procesos y Plazos",
+      "support": "Soporte"
+    },
+    "contact": {
+      "title": "¿No encontraste lo que buscabas?",
+      "description": "Contáctanos y con gusto resolveremos tus dudas",
+      "cta": "Contactar Soporte"
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contacto | j.marIA",
+      "description": "Ponte en contacto con j.marIA. Estamos listos para llevar tu negocio al siguiente nivel con marketing digital e IA."
+    },
+    "title": "Hablemos de tu Proyecto",
+    "description": "Estamos listos para transformar tu visión en realidad. Cuéntanos sobre tu proyecto y descubre cómo podemos ayudarte.",
+    "form": {
+      "name": "Nombre completo",
+      "email": "Email",
+      "company": "Empresa",
+      "service": "Servicio de interés",
+      "message": "Cuéntanos sobre tu proyecto",
+      "messagePlaceholder": "Describe brevemente tu proyecto, objetivos y cómo podemos ayudarte...",
+      "submit": "Enviar Mensaje",
+      "submitting": "Enviando...",
+      "success": {
+        "title": "¡Mensaje Enviado!",
+        "description": "Gracias por contactarnos. Nos pondremos en contacto contigo muy pronto."
+      }
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Teléfono",
+      "address": "Dirección"
+    }
+  },
+  "footer": {
+    "description": "Transformamos tu presencia digital con estrategias impulsadas por inteligencia artificial. Resultados medibles, creatividad sin límites.",
+    "services": "Servicios",
+    "company": "Empresa",
+    "legal": "Legal",
+    "links": {
+      "privacy": "Privacidad",
+      "terms": "Términos",
+      "cookies": "Cookies",
+      "blog": "Blog"
+    },
+    "copyright": "© 2026 j.marIA Agency. Todos los derechos reservados.",
+    "madeWith": "Hecho con {ia} y {love}"
+  },
+  "common": {
+    "readMore": "Leer más",
+    "learnMore": "Conocer más",
+    "getStarted": "Empezar Ahora",
+    "contact": "Contactar",
+    "viewAll": "Ver todos",
+    "back": "Volver",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "loading": "Cargando...",
+    "error": "Ocurrió un error"
+  }
+}
