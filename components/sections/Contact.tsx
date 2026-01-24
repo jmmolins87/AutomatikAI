@@ -10,6 +10,7 @@ import { Select } from '@/components/ui/select';
 import { GlowCard } from '@/components/effects/GlowCard';
 import { AnimatedText } from '@/components/effects/AnimatedText';
 import { animations, spacing } from '@/lib/design-system';
+import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
 
 const NetworkGrid = dynamic(
@@ -18,6 +19,7 @@ const NetworkGrid = dynamic(
 );
 
 export function Contact() {
+  const t = useTranslations('contact');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -37,6 +39,30 @@ export function Contact() {
   const validateEmail = (email: string) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
+  };
+
+  const validateField = (field: 'name' | 'email' | 'message') => {
+    const newErrors = { ...errors };
+
+    if (field === 'name' && formData.name.trim().length > 0 && formData.name.trim().length < 2) {
+      newErrors.name = 'El nombre debe tener al menos 2 caracteres';
+    } else if (field === 'name') {
+      newErrors.name = '';
+    }
+
+    if (field === 'email' && formData.email.trim().length > 0 && !validateEmail(formData.email)) {
+      newErrors.email = 'Email inválido';
+    } else if (field === 'email') {
+      newErrors.email = '';
+    }
+
+    if (field === 'message' && formData.message.trim().length > 0 && formData.message.trim().length < 10) {
+      newErrors.message = 'El mensaje debe tener al menos 10 caracteres';
+    } else if (field === 'message') {
+      newErrors.message = '';
+    }
+
+    setErrors(newErrors);
   };
 
   const validateForm = () => {
@@ -123,12 +149,11 @@ export function Contact() {
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             <AnimatedText variant="wave" delay={200}>
-              Hablemos de tu Proyecto
+              {t('title')}
             </AnimatedText>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Estamos listos para transformar tu visión en realidad. Cuéntanos sobre tu
-            proyecto y descubre cómo podemos ayudarte.
+            {t('description')}
           </p>
         </motion.div>
 
@@ -148,7 +173,7 @@ export function Contact() {
                       htmlFor="name"
                       className="block text-sm font-medium mb-2 text-foreground"
                     >
-                      Nombre completo *
+                      {t('form.name')} *
                     </label>
                     <Input
                       id="name"
@@ -160,7 +185,10 @@ export function Contact() {
                         if (errors.name) setErrors({ ...errors, name: '' });
                       }}
                       onFocus={() => setHasFocus(true)}
-                      onBlur={() => setHasFocus(false)}
+                      onBlur={() => {
+                        setHasFocus(false);
+                        validateField('name');
+                      }}
                       required
                       className={`w-full ${errors.name ? 'border-destructive' : ''}`}
                       disabled={isSubmitting}
@@ -175,7 +203,7 @@ export function Contact() {
                       htmlFor="email"
                       className="block text-sm font-medium mb-2 text-foreground"
                     >
-                      Email *
+                      {t('form.email')} *
                     </label>
                     <Input
                       id="email"
@@ -187,7 +215,10 @@ export function Contact() {
                         if (errors.email) setErrors({ ...errors, email: '' });
                       }}
                       onFocus={() => setHasFocus(true)}
-                      onBlur={() => setHasFocus(false)}
+                      onBlur={() => {
+                        setHasFocus(false);
+                        validateField('email');
+                      }}
                       required
                       className={`w-full ${errors.email ? 'border-destructive' : ''}`}
                       disabled={isSubmitting}
@@ -205,12 +236,12 @@ export function Contact() {
                       htmlFor="company"
                       className="block text-sm font-medium mb-2 text-foreground"
                     >
-                      Empresa
+                      {t('form.company')}
                     </label>
                     <Input
                       id="company"
                       type="text"
-                      placeholder="Nombre de tu empresa"
+                      placeholder={t('form.company')}
                       value={formData.company}
                       onChange={(e) =>
                         setFormData({ ...formData, company: e.target.value })
@@ -227,7 +258,7 @@ export function Contact() {
                       htmlFor="service"
                       className="block text-sm font-medium mb-2 text-foreground"
                     >
-                      Servicio de interés
+                      {t('form.service')}
                     </label>
                     <Input
                       id="service"
@@ -251,18 +282,21 @@ export function Contact() {
                     htmlFor="message"
                     className="block text-sm font-medium mb-2 text-foreground"
                   >
-                    Cuéntanos sobre tu proyecto *
+                    {t('form.message')} *
                   </label>
                   <Textarea
                     id="message"
-                    placeholder="Describe brevemente tu proyecto, objetivos y cómo podemos ayudarte..."
+                    placeholder={t('form.messagePlaceholder')}
                     value={formData.message}
                     onChange={(e) => {
                       setFormData({ ...formData, message: e.target.value });
                       if (errors.message) setErrors({ ...errors, message: '' });
                     }}
                     onFocus={() => setHasFocus(true)}
-                    onBlur={() => setHasFocus(false)}
+                    onBlur={() => {
+                      setHasFocus(false);
+                      validateField('message');
+                    }}
                     required
                     className={`w-full min-h-[150px] resize-none ${errors.message ? 'border-destructive' : ''}`}
                     disabled={isSubmitting}
@@ -283,12 +317,12 @@ export function Contact() {
                     {isSubmitting ? (
                       <>
                         <Loader2 className="mr-2 size-5 animate-spin" />
-                        Enviando...
+                        {t('form.submitting')}
                       </>
                     ) : (
                       <>
                         <Send className="mr-2 size-5" />
-                        Enviar Mensaje
+                        {t('form.submit')}
                       </>
                     )}
                   </Button>
@@ -305,10 +339,10 @@ export function Contact() {
                   <Check className="size-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-foreground">
-                  ¡Mensaje Enviado!
+                  {t('form.success.title')}
                 </h3>
                 <p className="text-muted-foreground">
-                  Gracias por contactarnos. Nos pondremos en contacto contigo muy pronto.
+                  {t('form.success.description')}
                 </p>
               </motion.div>
             )}

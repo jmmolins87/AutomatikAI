@@ -7,6 +7,7 @@ import { Navbar } from '@/components/navigation/Navbar';
 import { Footer } from '@/components/navigation/Footer';
 import { ClientEffects } from '@/components/effects/ClientEffects';
 import { CookieBanner } from '@/components/ui/cookie-banner';
+import { CustomCursor } from '@/components/effects/CustomCursor';
 
 export default async function LocaleLayout({
   children,
@@ -22,6 +23,7 @@ export default async function LocaleLayout({
   const messages = await getMessages({ locale });
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
+      <CustomCursor />
       <ClientEffects />
       <CookieBanner />
       <div className="min-h-screen flex flex-col relative">

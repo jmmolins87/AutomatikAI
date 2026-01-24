@@ -43,7 +43,7 @@ export function FinalCTA() {
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
                 >
                   <Calendar className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-medium">Agenda Ahora - Cupos Limitados</span>
+                  <span className="text-sm font-medium">{t('badge')}</span>
                 </motion.div>
 
                 <motion.h2
@@ -110,12 +110,12 @@ export function FinalCTA() {
             className="text-center mt-12"
           >
             <p className="text-muted-foreground">
-              ¿Prefieres escribirnos primero?{' '}
+              {t('preferEmail')}{' '}
               <Link
                 href={`/${locale}/contacto`}
                 className="gradient-ia font-semibold hover:underline"
               >
-                Envíanos un mensaje
+                {t('sendMessage')}
               </Link>
             </p>
           </motion.div>

@@ -38,7 +38,7 @@ export default function CookiesPage() {
               <h2 className="text-2xl font-bold mb-4">Tipos de Cookies que Utilizamos</h2>
 
               <div className="space-y-6">
-                <div className="p-6 rounded-xl bg-card/30 backdrop-blur-sm border border-border/50">
+                <div className="p-6 rounded-xl bg-card/30 backdrop-blur-sm border border-primary/20">
                   <h3 className="text-xl font-bold mb-3">Cookies Necesarias</h3>
                   <p className="text-muted-foreground leading-relaxed">
                     Esenciales para el funcionamiento del sitio. Sin ellas, algunas funcionalidades
@@ -46,7 +46,7 @@ export default function CookiesPage() {
                   </p>
                 </div>
 
-                <div className="p-6 rounded-xl bg-card/30 backdrop-blur-sm border border-border/50">
+                <div className="p-6 rounded-xl bg-card/30 backdrop-blur-sm border border-primary/20">
                   <h3 className="text-xl font-bold mb-3">Cookies Analíticas</h3>
                   <p className="text-muted-foreground leading-relaxed">
                     Nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web mediante
@@ -55,7 +55,7 @@ export default function CookiesPage() {
                   </p>
                 </div>
 
-                <div className="p-6 rounded-xl bg-card/30 backdrop-blur-sm border border-border/50">
+                <div className="p-6 rounded-xl bg-card/30 backdrop-blur-sm border border-primary/20">
                   <h3 className="text-xl font-bold mb-3">Cookies de Marketing</h3>
                   <p className="text-muted-foreground leading-relaxed">
                     Se utilizan para rastrear a los visitantes en los sitios web. La intención es mostrar

@@ -40,7 +40,7 @@ export function ValueProposition() {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex-1 flex items-center">
-        <div className="max-w-5xl mx-auto text-center w-full">
+        <div className="mx-auto text-center w-full">
           {/* Logo y Slogan */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -49,7 +49,7 @@ export function ValueProposition() {
             transition={{ duration: 0.6 }}
             className="flex flex-col items-center mb-8"
           >
-            <Logo size="xxl" className="mb-6" />
+            <Logo size="xxl" className="mb-6 hidden md:block" />
             <Slogan className="text-center" typingEffect={false} />
           </motion.div>
 
@@ -62,7 +62,7 @@ export function ValueProposition() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8"
           >
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-sm font-medium">Estrategia + IA = Resultados</span>
+            <span className="text-sm font-medium">{t('slogan')}</span>
           </motion.div>
 
           {/* Título principal */}
@@ -73,20 +73,23 @@ export function ValueProposition() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
           >
-            {t('title')}{' '}
+            {t('title')}
+            <br />
             <span className="gradient-ia">{t('titleHighlight')}</span>
           </motion.h1>
 
           {/* Subtítulo - PUV */}
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-muted-foreground mb-12 mx-auto leading-relaxed max-w-5xl text-center"
           >
-            {t('description')}
-          </motion.p>
+            <p>{t('description')}</p>
+            <p className="mt-2">{t('descriptionHighlight')}</p>
+          </motion.div>
+
 
           {/* CTAs */}
           <motion.div
@@ -112,12 +115,12 @@ export function ValueProposition() {
         </div>
       </div>
 
-      {/* Scroll indicator - Always visible at bottom */}
+      {/* Scroll indicator - Only visible on non-touch devices */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.6 }}
-        className="relative z-10 pb-8 cursor-pointer"
+        className="relative z-10 pb-8 cursor-pointer hidden md:block"
         onClick={scrollToNextSection}
       >
         <div className="flex flex-col items-center gap-2">

@@ -6,8 +6,11 @@ import { Logo } from '@/components/branding/Logo';
 import { Slogan } from '@/components/branding/Slogan';
 import { Button } from '@/components/ui/button';
 import { animations, spacing } from '@/lib/design-system';
+import { useTranslations } from 'next-intl';
 
 export function Hero() {
+  const t = useTranslations('common');
+
   const scrollToServices = () => {
     document.querySelector('#servicios')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -50,7 +53,7 @@ export function Hero() {
           duration: animations.durations.normal,
           ease: animations.easings.smooth,
         }}
-        className="text-lg md:text-xl text-muted-foreground text-center max-w-2xl mb-12 px-4"
+        className="text-lg md:text-xl text-muted-foreground text-center max-w-4xl mb-12 px-4"
       >
         Transformamos tu presencia digital con estrategias impulsadas por inteligencia
         artificial. Resultados medibles, creatividad sin límites.
@@ -73,7 +76,7 @@ export function Hero() {
           onClick={() => document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' })}
         >
           <Sparkles className="mr-2 size-5" />
-          Empezar Proyecto
+          {t('getStarted')}
         </Button>
         <Button
           size="lg"
@@ -81,7 +84,7 @@ export function Hero() {
           className="text-base px-8 h-12"
           onClick={scrollToServices}
         >
-          Conocer Servicios
+          {t('learnMore')}
         </Button>
       </motion.div>
 
@@ -102,7 +105,7 @@ export function Hero() {
           }}
           className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
         >
-          <span className="text-sm font-medium">Descubre más</span>
+          <span className="text-sm font-medium">{t('readMore')}</span>
           <ArrowDown className="size-5" />
         </motion.div>
       </motion.div>

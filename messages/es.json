@@ -11,25 +11,27 @@
     "getStarted": "Empezar Ahora"
   },
   "home": {
-    "slogan": "Human strategy. Artificial intelligence.",
+    "slogan": "Estrategia Humana + IA = Resultados",
     "hero": {
-      "title": "Construimos Sistemas que",
-      "titleHighlight": "Venden Mientras Duermes",
-      "description": "Automatizamos tus ventas con sistemas inteligentes potenciados por IA. Convierte visitantes en clientes 24/7 sin intervención manual.",
+      "slogan": "Estrategia Humana + IA = Resultados",
+      "title": "Tu Equipo de Ventas Durmiendo.",
+      "titleHighlight": "Tu Agenda Llenándose.",
+      "description": "Agentes de IA autónomos que califican consultas, agendan citas y nutren leads 24/7.",
+      "descriptionHighlight": "Mientras tu talento humano hace lo que realmente importa: facturar.",
       "cta": {
-        "primary": "Agenda tu Consultoría Gratis",
-        "secondary": "Ver Tipos de Sistemas"
+        "primary": "Ver Mi Diagnóstico Gratis",
+        "secondary": "Cómo Funciona en 90 Segundos"
       },
       "scrollDown": "Descubre cómo"
     },
     "painPoints": {
-      "title": "¿Te suena familiar?",
+      "title": "Reconocé alguna de estas situaciones...",
       "subtitle": "La mayoría de emprendedores y negocios enfrentan estos mismos obstáculos.",
-      "subtitleHighlight": "No estás solo, y tiene solución.",
+      "subtitleHighlight": "No estás solo, y hay solución.",
       "items": {
         "ads": {
           "title": "Gastas mucho en Ads sin retorno",
-          "description": "Inviertes miles en publicidad pero las ventas no llegan. El dinero se va y no sabes por qué."
+          "description": "Inviertes miles en publicidad pero las ventas no llegan. El dinero sale y no sabes por qué."
         },
         "time": {
           "title": "No tienes tiempo para vender",
@@ -45,20 +47,54 @@
         },
         "analytics": {
           "title": "No sabes qué está fallando",
-          "description": "Todo parece estar bien pero los números no cierran. Sin datos, sin respuestas."
+          "description": "Todo parece estar bien pero los números no cuadran. Sin datos, sin respuestas."
         },
         "strategy": {
           "title": "Estrategias que no funcionan",
-          "description": "Pruebas tácticas de Instagram, YouTube, pero nada genera ventas consistentes."
+          "description": "Pruebas Instagram, YouTube, tácticas... pero nada genera ventas consistentes."
         }
       },
-      "conclusion": "La buena noticia:",
-      "conclusionHighlight": "Cada problema tiene una solución"
+      "conclusion": "Las buenas noticias:",
+      "conclusionHighlight": "Cada problema tiene solución",
+      "avatars": {
+        "lawyer": {
+          "name": "Roberto, Abogado Penalista",
+          "quote": "Pierdo casos porque las consultas llegan fuera de horario y las atiende mi competencia. Pero contratar una recepcionista 24/7 es inviable."
+        },
+        "consultant": {
+          "name": "Carla, Consultora Estratégica",
+          "quote": "Paso 15 horas semanales en prospección manual que podría delegar, pero los juniors no tienen mi expertise para calificar bien."
+        },
+        "doctor": {
+          "name": "Dr. Álvaro, Dermatólogo",
+          "quote": "Mi CAC por paciente está en €280. Sé que puedo bajarlo, pero no tengo tiempo ni equipo para implementar automatización sofisticada."
+        }
+      },
+      "transition": "La solución no es contratar más gente. Es multiplicar la inteligencia que ya tenés."
     },
     "solutions": {
-      "title": "Nuestras",
-      "titleHighlight": "Soluciones",
-      "description": "Transformamos cada obstáculo en una oportunidad de crecimiento con estrategias probadas.",
+      "title": "Agentes Autónomos.",
+      "titleHighlight": "No Chatbots. No Asistentes Virtuales.",
+      "description": "Imaginá tener un colaborador senior que trabaja 24/7, califica leads con 92% de precisión y agenda citas sin supervisión. Y que cuesta menos que un café diario.",
+      "benefits": {
+        "title": "Los Números que Importan",
+        "conversion": {
+          "title": "+40% Conversión",
+          "description": "De consulta a cita confirmada. Promedio en primeros 60 días."
+        },
+        "time": {
+          "title": "18h/Semana Liberadas",
+          "description": "Que tu equipo invierte en facturación, no en logística."
+        },
+        "precision": {
+          "title": "92% Precisión",
+          "description": "En calificación de leads. Superior a SDRs juniors."
+        },
+        "response": {
+          "title": "<20 Segundos",
+          "description": "Tiempo de respuesta promedio. Tu competencia tarda horas."
+        }
+      },
       "items": {
         "optimization": {
           "problem": "Gastas mucho en Ads sin retorno",
@@ -103,13 +139,38 @@
       }
     },
     "funnelTypes": {
-      "title": "Tipos de",
-      "titleHighlight": "Sistemas de Ventas",
-      "description": "Cada negocio es único. Por eso creamos el sistema perfecto para tu modelo de negocio y objetivos específicos."
+      "title": "De la estrategia al resultado",
+      "titleHighlight": "en 45 días",
+      "description": "Proceso transparente en 4 fases. Sin magia negra, sin letra chica.",
+      "idealFor": "Ideal para:",
+      "notSure": "¿No estás seguro cuál sistema necesitas?",
+      "scheduleConsultation": "Agenda una Consultoría Gratis",
+      "phases": {
+        "discovery": {
+          "title": "Descubrimiento Estratégico",
+          "days": "Días 1-7",
+          "description": "Mapeo de tu embudo actual, identificación de las 3 fugas principales y reporte de oportunidad personalizado."
+        },
+        "building": {
+          "title": "Construcción del Agente",
+          "days": "Días 8-21",
+          "description": "Entrenamiento con tus casos reales, configuración de flujos y testing con escenarios edge-case."
+        },
+        "launch": {
+          "title": "Lanzamiento Controlado",
+          "days": "Días 22-30",
+          "description": "Piloto con 20% de tu tráfico, ajustes basados en conversaciones reales y entrenamiento a tu equipo."
+        },
+        "optimization": {
+          "title": "Optimización y Escala",
+          "days": "Días 31-45",
+          "description": "Análisis de resultados, fine-tuning de conversión y escala a 100% del tráfico."
+        }
+      }
     },
     "about": {
-      "title": "Conoce jmar",
-      "titleHighlight": "IA",
+      "title": "Conoce",
+      "titleHighlight": "jmarIA",
       "pillars": {
         "ai": {
           "title": "Potenciado por IA",
@@ -130,11 +191,21 @@
       }
     },
     "finalCta": {
-      "title": "¿Listo para",
-      "titleHighlight": "Automatizar tus Ventas?",
-      "description": "Agenda una consultoría gratuita de 30 minutos. Analizamos tu negocio y te mostramos exactamente cómo podemos ayudarte a vender más.",
-      "cta": "Agendar Consultoría Gratis",
-      "guarantee": "Sin compromiso. Consultoría 100% gratuita."
+      "title": "¿Listo para que tu negocio",
+      "titleHighlight": "trabaje mientras dormís?",
+      "description": "Agendar ahora tu Diagnóstico de Fugas Gratis (valor €297). En 45 minutos descubrirás las 3 fugas principales en tu embudo, cuántos leads estás perdiendo y el ROI proyectado.",
+      "benefits": [
+        "Las 3 fugas principales en tu embudo actual",
+        "Cuántos leads estás perdiendo por mes (con números reales)",
+        "El ROI proyectado de un Agente Autónomo en tu caso",
+        "Roadmap personalizado (sin compromisos)"
+      ],
+      "cta": "Reservar Mi Diagnóstico Ahora",
+      "guarantee": "Sin tarjeta de crédito. Sin letra chica. Solo insights accionables.",
+      "urgency": "Solo quedan 8 slots este mes",
+      "badge": "Agenda Ahora - Cupos Limitados",
+      "preferEmail": "¿Prefieres escribirnos primero?",
+      "sendMessage": "Envíanos un mensaje"
     },
     "services": {
       "title": "Nuestros Servicios",
@@ -321,7 +392,7 @@
       "blog": "Blog"
     },
     "copyright": "© 2026 jmarIA Agency. Todos los derechos reservados.",
-    "madeWith": "Hecho con {ia} y {love}"
+    "madeWith": "Hecho con"
   },
   "common": {
     "readMore": "Leer más",

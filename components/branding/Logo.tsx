@@ -37,8 +37,8 @@ export function Logo({ size = 'md', animated = true, className }: LogoProps) {
         width={dimensions.width}
         height={dimensions.height}
         priority
-        style={{ width: dimensions.width, height: dimensions.height }}
-        className="object-contain"
+        style={{ height: dimensions.height }}
+        className="object-contain w-auto"
       />
       {isHeroSize && (
         <>

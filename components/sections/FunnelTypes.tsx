@@ -143,7 +143,7 @@ export function FunnelTypes() {
 
                 {/* Ideal for */}
                 <div className="text-xs text-muted-foreground pt-3">
-                  <span className="font-semibold text-foreground">Ideal para: </span>
+                  <span className="font-semibold text-foreground">{t('idealFor')} </span>
                   {funnel.ideal}
                 </div>
 
@@ -163,11 +163,11 @@ export function FunnelTypes() {
           className="text-center mt-16"
         >
           <p className="text-lg text-muted-foreground mb-6">
-            ¿No estás seguro cuál sistema necesitas?
+            {t('notSure')}
           </p>
           <Link href={`/${locale}/contacto`}>
             <Button size="lg" className="gradient-ia-bg text-white border-0">
-              Agenda una Consultoría Gratis
+              {t('scheduleConsultation')}
             </Button>
           </Link>
         </motion.div>

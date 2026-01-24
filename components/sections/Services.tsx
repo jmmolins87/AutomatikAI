@@ -5,6 +5,7 @@ import { Brain, TrendingUp, Target, BarChart3, Zap, Users } from 'lucide-react';
 import { GlowCard } from '@/components/effects/GlowCard';
 import { AnimatedText } from '@/components/effects/AnimatedText';
 import { animations, spacing } from '@/lib/design-system';
+import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
 
 const GeometricShapes = dynamic(
@@ -12,52 +13,48 @@ const GeometricShapes = dynamic(
   { ssr: false }
 );
 
-const services = [
-  {
-    icon: Brain,
-    title: 'Automatización IA',
-    description:
-      'Implementamos soluciones de inteligencia artificial que automatizan procesos, optimizan campañas y predicen tendencias.',
-    color: 'purple' as const,
-  },
-  {
-    icon: TrendingUp,
-    title: 'Marketing Digital',
-    description:
-      'Estrategias multicanal que impulsan tu marca. SEO, SEM, Social Media y contenido que convierte.',
-    color: 'cyan' as const,
-  },
-  {
-    icon: Target,
-    title: 'Estrategia de Contenido',
-    description:
-      'Creamos narrativas que conectan. Contenido optimizado por IA para máximo engagement y conversión.',
-    color: 'gradient' as const,
-  },
-  {
-    icon: BarChart3,
-    title: 'Analytics & Datos',
-    description:
-      'Tomamos decisiones basadas en datos. Dashboard personalizados, reportes en tiempo real y insights accionables.',
-    color: 'purple' as const,
-  },
-  {
-    icon: Zap,
-    title: 'Growth Hacking',
-    description:
-      'Crecimiento acelerado con técnicas innovadoras. Experimentación constante y optimización de funnel.',
-    color: 'cyan' as const,
-  },
-  {
-    icon: Users,
-    title: 'Consultoría Digital',
-    description:
-      'Asesoramiento estratégico personalizado. Transformación digital y optimización de procesos de marketing.',
-    color: 'gradient' as const,
-  },
-];
-
 export function Services() {
+  const t = useTranslations('services');
+  const tItems = useTranslations('services.items');
+
+  const services = [
+    {
+      icon: Brain,
+      title: tItems('aiAutomation.title'),
+      description: tItems('aiAutomation.description'),
+      color: 'purple' as const,
+    },
+    {
+      icon: TrendingUp,
+      title: tItems('digitalMarketing.title'),
+      description: tItems('digitalMarketing.description'),
+      color: 'cyan' as const,
+    },
+    {
+      icon: Target,
+      title: tItems('contentStrategy.title'),
+      description: tItems('contentStrategy.description'),
+      color: 'gradient' as const,
+    },
+    {
+      icon: BarChart3,
+      title: tItems('analytics.title'),
+      description: tItems('analytics.description'),
+      color: 'purple' as const,
+    },
+    {
+      icon: Zap,
+      title: tItems('growthHacking.title'),
+      description: tItems('growthHacking.description'),
+      color: 'cyan' as const,
+    },
+    {
+      icon: Users,
+      title: tItems('consulting.title'),
+      description: tItems('consulting.description'),
+      color: 'gradient' as const,
+    },
+  ];
   return (
     <section
       id="servicios"
@@ -78,12 +75,11 @@ export function Services() {
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             <AnimatedText variant="wave" delay={200}>
-              Nuestros Servicios
+              {t('title')}
             </AnimatedText>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Soluciones integrales de marketing digital potenciadas por IA para impulsar
-            tu negocio al siguiente nivel
+            {t('description')}
           </p>
         </motion.div>
 

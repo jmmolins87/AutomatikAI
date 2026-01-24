@@ -2,28 +2,11 @@
 
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { Logo } from '@/components/branding/Logo';
 import { Separator } from '@/components/ui/separator';
 import { Mail, Linkedin, Twitter, Instagram, Github } from 'lucide-react';
 import type { Locale } from '@/i18n/config';
-
-const footerLinks = {
-  servicios: [
-    { label: 'Automatización IA', href: '/servicios' },
-    { label: 'Marketing Digital', href: '/servicios' },
-    { label: 'Estrategia de Contenido', href: '/servicios' },
-    { label: 'Analytics & Datos', href: '/servicios' },
-  ],
-  empresa: [
-    { label: 'Nosotros', href: '/nosotros' },
-    { label: 'Contacto', href: '/contacto' },
-  ],
-  legal: [
-    { label: 'Privacidad', href: '/legal/privacidad' },
-    { label: 'Términos', href: '/legal/terminos' },
-    { label: 'Cookies', href: '/legal/cookies' },
-  ],
-};
 
 const socialLinks = [
   { icon: Linkedin, href: '#', label: 'LinkedIn' },
@@ -36,6 +19,27 @@ const socialLinks = [
 export function Footer() {
   const params = useParams();
   const locale = params.locale as Locale;
+  const t = useTranslations('footer');
+  const tServices = useTranslations('services.items');
+  const tNav = useTranslations('nav');
+
+  const footerLinks = {
+    servicios: [
+      { label: tServices('aiAutomation.title'), href: '/servicios' },
+      { label: tServices('digitalMarketing.title'), href: '/servicios' },
+      { label: tServices('contentStrategy.title'), href: '/servicios' },
+      { label: tServices('analytics.title'), href: '/servicios' },
+    ],
+    empresa: [
+      { label: tNav('about'), href: '/nosotros' },
+      { label: tNav('contact'), href: '/contacto' },
+    ],
+    legal: [
+      { label: t('links.privacy'), href: '/legal/privacidad' },
+      { label: t('links.terms'), href: '/legal/terminos' },
+      { label: t('links.cookies'), href: '/legal/cookies' },
+    ],
+  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -56,8 +60,7 @@ export function Footer() {
               </Link>
             </div>
             <p className="text-muted-foreground mb-6 max-w-md leading-relaxed">
-              Transformamos tu presencia digital con estrategias impulsadas por
-              inteligencia artificial. Resultados medibles, creatividad sin límites.
+              {t('description')}
             </p>
             {/* Social Links */}
             <div className="flex gap-3">
@@ -78,7 +81,7 @@ export function Footer() {
 
           {/* Servicios */}
           <div>
-            <h3 className="text-foreground font-semibold mb-4">Servicios</h3>
+            <h3 className="text-foreground font-semibold mb-4">{t('services')}</h3>
             <ul className="space-y-3">
               {footerLinks.servicios.map((link) => (
                 <li key={link.label}>
@@ -95,7 +98,7 @@ export function Footer() {
 
           {/* Empresa */}
           <div>
-            <h3 className="text-foreground font-semibold mb-4">Empresa</h3>
+            <h3 className="text-foreground font-semibold mb-4">{t('company')}</h3>
             <ul className="space-y-3">
               {footerLinks.empresa.map((link) => (
                 <li key={link.label}>
@@ -112,7 +115,7 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="text-foreground font-semibold mb-4">Legal</h3>
+            <h3 className="text-foreground font-semibold mb-4">{t('legal')}</h3>
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>
@@ -132,9 +135,9 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <p>© 2026 jmarIA Agency. Todos los derechos reservados.</p>
+          <p>{t('copyright')}</p>
           <p>
-            Hecho con <span className="text-primary">❤️</span>
+            {t('madeWith')} <span className="text-primary">❤️</span>
           </p>
         </div>
       </div>

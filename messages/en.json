@@ -11,11 +11,13 @@
     "getStarted": "Get Started"
   },
   "home": {
-    "slogan": "Human strategy. Artificial intelligence.",
+    "slogan": "Human Strategy + AI = Results",
     "hero": {
+      "slogan": "Human Strategy + AI = Results",
       "title": "We Build Systems that",
       "titleHighlight": "Sell While You Sleep",
-      "description": "We automate your sales with AI-powered smart systems. Convert visitors into customers 24/7 without manual intervention.",
+      "description": "We automate your sales with AI-powered smart systems.",
+      "descriptionHighlight": "Convert visitors into customers 24/7 without manual intervention.",
       "cta": {
         "primary": "Schedule Your Free Consultation",
         "secondary": "View System Types"
@@ -105,11 +107,14 @@
     "funnelTypes": {
       "title": "Types of",
       "titleHighlight": "Sales Systems",
-      "description": "Every business is unique. That's why we create the perfect system for your business model and specific objectives."
+      "description": "Every business is unique. That's why we create the perfect system for your business model and specific objectives.",
+      "idealFor": "Ideal for:",
+      "notSure": "Not sure which system you need?",
+      "scheduleConsultation": "Schedule a Free Consultation"
     },
     "about": {
-      "title": "Meet jmar",
-      "titleHighlight": "IA",
+      "title": "Meet",
+      "titleHighlight": "jmarIA",
       "pillars": {
         "ai": {
           "title": "AI-Powered",
@@ -134,7 +139,10 @@
       "titleHighlight": "Automate Your Sales?",
       "description": "Schedule a free 30-minute consultation. We'll analyze your business and show you exactly how we can help you sell more.",
       "cta": "Schedule Free Consultation",
-      "guarantee": "No commitment. 100% free consultation."
+      "guarantee": "No commitment. 100% free consultation.",
+      "badge": "Schedule Now - Limited Slots",
+      "preferEmail": "Prefer to write us first?",
+      "sendMessage": "Send us a message"
     },
     "services": {
       "title": "Our Services",
@@ -321,7 +329,7 @@
       "blog": "Blog"
     },
     "copyright": "© 2026 jmarIA Agency. All rights reserved.",
-    "madeWith": "Made with {ia} and {love}"
+    "madeWith": "Made with"
   },
   "common": {
     "readMore": "Read more",

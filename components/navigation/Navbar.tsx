@@ -59,15 +59,19 @@ export function Navbar() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <div onClick={() => {
-              const isHome = window.location.pathname === `/${locale}` || window.location.pathname === `/${locale}/`;
-              if (isHome) {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }
-            }}>
-              <Link href={`/${locale}`}>
-                <Logo size="sm" />
-              </Link>
+            <div
+              onClick={() => {
+                const currentPath = window.location.pathname;
+                const isHome = currentPath === `/${locale}` || currentPath === `/${locale}/`;
+                if (isHome) {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                  window.location.href = `/${locale}`;
+                }
+              }}
+              className="cursor-pointer"
+            >
+              <Logo size="sm" />
             </div>
 
             {/* Desktop Navigation */}
