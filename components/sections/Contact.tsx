@@ -9,8 +9,13 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select } from '@/components/ui/select';
 import { GlowCard } from '@/components/effects/GlowCard';
 import { AnimatedText } from '@/components/effects/AnimatedText';
-import { P5Canvas } from '@/components/interactive/P5Canvas';
 import { animations, spacing } from '@/lib/design-system';
+import dynamic from 'next/dynamic';
+
+const NetworkGrid = dynamic(
+  () => import('@/components/3d/NetworkGrid').then(mod => ({ default: mod.NetworkGrid })),
+  { ssr: false }
+);
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -22,9 +27,56 @@ export function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [hasFocus, setHasFocus] = useState(false);
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const validateEmail = (email: string) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
+  const validateForm = () => {
+    const newErrors = {
+      name: '',
+      email: '',
+      message: '',
+    };
+
+    if (formData.name.trim().length < 2) {
+      newErrors.name = 'El nombre debe tener al menos 2 caracteres';
+    }
+
+    if (!validateEmail(formData.email)) {
+      newErrors.email = 'Email inválido';
+    }
+
+    if (formData.message.trim().length < 10) {
+      newErrors.message = 'El mensaje debe tener al menos 10 caracteres';
+    }
+
+    setErrors(newErrors);
+    return !newErrors.name && !newErrors.email && !newErrors.message;
+  };
+
+  const isFormValid = () => {
+    return (
+      formData.name.trim().length >= 2 &&
+      validateEmail(formData.email) &&
+      formData.message.trim().length >= 10
+    );
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
     setIsSubmitting(true);
 
     // Simulación de envío
@@ -43,17 +95,22 @@ export function Contact() {
         service: '',
         message: '',
       });
+      setErrors({
+        name: '',
+        email: '',
+        message: '',
+      });
     }, 3000);
   };
 
   return (
     <section
       id="contacto"
-      className="relative py-20 md:py-32"
+      className="relative py-20 md:py-32 overflow-hidden"
       style={{ paddingTop: spacing.section.md, paddingBottom: spacing.section.md }}
     >
-      {/* P5.js Background */}
-      <P5Canvas variant="generative" className="opacity-20" />
+      {/* Three.js Network Grid Background */}
+      <NetworkGrid />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -62,7 +119,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: animations.durations.normal }}
-          className="text-center mb-16"
+          className="text-center mb-16 backdrop-blur-md bg-background/30 rounded-2xl p-8 border border-border/30"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             <AnimatedText variant="wave" delay={200}>
@@ -76,93 +133,116 @@ export function Contact() {
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
-          <GlowCard glowColor="gradient">
+          <GlowCard
+            glowColor="gradient"
+            className={`backdrop-blur-md bg-card/60 border-2 transition-all duration-300 ${
+              hasFocus ? 'border-primary/70 shadow-lg shadow-primary/20' : ''
+            }`}
+          >
             {!isSubmitted ? (
               <form onSubmit={handleSubmit} className="p-8 md:p-12 space-y-6">
-                {/* Nombre */}
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium mb-2 text-foreground"
-                  >
-                    Nombre completo *
-                  </label>
-                  <Input
-                    id="name"
-                    type="text"
-                    placeholder="Juan Pérez"
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                    required
-                    className="w-full"
-                    disabled={isSubmitting}
-                  />
+                {/* Nombre y Email */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium mb-2 text-foreground"
+                    >
+                      Nombre completo *
+                    </label>
+                    <Input
+                      id="name"
+                      type="text"
+                      placeholder="Juan Pérez"
+                      value={formData.name}
+                      onChange={(e) => {
+                        setFormData({ ...formData, name: e.target.value });
+                        if (errors.name) setErrors({ ...errors, name: '' });
+                      }}
+                      onFocus={() => setHasFocus(true)}
+                      onBlur={() => setHasFocus(false)}
+                      required
+                      className={`w-full ${errors.name ? 'border-destructive' : ''}`}
+                      disabled={isSubmitting}
+                    />
+                    {errors.name && (
+                      <p className="text-xs text-destructive mt-1">{errors.name}</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium mb-2 text-foreground"
+                    >
+                      Email *
+                    </label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="juan@empresa.com"
+                      value={formData.email}
+                      onChange={(e) => {
+                        setFormData({ ...formData, email: e.target.value });
+                        if (errors.email) setErrors({ ...errors, email: '' });
+                      }}
+                      onFocus={() => setHasFocus(true)}
+                      onBlur={() => setHasFocus(false)}
+                      required
+                      className={`w-full ${errors.email ? 'border-destructive' : ''}`}
+                      disabled={isSubmitting}
+                    />
+                    {errors.email && (
+                      <p className="text-xs text-destructive mt-1">{errors.email}</p>
+                    )}
+                  </div>
                 </div>
 
-                {/* Email */}
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium mb-2 text-foreground"
-                  >
-                    Email *
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="juan@empresa.com"
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    required
-                    className="w-full"
-                    disabled={isSubmitting}
-                  />
-                </div>
+                {/* Empresa y Servicio */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label
+                      htmlFor="company"
+                      className="block text-sm font-medium mb-2 text-foreground"
+                    >
+                      Empresa
+                    </label>
+                    <Input
+                      id="company"
+                      type="text"
+                      placeholder="Nombre de tu empresa"
+                      value={formData.company}
+                      onChange={(e) =>
+                        setFormData({ ...formData, company: e.target.value })
+                      }
+                      onFocus={() => setHasFocus(true)}
+                      onBlur={() => setHasFocus(false)}
+                      className="w-full"
+                      disabled={isSubmitting}
+                    />
+                  </div>
 
-                {/* Empresa */}
-                <div>
-                  <label
-                    htmlFor="company"
-                    className="block text-sm font-medium mb-2 text-foreground"
-                  >
-                    Empresa
-                  </label>
-                  <Input
-                    id="company"
-                    type="text"
-                    placeholder="Nombre de tu empresa"
-                    value={formData.company}
-                    onChange={(e) =>
-                      setFormData({ ...formData, company: e.target.value })
-                    }
-                    className="w-full"
-                    disabled={isSubmitting}
-                  />
-                </div>
-
-                {/* Servicio */}
-                <div>
-                  <label
-                    htmlFor="service"
-                    className="block text-sm font-medium mb-2 text-foreground"
-                  >
-                    Servicio de interés
-                  </label>
-                  <Input
-                    id="service"
-                    type="text"
-                    placeholder="Ej: Automatización IA, Marketing Digital..."
-                    value={formData.service}
-                    onChange={(e) =>
-                      setFormData({ ...formData, service: e.target.value })
-                    }
-                    className="w-full"
-                    disabled={isSubmitting}
-                  />
+                  <div>
+                    <label
+                      htmlFor="service"
+                      className="block text-sm font-medium mb-2 text-foreground"
+                    >
+                      Servicio de interés
+                    </label>
+                    <Input
+                      id="service"
+                      type="text"
+                      placeholder="Ej: Automatización IA, Marketing Digital..."
+                      value={formData.service}
+                      onChange={(e) =>
+                        setFormData({ ...formData, service: e.target.value })
+                      }
+                      onFocus={() => setHasFocus(true)}
+                      onBlur={() => setHasFocus(false)}
+                      className="w-full"
+                      disabled={isSubmitting}
+                    />
+                  </div>
                 </div>
 
                 {/* Mensaje */}
@@ -177,34 +257,42 @@ export function Contact() {
                     id="message"
                     placeholder="Describe brevemente tu proyecto, objetivos y cómo podemos ayudarte..."
                     value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
+                    onChange={(e) => {
+                      setFormData({ ...formData, message: e.target.value });
+                      if (errors.message) setErrors({ ...errors, message: '' });
+                    }}
+                    onFocus={() => setHasFocus(true)}
+                    onBlur={() => setHasFocus(false)}
                     required
-                    className="w-full min-h-[150px] resize-none"
+                    className={`w-full min-h-[150px] resize-none ${errors.message ? 'border-destructive' : ''}`}
                     disabled={isSubmitting}
                   />
+                  {errors.message && (
+                    <p className="text-xs text-destructive mt-1">{errors.message}</p>
+                  )}
                 </div>
 
                 {/* Submit Button */}
-                <Button
-                  type="submit"
-                  size="lg"
-                  disabled={isSubmitting}
-                  className="w-full gradient-ia-bg text-white border-0 text-base h-12"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="mr-2 size-5 animate-spin" />
-                      Enviando...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="mr-2 size-5" />
-                      Enviar Mensaje
-                    </>
-                  )}
-                </Button>
+                <div className="flex justify-start md:justify-end">
+                  <Button
+                    type="submit"
+                    size="lg"
+                    disabled={isSubmitting || !isFormValid()}
+                    className="w-full md:w-auto gradient-ia-bg text-white border-0 text-base h-12 px-8 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 size-5 animate-spin" />
+                        Enviando...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="mr-2 size-5" />
+                        Enviar Mensaje
+                      </>
+                    )}
+                  </Button>
+                </div>
               </form>
             ) : (
               <motion.div

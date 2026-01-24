@@ -52,7 +52,7 @@ export function Features() {
   return (
     <section
       id="nosotros"
-      className="relative py-20 md:py-32 border-t border-border/50"
+      className="relative py-20 md:py-32"
       style={{ paddingTop: spacing.section.md, paddingBottom: spacing.section.md }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,7 +60,7 @@ export function Features() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: "-100px" }}
           transition={{ duration: animations.durations.normal }}
           className="text-center mb-16"
         >
@@ -83,7 +83,7 @@ export function Features() {
                 key={feature.id}
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
+                viewport={{ once: false, margin: "-100px" }}
                 transition={{
                   delay: index * animations.stagger.normal,
                   duration: animations.durations.normal,
@@ -115,7 +115,7 @@ export function Features() {
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: false, margin: "-100px" }}
             transition={{ duration: animations.durations.slow }}
             className="hidden lg:block h-[600px]"
           >

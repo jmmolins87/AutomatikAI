@@ -9,7 +9,6 @@ import Link from 'next/link';
 import { Logo } from '@/components/branding/Logo';
 import { Button } from '@/components/ui/button';
 import { LocaleSwitch } from '@/components/navigation/LocaleSwitch';
-import { cn } from '@/lib/utils';
 import { animations } from '@/lib/design-system';
 import type { Locale } from '@/i18n/config';
 
@@ -22,10 +21,7 @@ export function Navbar() {
 
   const navLinks = [
     { label: t('services'), href: `/${locale}/servicios` },
-    { label: t('cases'), href: `/${locale}/casos-de-exito` },
     { label: t('about'), href: `/${locale}/nosotros` },
-    { label: t('pricing'), href: `/${locale}/precios` },
-    { label: t('faq'), href: `/${locale}/faq` },
     { label: t('contact'), href: `/${locale}/contacto` },
   ];
 
@@ -63,9 +59,16 @@ export function Navbar() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <Link href={`/${locale}`}>
-              <Logo size="sm" />
-            </Link>
+            <div onClick={() => {
+              const isHome = window.location.pathname === `/${locale}` || window.location.pathname === `/${locale}/`;
+              if (isHome) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}>
+              <Link href={`/${locale}`}>
+                <Logo size="sm" />
+              </Link>
+            </div>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
@@ -80,9 +83,11 @@ export function Navbar() {
                 </Link>
               ))}
               <LocaleSwitch />
-              <Button size="sm" className="gradient-ia-bg text-white border-0">
-                {t('getStarted')}
-              </Button>
+              <Link href={`/${locale}/contacto`}>
+                <Button size="sm" className="gradient-ia-bg text-white border-0">
+                  {t('getStarted')}
+                </Button>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -130,7 +135,7 @@ export function Navbar() {
                 <Link
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-2xl font-semibold text-foreground hover:text-primary transition-colors"
+                  className="text-2xl font-semibold text-foreground hover:text-primary transition-colors block"
                 >
                   {link.label}
                 </Link>
@@ -147,9 +152,11 @@ export function Navbar() {
                 duration: animations.durations.fast,
               }}
             >
-              <Button size="lg" className="w-full gradient-ia-bg text-white border-0">
-                {t('getStarted')}
-              </Button>
+              <Link href={`/${locale}/contacto`} onClick={() => setIsOpen(false)}>
+                <Button size="lg" className="w-full gradient-ia-bg text-white border-0">
+                  {t('getStarted')}
+                </Button>
+              </Link>
             </motion.div>
           </div>
         </div>

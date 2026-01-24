@@ -1,95 +1,58 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
-import { animate } from 'animejs';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { colors, typography } from '@/lib/design-system';
 
 interface LogoProps {
-  size?: 'sm' | 'md' | 'lg' | 'xl';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   animated?: boolean;
   className?: string;
 }
 
-const sizeStyles = {
-  sm: typography.sizes.logo.sm,
-  md: typography.sizes.logo.md,
-  lg: typography.sizes.logo.lg,
-  xl: typography.sizes.logo.xl,
+const sizeMap = {
+  sm: { width: 100, height: 32 },
+  md: { width: 150, height: 50 },
+  lg: { width: 180, height: 60 },
+  xl: { width: 240, height: 80 },
+  xxl: { width: 400, height: 133 },
 };
 
 export function Logo({ size = 'md', animated = true, className }: LogoProps) {
-  const logoRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!animated || !logoRef.current) return;
-
-    // Animación de entrada
-    animate(logoRef.current, {
-      opacity: [0, 1],
-      translateY: [-20, 0],
-      duration: 800,
-      ease: 'outExpo',
-    });
-
-    // Animación de glow pulsante en hover
-    const handleMouseEnter = () => {
-      const target = logoRef.current?.querySelector('.logo-ia');
-      if (!target) return;
-
-      animate(target, {
-        textShadow: [
-          '0 0 10px rgba(209, 132, 255, 0.5)',
-          '0 0 30px rgba(209, 132, 255, 0.8), 0 0 40px rgba(105, 234, 255, 0.6)',
-        ],
-        duration: 600,
-        ease: 'inOutQuad',
-      });
-    };
-
-    const handleMouseLeave = () => {
-      const target = logoRef.current?.querySelector('.logo-ia');
-      if (!target) return;
-
-      animate(target, {
-        textShadow: '0 0 10px rgba(209, 132, 255, 0.5)',
-        duration: 600,
-        ease: 'inOutQuad',
-      });
-    };
-
-    const logoElement = logoRef.current;
-    logoElement.addEventListener('mouseenter', handleMouseEnter);
-    logoElement.addEventListener('mouseleave', handleMouseLeave);
-
-    return () => {
-      logoElement.removeEventListener('mouseenter', handleMouseEnter);
-      logoElement.removeEventListener('mouseleave', handleMouseLeave);
-    };
-  }, [animated]);
+  const dimensions = sizeMap[size];
+  const isHeroSize = size === 'xxl';
 
   return (
     <div
-      ref={logoRef}
       className={cn(
-        'inline-flex items-center font-bold tracking-tight cursor-pointer transition-transform hover:scale-105',
+        'inline-flex items-center transition-transform',
+        !isHeroSize && 'cursor-pointer hover:scale-105',
+        animated && 'animate-fade-in',
+        isHeroSize && 'relative',
         className
       )}
-      style={{ fontSize: sizeStyles[size] }}
     >
-      <span className="text-foreground">j.mar</span>
-      <span
-        className="logo-ia gradient-ia font-black"
-        style={{
-          background: colors.gradient.ia,
-          WebkitBackgroundClip: 'text',
-          backgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          textShadow: '0 0 10px rgba(209, 132, 255, 0.5)',
-        }}
-      >
-        IA
-      </span>
+      <Image
+        src="/logo/logo.svg"
+        alt="jmarIA"
+        width={dimensions.width}
+        height={dimensions.height}
+        priority
+        style={{ width: dimensions.width, height: dimensions.height }}
+        className="object-contain"
+      />
+      {isHeroSize && (
+        <>
+          {/* Sparkle animations - more visible */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-[30%] left-[20%] w-3 h-3 bg-primary rounded-full animate-ping shadow-lg shadow-primary" style={{ animationDelay: '0s', animationDuration: '2s' }} />
+            <div className="absolute top-[45%] right-[25%] w-3 h-3 bg-accent rounded-full animate-ping shadow-lg shadow-accent" style={{ animationDelay: '0.5s', animationDuration: '2s' }} />
+            <div className="absolute bottom-[35%] left-[35%] w-3 h-3 bg-primary rounded-full animate-ping shadow-lg shadow-primary" style={{ animationDelay: '1s', animationDuration: '2s' }} />
+            <div className="absolute top-[55%] right-[40%] w-3 h-3 bg-accent rounded-full animate-ping shadow-lg shadow-accent" style={{ animationDelay: '1.5s', animationDuration: '2s' }} />
+            <div className="absolute top-[40%] left-[50%] w-2 h-2 bg-purple-400 rounded-full animate-ping shadow-lg shadow-purple-400" style={{ animationDelay: '0.75s', animationDuration: '2s' }} />
+            <div className="absolute bottom-[45%] right-[35%] w-2 h-2 bg-purple-400 rounded-full animate-ping shadow-lg shadow-purple-400" style={{ animationDelay: '1.25s', animationDuration: '2s' }} />
+          </div>
+        </>
+      )}
     </div>
   );
 }

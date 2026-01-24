@@ -4,6 +4,7 @@
     "services": "Servicios",
     "cases": "Casos de Éxito",
     "about": "Nosotros",
+    "features": "Características",
     "pricing": "Precios",
     "faq": "FAQ",
     "contact": "Contacto",
@@ -12,14 +13,128 @@
   "home": {
     "slogan": "Human strategy. Artificial intelligence.",
     "hero": {
-      "title": "Construyendo el",
-      "titleHighlight": "futuro digital",
-      "description": "Transformamos tu presencia digital con estrategias impulsadas por inteligencia artificial. Resultados medibles, creatividad sin límites.",
+      "title": "Construimos Sistemas que",
+      "titleHighlight": "Venden Mientras Duermes",
+      "description": "Automatizamos tus ventas con sistemas inteligentes potenciados por IA. Convierte visitantes en clientes 24/7 sin intervención manual.",
       "cta": {
-        "primary": "Empezar Proyecto",
-        "secondary": "Conocer Servicios"
+        "primary": "Agenda tu Consultoría Gratis",
+        "secondary": "Ver Tipos de Sistemas"
       },
-      "scrollDown": "Descubre más"
+      "scrollDown": "Descubre cómo"
+    },
+    "painPoints": {
+      "title": "¿Te suena familiar?",
+      "subtitle": "La mayoría de emprendedores y negocios enfrentan estos mismos obstáculos.",
+      "subtitleHighlight": "No estás solo, y tiene solución.",
+      "items": {
+        "ads": {
+          "title": "Gastas mucho en Ads sin retorno",
+          "description": "Inviertes miles en publicidad pero las ventas no llegan. El dinero se va y no sabes por qué."
+        },
+        "time": {
+          "title": "No tienes tiempo para vender",
+          "description": "Estás atrapado explicando lo mismo una y otra vez. Necesitas estar en cada venta."
+        },
+        "dependency": {
+          "title": "Dependes de tu presencia",
+          "description": "Si no estás, no hay ventas. Tu negocio depende 100% de ti y no escala."
+        },
+        "traffic": {
+          "title": "Tráfico que no convierte",
+          "description": "Tienes visitas pero no ventas. El tráfico llega pero se va sin comprar."
+        },
+        "analytics": {
+          "title": "No sabes qué está fallando",
+          "description": "Todo parece estar bien pero los números no cierran. Sin datos, sin respuestas."
+        },
+        "strategy": {
+          "title": "Estrategias que no funcionan",
+          "description": "Pruebas tácticas de Instagram, YouTube, pero nada genera ventas consistentes."
+        }
+      },
+      "conclusion": "La buena noticia:",
+      "conclusionHighlight": "Cada problema tiene una solución"
+    },
+    "solutions": {
+      "title": "Nuestras",
+      "titleHighlight": "Soluciones",
+      "description": "Transformamos cada obstáculo en una oportunidad de crecimiento con estrategias probadas.",
+      "items": {
+        "optimization": {
+          "problem": "Gastas mucho en Ads sin retorno",
+          "solution": "Sistemas optimizados para convertir",
+          "description": "Creamos procesos de venta que convierten más con menos tráfico. Cada visitante cuenta.",
+          "benefits": {
+            "roi": "ROI medible",
+            "investment": "Menos inversión publicitaria",
+            "targeting": "Mejor targeting"
+          }
+        },
+        "automation": {
+          "problem": "No tienes tiempo para vender",
+          "solution": "Automatización inteligente con IA",
+          "description": "Tu sistema de ventas funciona 24/7 mientras tú te enfocas en crecer. Sin intervención manual.",
+          "benefits": {
+            "sales": "Ventas automáticas",
+            "scalable": "Escalable sin límites",
+            "independent": "Sin depender de ti"
+          }
+        },
+        "copy": {
+          "problem": "Tráfico que no convierte",
+          "solution": "Copy y estrategia probada",
+          "description": "Aplicamos fórmulas que funcionan: desde la primera palabra hasta el checkout.",
+          "benefits": {
+            "persuasive": "Copy persuasivo",
+            "validated": "Estrategia validada",
+            "testing": "A/B testing continuo"
+          }
+        },
+        "tracking": {
+          "problem": "No sabes qué está fallando",
+          "solution": "Analytics y tracking completo",
+          "description": "Dashboard con métricas claras. Sabes exactamente dónde optimizar y mejorar.",
+          "benefits": {
+            "realtime": "Datos en tiempo real",
+            "insights": "Insights accionables",
+            "data": "Decisiones basadas en data"
+          }
+        }
+      }
+    },
+    "funnelTypes": {
+      "title": "Tipos de",
+      "titleHighlight": "Sistemas de Ventas",
+      "description": "Cada negocio es único. Por eso creamos el sistema perfecto para tu modelo de negocio y objetivos específicos."
+    },
+    "about": {
+      "title": "Conoce jmar",
+      "titleHighlight": "IA",
+      "pillars": {
+        "ai": {
+          "title": "Potenciado por IA",
+          "description": "Utilizamos inteligencia artificial de última generación para optimizar cada paso del proceso de venta."
+        },
+        "proven": {
+          "title": "Estrategias Probadas",
+          "description": "Aplicamos técnicas de copywriting y marketing que han generado millones en ventas."
+        },
+        "automation": {
+          "title": "100% Automatizado",
+          "description": "Tu sistema funciona 24/7 sin necesidad de tu intervención. Escala sin límites."
+        },
+        "support": {
+          "title": "Soporte Dedicado",
+          "description": "Te acompañamos en cada paso. Optimización continua basada en datos reales."
+        }
+      }
+    },
+    "finalCta": {
+      "title": "¿Listo para",
+      "titleHighlight": "Automatizar tus Ventas?",
+      "description": "Agenda una consultoría gratuita de 30 minutos. Analizamos tu negocio y te mostramos exactamente cómo podemos ayudarte a vender más.",
+      "cta": "Agendar Consultoría Gratis",
+      "guarantee": "Sin compromiso. Consultoría 100% gratuita."
     },
     "services": {
       "title": "Nuestros Servicios",
@@ -46,7 +161,7 @@
   },
   "services": {
     "meta": {
-      "title": "Servicios de Marketing Digital e IA | j.marIA",
+      "title": "Servicios de Marketing Digital e IA | jmarIA",
       "description": "Servicios profesionales de marketing digital potenciados por inteligencia artificial. Automatización, estrategia y resultados medibles."
     },
     "title": "Nuestros Servicios",
@@ -87,7 +202,7 @@
   },
   "cases": {
     "meta": {
-      "title": "Casos de Éxito | j.marIA",
+      "title": "Casos de Éxito | jmarIA",
       "description": "Portfolio de proyectos exitosos. Descubre cómo ayudamos a nuestros clientes a alcanzar sus objetivos de marketing digital."
     },
     "title": "Casos de Éxito",
@@ -101,10 +216,10 @@
   },
   "about": {
     "meta": {
-      "title": "Sobre Nosotros | j.marIA",
-      "description": "Conoce al equipo de j.marIA. Nuestra misión, valores y por qué somos tu mejor opción en marketing digital con IA."
+      "title": "Sobre Nosotros | jmarIA",
+      "description": "Conoce al equipo de jmarIA. Nuestra misión, valores y por qué somos tu mejor opción en marketing digital con IA."
     },
-    "title": "Sobre j.marIA",
+    "title": "Sobre jmarIA",
     "mission": {
       "title": "Nuestra Misión",
       "description": "Democratizar el poder de la inteligencia artificial en el marketing digital, haciendo que las estrategias más avanzadas sean accesibles para empresas de todos los tamaños."
@@ -116,7 +231,7 @@
   },
   "pricing": {
     "meta": {
-      "title": "Planes y Precios | j.marIA",
+      "title": "Planes y Precios | jmarIA",
       "description": "Planes flexibles de marketing digital con IA. Encuentra el plan perfecto para tu negocio."
     },
     "title": "Planes y Precios",
@@ -148,7 +263,7 @@
   },
   "faq": {
     "meta": {
-      "title": "Preguntas Frecuentes | j.marIA",
+      "title": "Preguntas Frecuentes | jmarIA",
       "description": "Respuestas a las preguntas más comunes sobre nuestros servicios de marketing digital e IA."
     },
     "title": "Preguntas Frecuentes",
@@ -169,8 +284,8 @@
   },
   "contact": {
     "meta": {
-      "title": "Contacto | j.marIA",
-      "description": "Ponte en contacto con j.marIA. Estamos listos para llevar tu negocio al siguiente nivel con marketing digital e IA."
+      "title": "Contacto | jmarIA",
+      "description": "Ponte en contacto con jmarIA. Estamos listos para llevar tu negocio al siguiente nivel con marketing digital e IA."
     },
     "title": "Hablemos de tu Proyecto",
     "description": "Estamos listos para transformar tu visión en realidad. Cuéntanos sobre tu proyecto y descubre cómo podemos ayudarte.",
@@ -205,7 +320,7 @@
       "cookies": "Cookies",
       "blog": "Blog"
     },
-    "copyright": "© 2026 j.marIA Agency. Todos los derechos reservados.",
+    "copyright": "© 2026 jmarIA Agency. Todos los derechos reservados.",
     "madeWith": "Hecho con {ia} y {love}"
   },
   "common": {

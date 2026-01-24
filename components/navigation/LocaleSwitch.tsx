@@ -3,9 +3,10 @@
 import { useParams } from 'next/navigation';
 import { useTransition } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-import { motion } from 'framer-motion';
 import { Globe } from 'lucide-react';
-import { locales, localeNames, type Locale } from '@/i18n/config';
+import { Switch } from '@/components/ui/switch';
+import { Label } from '@/components/ui/label';
+import { type Locale } from '@/i18n/config';
 
 export function LocaleSwitch() {
   const router = useRouter();
@@ -13,49 +14,48 @@ export function LocaleSwitch() {
   const params = useParams();
   const [isPending, startTransition] = useTransition();
 
-  const currentLocale = params.locale as Locale;
+  const currentLocale = (params.locale as Locale) || 'es';
+  const isEnglish = currentLocale === 'en';
 
-  const switchLocale = (newLocale: Locale) => {
+  const toggleLocale = (checked: boolean) => {
+    const newLocale: Locale = checked ? 'en' : 'es';
+
     if (newLocale === currentLocale) return;
 
     startTransition(() => {
-      // Replace the locale in the current pathname
-      const newPathname = pathname.replace(`/${currentLocale}`, `/${newLocale}`);
+      // Construir nueva ruta con el locale correcto
+      const segments = pathname.split('/').filter(Boolean);
+
+      // Si el primer segmento es un locale, reemplazarlo
+      if (segments[0] === 'es' || segments[0] === 'en') {
+        segments[0] = newLocale;
+      } else {
+        // Si no hay locale en la ruta, agregarlo
+        segments.unshift(newLocale);
+      }
+
+      const newPathname = '/' + segments.join('/');
       router.push(newPathname);
     });
   };
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-3">
       <Globe className="size-4 text-muted-foreground" />
-      <div className="flex items-center gap-1 p-1 rounded-lg bg-muted/50">
-        {locales.map((locale) => (
-          <motion.button
-            key={locale}
-            onClick={() => switchLocale(locale)}
-            disabled={isPending}
-            className={`
-              relative px-3 py-1 text-sm font-medium rounded-md transition-colors
-              ${
-                locale === currentLocale
-                  ? 'text-primary-foreground'
-                  : 'text-muted-foreground hover:text-foreground'
-              }
-              ${isPending ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
-            `}
-            whileHover={{ scale: locale === currentLocale ? 1 : 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {locale === currentLocale && (
-              <motion.div
-                layoutId="activeLocale"
-                className="absolute inset-0 bg-primary rounded-md"
-                transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-              />
-            )}
-            <span className="relative z-10">{locale.toUpperCase()}</span>
-          </motion.button>
-        ))}
+      <div className="flex items-center gap-2">
+        <Label htmlFor="locale-switch" className="text-sm font-medium cursor-pointer">
+          ES
+        </Label>
+        <Switch
+          id="locale-switch"
+          checked={isEnglish}
+          onCheckedChange={toggleLocale}
+          disabled={isPending}
+          aria-label="Switch language"
+        />
+        <Label htmlFor="locale-switch" className="text-sm font-medium cursor-pointer">
+          EN
+        </Label>
       </div>
     </div>
   );

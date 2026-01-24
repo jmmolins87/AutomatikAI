@@ -5,7 +5,8 @@ import { notFound } from 'next/navigation';
 import { locales } from '@/i18n/config';
 import { Navbar } from '@/components/navigation/Navbar';
 import { Footer } from '@/components/navigation/Footer';
-import { ParticleBackground } from '@/components/effects/ParticleBackground';
+import { ClientEffects } from '@/components/effects/ClientEffects';
+import { CookieBanner } from '@/components/ui/cookie-banner';
 
 export default async function LocaleLayout({
   children,
@@ -21,10 +22,13 @@ export default async function LocaleLayout({
   const messages = await getMessages({ locale });
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
-      <ParticleBackground />
-      <Navbar />
-      <main>{children}</main>
-      <Footer />
+      <ClientEffects />
+      <CookieBanner />
+      <div className="min-h-screen flex flex-col relative">
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </div>
     </NextIntlClientProvider>
   );
 }

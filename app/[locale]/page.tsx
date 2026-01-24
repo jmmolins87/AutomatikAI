@@ -1,40 +1,35 @@
 "use client";
 
-import { ParticleBackground } from '@/components/effects/ParticleBackground';
-import { Navbar } from '@/components/navigation/Navbar';
-import { Hero } from '@/components/sections/Hero';
-import { Services } from '@/components/sections/Services';
-import { Features } from '@/components/sections/Features';
-import { Stats } from '@/components/sections/Stats';
-import { CaseStudies } from '@/components/sections/CaseStudies';
-import { Contact } from '@/components/sections/Contact';
-import { Footer } from '@/components/navigation/Footer';
+import { ValueProposition } from '@/components/sections/ValueProposition';
+import { PainPoints } from '@/components/sections/PainPoints';
+import { Solutions } from '@/components/sections/Solutions';
+import { AboutAgency } from '@/components/sections/AboutAgency';
+import { FunnelTypes } from '@/components/sections/FunnelTypes';
+import { FinalCTA } from '@/components/sections/FinalCTA';
 import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
 
 export default function Home() {
-  // Activar atajos de teclado
   useKeyboardShortcuts();
 
   return (
-    <div className="min-h-screen bg-background font-sans relative overflow-x-hidden">
-      {/* Fondo de partículas 3D */}
-      <ParticleBackground />
+    <>
+      {/* 1. Propuesta Única de Valor */}
+      <ValueProposition />
 
-      {/* Navegación */}
-      <Navbar />
+      {/* 2. Dolores del Avatar */}
+      <PainPoints />
 
-      {/* Contenido principal */}
-      <main>
-        <Hero />
-        <Services />
-        <Stats />
-        <Features />
-        <CaseStudies />
-        <Contact />
-      </main>
+      {/* 3. Soluciones que Ofreces */}
+      <Solutions />
 
-      {/* Footer */}
-      <Footer />
-    </div>
+      {/* 4. Tipos de Funnels */}
+      <FunnelTypes />
+
+      {/* 5. Presentación de la Agencia */}
+      <AboutAgency />
+
+      {/* 6. Llamado a la Acción Final */}
+      <FinalCTA />
+    </>
   );
 }
