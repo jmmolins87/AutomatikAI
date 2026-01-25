@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { MeshDistortMaterial, Sphere, Torus, Box } from '@react-three/drei';
 import * as THREE from 'three';
@@ -16,18 +16,30 @@ interface FloatingMeshProps {
 
 function FloatingMesh({ geometry, color, position = [0, 0, 0] }: FloatingMeshProps) {
   const meshRef = useRef<THREE.Mesh>(null);
+  const scrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      scrollY.current = window.scrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useFrame((state) => {
     if (!meshRef.current) return;
 
     const time = state.clock.getElapsedTime();
+    const scrollFactor = scrollY.current * 0.0005;
 
-    // Rotación automática
-    meshRef.current.rotation.x = time * 0.3;
-    meshRef.current.rotation.y = time * 0.2;
+    // Rotación automática con influencia del scroll
+    meshRef.current.rotation.x = time * 0.3 + scrollFactor;
+    meshRef.current.rotation.y = time * 0.2 + scrollFactor * 0.5;
 
-    // Movimiento flotante
-    meshRef.current.position.y = position[1] + Math.sin(time * 0.5) * 0.3;
+    // Movimiento flotante influenciado por el scroll
+    meshRef.current.position.y = position[1] + Math.sin(time * 0.5 + scrollFactor) * 0.3;
+    meshRef.current.position.x = position[0] + Math.cos(time * 0.4 + scrollFactor) * 0.2;
   });
 
   const geometryComponent = {

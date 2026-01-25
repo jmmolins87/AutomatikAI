@@ -73,9 +73,9 @@
       "transition": "La solución no es contratar más gente. Es multiplicar la inteligencia que ya tenés."
     },
     "solutions": {
-      "title": "Agentes Autónomos.",
-      "titleHighlight": "No Chatbots. No Asistentes Virtuales.",
-      "description": "Imaginá tener un colaborador senior que trabaja 24/7, califica leads con 92% de precisión y agenda citas sin supervisión. Y que cuesta menos que un café diario.",
+      "title": "Agentes Autónomos",
+      "subtitle": "No Chatbots. No Asistentes Virtuales.",
+      "description": "Imagina tener un colaborador senior que trabaja 24/7, califica leads con 92% de precisión y agenda citas sin supervisión. Y que cuesta menos que un café diario.",
       "benefits": {
         "title": "Los Números que Importan",
         "conversion": {
@@ -139,11 +139,11 @@
       }
     },
     "funnelTypes": {
-      "title": "De la estrategia al resultado",
-      "titleHighlight": "en 45 días",
-      "description": "Proceso transparente en 4 fases. Sin magia negra, sin letra chica.",
+      "title": "Nuestros Servicios",
+      "titleHighlight": "",
+      "description": "Soluciones integrales para potenciar tu presencia digital y alcanzar tus objetivos de negocio.",
       "idealFor": "Ideal para:",
-      "notSure": "¿No estás seguro cuál sistema necesitas?",
+      "notSure": "¿No estás seguro cuál servicio necesitas?",
       "scheduleConsultation": "Agenda una Consultoría Gratis",
       "phases": {
         "discovery": {
@@ -168,25 +168,53 @@
         }
       }
     },
+    "services": {
+      "items": {
+        "posicionamiento": {
+          "title": "Posicionamiento SEO",
+          "description": "Domina los resultados de búsqueda con estrategias SEO basadas en datos. Optimizamos tu contenido, SEO técnico y construimos backlinks de alta autoridad para atraer tráfico orgánico cualificado.",
+          "price": "Desde $997/mes",
+          "ideal": "Empresas que buscan crecimiento orgánico sostenible a largo plazo"
+        },
+        "redesSociales": {
+          "title": "Gestión de Redes Sociales",
+          "description": "Presencia estratégica en redes sociales que construye autoridad de marca y genera conversiones. Creación de contenido, gestión de comunidad y publicidad dirigida en todas las plataformas.",
+          "price": "Desde $1,497/mes",
+          "ideal": "Marcas que quieren construir comunidades leales e incrementar el engagement"
+        },
+        "publicidad": {
+          "title": "Publicidad de Rendimiento",
+          "description": "Campañas publicitarias enfocadas en ROI en Google Ads, Facebook/Instagram y LinkedIn. Optimizamos para conversiones con seguimiento avanzado y testing A/B.",
+          "price": "Desde $2,497/mes",
+          "ideal": "Negocios que necesitan resultados inmediatos y ROI medible"
+        },
+        "disenoWeb": {
+          "title": "Diseño Web Orientado a Conversiones",
+          "description": "Sitios web de alta conversión construidos con tecnologías modernas. Diseño mobile-first, velocidades de carga rápidas y experiencia de usuario optimizada que convierte visitantes en clientes.",
+          "price": "Desde $3,997",
+          "ideal": "Empresas que necesitan una presencia online profesional que genere leads"
+        }
+      }
+    },
     "about": {
-      "title": "Conoce",
-      "titleHighlight": "jmarIA",
+      "title": "Conoce AutomatikAI",
+      "titleHighlight": "",
       "pillars": {
         "ai": {
           "title": "Potenciado por IA",
-          "description": "Utilizamos inteligencia artificial de última generación para optimizar cada paso del proceso de venta."
+          "description": "Utilizamos inteligencia artificial y machine learning de vanguardia para optimizar cada paso de tu embudo de ventas, desde la generación de leads hasta la conversión."
         },
         "proven": {
           "title": "Estrategias Probadas",
-          "description": "Aplicamos técnicas de copywriting y marketing que han generado millones en ventas."
+          "description": "Aplicamos frameworks de copywriting y estrategias de marketing probadas en batalla que han generado más de $50M en ventas para nuestros clientes en múltiples industrias."
         },
         "automation": {
           "title": "100% Automatizado",
-          "description": "Tu sistema funciona 24/7 sin necesidad de tu intervención. Escala sin límites."
+          "description": "Tu sistema de ventas opera 24/7, manejando consultas, calificando leads y cerrando ventas sin intervención manual. Escala infinitamente."
         },
         "support": {
           "title": "Soporte Dedicado",
-          "description": "Te acompañamos en cada paso. Optimización continua basada en datos reales."
+          "description": "Proporcionamos guía práctica durante la implementación y más allá. Testing A/B continuo y optimización basada en datos de rendimiento reales."
         }
       }
     },
@@ -210,7 +238,33 @@
     "services": {
       "title": "Nuestros Servicios",
       "description": "Soluciones integrales de marketing digital potenciadas por IA para impulsar tu negocio al siguiente nivel",
-      "viewAll": "Ver todos los servicios"
+      "viewAll": "Ver todos los servicios",
+      "items": {
+        "posicionamiento": {
+          "title": "Posicionamiento SEO",
+          "description": "Domina los resultados de búsqueda con estrategias SEO basadas en datos. Optimizamos tu contenido, SEO técnico y construimos backlinks de alta autoridad para atraer tráfico orgánico cualificado.",
+          "price": "Desde $997/mes",
+          "ideal": "Empresas que buscan crecimiento orgánico sostenible a largo plazo"
+        },
+        "redesSociales": {
+          "title": "Gestión de Redes Sociales",
+          "description": "Presencia estratégica en redes sociales que construye autoridad de marca y genera conversiones. Creación de contenido, gestión de comunidad y publicidad dirigida en todas las plataformas.",
+          "price": "Desde $1,497/mes",
+          "ideal": "Marcas que quieren construir comunidades leales e incrementar el engagement"
+        },
+        "publicidad": {
+          "title": "Publicidad de Rendimiento",
+          "description": "Campañas publicitarias enfocadas en ROI en Google Ads, Facebook/Instagram y LinkedIn. Optimizamos para conversiones con seguimiento avanzado y testing A/B.",
+          "price": "Desde $2,497/mes",
+          "ideal": "Negocios que necesitan resultados inmediatos y ROI medible"
+        },
+        "disenoWeb": {
+          "title": "Diseño Web Orientado a Conversiones",
+          "description": "Sitios web de alta conversión construidos con tecnologías modernas. Diseño mobile-first, velocidades de carga rápidas y experiencia de usuario optimizada que convierte visitantes en clientes.",
+          "price": "Desde $3,997",
+          "ideal": "Empresas que necesitan una presencia online profesional que genere leads"
+        }
+      }
     },
     "stats": {
       "projects": "Proyectos Exitosos",
@@ -232,7 +286,7 @@
   },
   "services": {
     "meta": {
-      "title": "Servicios de Marketing Digital e IA | jmarIA",
+      "title": "Servicios de Marketing Digital e IA | AutomatikAI",
       "description": "Servicios profesionales de marketing digital potenciados por inteligencia artificial. Automatización, estrategia y resultados medibles."
     },
     "title": "Nuestros Servicios",
@@ -273,7 +327,7 @@
   },
   "cases": {
     "meta": {
-      "title": "Casos de Éxito | jmarIA",
+      "title": "Casos de Éxito | AutomatikAI",
       "description": "Portfolio de proyectos exitosos. Descubre cómo ayudamos a nuestros clientes a alcanzar sus objetivos de marketing digital."
     },
     "title": "Casos de Éxito",
@@ -287,10 +341,11 @@
   },
   "about": {
     "meta": {
-      "title": "Sobre Nosotros | jmarIA",
-      "description": "Conoce al equipo de jmarIA. Nuestra misión, valores y por qué somos tu mejor opción en marketing digital con IA."
+      "title": "Sobre Nosotros | AutomatikAI",
+      "description": "Conoce al equipo de AutomatikAI. Nuestra misión, valores y por qué somos tu mejor opción en marketing digital con IA."
     },
-    "title": "Sobre jmarIA",
+    "title": "Sobre Automatik",
+    "titleHighlight": "AI",
     "mission": {
       "title": "Nuestra Misión",
       "description": "Democratizar el poder de la inteligencia artificial en el marketing digital, haciendo que las estrategias más avanzadas sean accesibles para empresas de todos los tamaños."
@@ -302,7 +357,7 @@
   },
   "pricing": {
     "meta": {
-      "title": "Planes y Precios | jmarIA",
+      "title": "Planes y Precios | AutomatikAI",
       "description": "Planes flexibles de marketing digital con IA. Encuentra el plan perfecto para tu negocio."
     },
     "title": "Planes y Precios",
@@ -334,7 +389,7 @@
   },
   "faq": {
     "meta": {
-      "title": "Preguntas Frecuentes | jmarIA",
+      "title": "Preguntas Frecuentes | AutomatikAI",
       "description": "Respuestas a las preguntas más comunes sobre nuestros servicios de marketing digital e IA."
     },
     "title": "Preguntas Frecuentes",
@@ -355,8 +410,8 @@
   },
   "contact": {
     "meta": {
-      "title": "Contacto | jmarIA",
-      "description": "Ponte en contacto con jmarIA. Estamos listos para llevar tu negocio al siguiente nivel con marketing digital e IA."
+      "title": "Contacto | AutomatikAI",
+      "description": "Ponte en contacto con AutomatikAI. Estamos listos para llevar tu negocio al siguiente nivel con marketing digital e IA."
     },
     "title": "Hablemos de tu Proyecto",
     "description": "Estamos listos para transformar tu visión en realidad. Cuéntanos sobre tu proyecto y descubre cómo podemos ayudarte.",
@@ -394,7 +449,7 @@
     }
   },
   "footer": {
-    "description": "Transformamos tu presencia digital con estrategias impulsadas por inteligencia artificial. Resultados medibles, creatividad sin límites.",
+    "description": "AutomatikAI transforma tu presencia digital con estrategias impulsadas por inteligencia artificial. Resultados medibles, creatividad sin límites, crecimiento automatizado.",
     "services": "Servicios",
     "company": "Empresa",
     "legal": "Legal",
@@ -404,8 +459,8 @@
       "cookies": "Cookies",
       "blog": "Blog"
     },
-    "copyright": "© 2026 jmarIA Agency. Todos los derechos reservados.",
-    "madeWith": "Hecho con"
+    "copyright": "© 2026 AutomatikAI Agency. Todos los derechos reservados.",
+    "madeWith": "Hecho con ❤️"
   },
   "common": {
     "readMore": "Leer más",

@@ -13,7 +13,7 @@ const socialLinks = [
   { icon: Twitter, href: '#', label: 'Twitter' },
   { icon: Instagram, href: '#', label: 'Instagram' },
   { icon: Github, href: '#', label: 'GitHub' },
-  { icon: Mail, href: 'mailto:hola@jmaria.agency', label: 'Email' },
+  { icon: Mail, href: 'mailto:hola@automatikai.agency', label: 'Email' },
 ];
 
 export function Footer() {
@@ -31,7 +31,7 @@ export function Footer() {
       { label: tServices('analytics.title'), href: '/servicios' },
     ],
     empresa: [
-      { label: tNav('about'), href: '/nosotros' },
+      { label: tNav('about'), href: '/about' },
       { label: tNav('contact'), href: '/contacto' },
     ],
     legal: [

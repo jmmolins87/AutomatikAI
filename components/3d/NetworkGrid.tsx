@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
@@ -8,6 +8,16 @@ import { colors as siteColors } from '@/lib/colors';
 
 function AnimatedPoints() {
   const pointsRef = useRef<THREE.Points>(null);
+  const scrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      scrollY.current = window.scrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const particlesPosition = useMemo(() => {
     const positions = new Float32Array(1000 * 3);
@@ -21,8 +31,10 @@ function AnimatedPoints() {
 
   useFrame((state) => {
     if (pointsRef.current) {
-      pointsRef.current.rotation.x = state.clock.elapsedTime * 0.05;
-      pointsRef.current.rotation.y = state.clock.elapsedTime * 0.075;
+      const scrollFactor = scrollY.current * 0.0002;
+      pointsRef.current.rotation.x = state.clock.elapsedTime * 0.05 + scrollFactor;
+      pointsRef.current.rotation.y = state.clock.elapsedTime * 0.075 + scrollFactor * 0.5;
+      pointsRef.current.rotation.z = scrollFactor * 0.3;
     }
   });
 
@@ -41,7 +53,7 @@ function AnimatedPoints() {
 
 export function NetworkGrid() {
   return (
-    <div className="absolute inset-0 w-full h-full opacity-40">
+    <div className="absolute inset-0 w-full h-full opacity-60">
       <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
         <ambientLight intensity={0.5} />
         <AnimatedPoints />

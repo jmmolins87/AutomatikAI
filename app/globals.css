@@ -259,6 +259,8 @@
 /* Utilidades de gradiente */
 .gradient-ia {
   background: var(--gradient-ia);
+  background-size: 400% 400%;
+  animation: gradient-shift 3s ease-in-out infinite;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -266,6 +268,13 @@
 
 .gradient-ia-bg {
   background: var(--gradient-ia);
+  transition: background 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.gradient-ia-bg:hover {
+  background: var(--gradient-ia-reverse);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px var(--color-purple-40), 0 0 50px var(--color-cyan-20);
 }
 
 /* Efectos de glow */
@@ -304,6 +313,25 @@
 
 .animate-glow-pulse {
   animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Animación de gradiente animado */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.gradient-ia-animated {
+  background: var(--gradient-ia);
+  background-size: 400% 400%;
+  animation: gradient-shift 6s ease-in-out infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Animación shimmer para skeleton */

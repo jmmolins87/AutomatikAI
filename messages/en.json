@@ -105,49 +105,110 @@
       }
     },
     "funnelTypes": {
-      "title": "Types of",
-      "titleHighlight": "Sales Systems",
-      "description": "Every business is unique. That's why we create the perfect system for your business model and specific objectives.",
+      "title": "Our Services",
+      "titleHighlight": "",
+      "description": "Comprehensive solutions to boost your digital presence and achieve your business goals.",
       "idealFor": "Ideal for:",
-      "notSure": "Not sure which system you need?",
+      "notSure": "Not sure which service you need?",
       "scheduleConsultation": "Schedule a Free Consultation"
     },
+    "services": {
+      "items": {
+        "posicionamiento": {
+          "title": "SEO Positioning",
+          "description": "Dominate search results with data-driven SEO strategies. We optimize your content, technical SEO, and build high-authority backlinks to drive qualified organic traffic.",
+          "price": "From $997/month",
+          "ideal": "Companies looking for sustainable, long-term organic growth"
+        },
+        "redesSociales": {
+          "title": "Social Media Management",
+          "description": "Strategic social media presence that builds brand authority and drives conversions. Content creation, community management, and targeted advertising across all platforms.",
+          "price": "From $1,497/month",
+          "ideal": "Brands that want to build loyal communities and increase engagement"
+        },
+        "publicidad": {
+          "title": "Performance Advertising",
+          "description": "ROI-focused advertising campaigns on Google Ads, Facebook/Instagram, and LinkedIn. We optimize for conversions with advanced tracking and A/B testing.",
+          "price": "From $2,497/month",
+          "ideal": "Businesses that need immediate results and measurable ROI"
+        },
+        "disenoWeb": {
+          "title": "Conversion-Focused Web Design",
+          "description": "High-converting websites built with modern technologies. Mobile-first design, fast loading speeds, and optimized user experience that turns visitors into customers.",
+          "price": "From $3,997",
+          "ideal": "Companies that need a professional online presence that generates leads"
+        }
+      }
+    },
     "about": {
-      "title": "Meet",
-      "titleHighlight": "jmarIA",
+      "title": "Meet AutomatikAI",
+      "titleHighlight": "",
       "pillars": {
         "ai": {
           "title": "AI-Powered",
-          "description": "We use cutting-edge artificial intelligence to optimize every step of the sales process."
+          "description": "We leverage cutting-edge artificial intelligence and machine learning to optimize every step of your sales funnel, from lead generation to conversion."
         },
         "proven": {
           "title": "Proven Strategies",
-          "description": "We apply copywriting and marketing techniques that have generated millions in sales."
+          "description": "We apply battle-tested copywriting frameworks and marketing strategies that have generated over $50M in sales for our clients across multiple industries."
         },
         "automation": {
           "title": "100% Automated",
-          "description": "Your system works 24/7 without needing your intervention. Scale without limits."
+          "description": "Your sales system operates 24/7, handling inquiries, qualifying leads, and closing deals without any manual intervention. Scale infinitely."
         },
         "support": {
           "title": "Dedicated Support",
-          "description": "We accompany you every step. Continuous optimization based on real data."
+          "description": "We provide hands-on guidance throughout implementation and beyond. Continuous A/B testing and optimization based on real performance data."
         }
       }
     },
     "finalCta": {
-      "title": "Ready to",
-      "titleHighlight": "Automate Your Sales?",
-      "description": "Schedule a free 30-minute consultation. We'll analyze your business and show you exactly how we can help you sell more.",
-      "cta": "Schedule Free Consultation",
-      "guarantee": "No commitment. 100% free consultation.",
-      "badge": "Schedule Now - Limited Slots",
-      "preferEmail": "Prefer to write us first?",
+      "title": "Ready to Let Your Business",
+      "titleHighlight": "Work While You Sleep?",
+      "description": "Book your Free Sales Funnel Audit (valued at $497). In 45 minutes, discover the 3 biggest leaks in your funnel, how many leads you're losing monthly, and your projected ROI with an AI Sales Agent.",
+      "benefits": [
+        "The 3 biggest leaks in your current funnel",
+        "How many leads you're losing per month (with real numbers)",
+        "Projected ROI with an AI Sales Agent for your business",
+        "Custom roadmap (no commitments)"
+      ],
+      "cta": "Book My Free Audit Now",
+      "guarantee": "No credit card required. No fine print. Just actionable insights.",
+      "urgency": "Only 8 slots left this month",
+      "badge": "Book Now - Limited Spots",
+      "preferEmail": "Prefer to email us first?",
       "sendMessage": "Send us a message"
     },
     "services": {
       "title": "Our Services",
       "description": "Comprehensive AI-powered digital marketing solutions to take your business to the next level",
-      "viewAll": "View all services"
+      "viewAll": "View all services",
+      "items": {
+        "posicionamiento": {
+          "title": "SEO Positioning",
+          "description": "Dominate search results with data-driven SEO strategies. We optimize your content, technical SEO, and build high-authority backlinks to drive qualified organic traffic.",
+          "price": "From $997/month",
+          "ideal": "Companies looking for sustainable, long-term organic growth"
+        },
+        "redesSociales": {
+          "title": "Social Media Management",
+          "description": "Strategic social media presence that builds brand authority and drives conversions. Content creation, community management, and targeted advertising across all platforms.",
+          "price": "From $1,497/month",
+          "ideal": "Brands that want to build loyal communities and increase engagement"
+        },
+        "publicidad": {
+          "title": "Performance Advertising",
+          "description": "ROI-focused advertising campaigns on Google Ads, Facebook/Instagram, and LinkedIn. We optimize for conversions with advanced tracking and A/B testing.",
+          "price": "From $2,497/month",
+          "ideal": "Businesses that need immediate results and measurable ROI"
+        },
+        "disenoWeb": {
+          "title": "Conversion-Focused Web Design",
+          "description": "High-converting websites built with modern technologies. Mobile-first design, fast loading speeds, and optimized user experience that turns visitors into customers.",
+          "price": "From $3,997",
+          "ideal": "Companies that need a professional online presence that generates leads"
+        }
+      }
     },
     "stats": {
       "projects": "Successful Projects",
@@ -169,7 +230,7 @@
   },
   "services": {
     "meta": {
-      "title": "Digital Marketing & AI Services | jmarIA",
+      "title": "Digital Marketing & AI Services | AutomatikAI",
       "description": "Professional AI-powered digital marketing services. Automation, strategy, and measurable results."
     },
     "title": "Our Services",
@@ -210,7 +271,7 @@
   },
   "cases": {
     "meta": {
-      "title": "Success Stories | jmarIA",
+      "title": "Success Stories | AutomatikAI",
       "description": "Portfolio of successful projects. Discover how we help our clients achieve their digital marketing goals."
     },
     "title": "Success Stories",
@@ -224,10 +285,11 @@
   },
   "about": {
     "meta": {
-      "title": "About Us | jmarIA",
-      "description": "Meet the jmarIA team. Our mission, values, and why we're your best choice in AI-powered digital marketing."
+      "title": "About Us | AutomatikAI",
+      "description": "Meet the AutomatikAI team. Our mission, values, and why we're your best choice in AI-powered digital marketing."
     },
-    "title": "About jmarIA",
+    "title": "About Automatik",
+    "titleHighlight": "AI",
     "mission": {
       "title": "Our Mission",
       "description": "To democratize the power of artificial intelligence in digital marketing, making the most advanced strategies accessible to businesses of all sizes."
@@ -239,7 +301,7 @@
   },
   "pricing": {
     "meta": {
-      "title": "Plans & Pricing | jmarIA",
+      "title": "Plans & Pricing | AutomatikAI",
       "description": "Flexible AI-powered digital marketing plans. Find the perfect plan for your business."
     },
     "title": "Plans & Pricing",
@@ -271,7 +333,7 @@
   },
   "faq": {
     "meta": {
-      "title": "FAQ | jmarIA",
+      "title": "FAQ | AutomatikAI",
       "description": "Answers to the most common questions about our AI-powered digital marketing services."
     },
     "title": "Frequently Asked Questions",
@@ -292,8 +354,8 @@
   },
   "contact": {
     "meta": {
-      "title": "Contact | jmarIA",
-      "description": "Get in touch with jmarIA. We're ready to take your business to the next level with AI-powered digital marketing."
+      "title": "Contact | AutomatikAI",
+      "description": "Get in touch with AutomatikAI. We're ready to take your business to the next level with AI-powered digital marketing."
     },
     "title": "Let's Talk About Your Project",
     "description": "We're ready to transform your vision into reality. Tell us about your project and discover how we can help you.",
@@ -331,7 +393,7 @@
     }
   },
   "footer": {
-    "description": "We transform your digital presence with AI-powered strategies. Measurable results, limitless creativity.",
+    "description": "AutomatikAI transforms your digital presence with AI-powered strategies. Measurable results, limitless creativity, automated growth.",
     "services": "Services",
     "company": "Company",
     "legal": "Legal",
@@ -341,8 +403,8 @@
       "cookies": "Cookies",
       "blog": "Blog"
     },
-    "copyright": "© 2026 jmarIA Agency. All rights reserved.",
-    "madeWith": "Made with"
+    "copyright": "© 2026 AutomatikAI Agency. All rights reserved.",
+    "madeWith": "Made with ❤️"
   },
   "common": {
     "readMore": "Read more",

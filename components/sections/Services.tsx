@@ -26,13 +26,13 @@ function ServiceCard({ service, index }: { service: any; index: number }) {
       viewport={{ once: false, margin: "-100px" }}
       transition={{
         delay: index * animations.stagger.fast,
-        duration: animations.durations.normal,
-        ease: animations.easings.smooth,
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }}
-      whileHover={{ scale: 1.05, y: -5 }}
-      animate={shouldAutoHover ? { scale: 1.05, y: -5 } : {}}
+      whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } }}
+      animate={shouldAutoHover ? { scale: 1.05, y: -5, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } } : { scale: 1, y: 0, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } }}
     >
-      <GlowCard glowColor={service.color} className="h-full p-6 md:p-8 backdrop-blur-md bg-card/60 border-2">
+      <GlowCard glowColor={service.color} className="h-full min-h-[320px] p-6 md:p-8 backdrop-blur-md bg-card/60 border-2 border-primary/50 hover:border-primary hover:shadow-lg hover:shadow-primary/25">
         <motion.div
           initial={{ rotate: 0 }}
           whileInView={{ rotate: 360 }}
@@ -138,7 +138,7 @@ export function Services({ detailed }: { detailed?: boolean } = {}) {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {services.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}

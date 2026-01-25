@@ -21,7 +21,7 @@ export function Loader({ isLoading }: LoaderProps) {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <Logo size="xl" />
+          <Logo size="xxl" />
         </motion.div>
 
         <div className="flex gap-2">

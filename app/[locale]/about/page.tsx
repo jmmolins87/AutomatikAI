@@ -53,7 +53,7 @@ export default function NosotrosPage() {
             className="text-center mb-20 backdrop-blur-md bg-background/30 rounded-2xl p-8 border border-border/30"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              {t('title')}
+              {t('title')}<span className="gradient-ia-animated">{t('titleHighlight')}</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {t('mission.description')}

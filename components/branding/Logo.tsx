@@ -33,7 +33,7 @@ export function Logo({ size = 'md', animated = true, className }: LogoProps) {
     >
       <Image
         src="/logo/logo.svg"
-        alt="jmarIA"
+        alt="AutomatikAI"
         width={dimensions.width}
         height={dimensions.height}
         priority
@@ -48,8 +48,8 @@ export function Logo({ size = 'md', animated = true, className }: LogoProps) {
             <div className="absolute top-[45%] right-[25%] w-3 h-3 bg-accent rounded-full animate-ping shadow-lg shadow-accent" style={{ animationDelay: '0.5s', animationDuration: '2s' }} />
             <div className="absolute bottom-[35%] left-[35%] w-3 h-3 bg-primary rounded-full animate-ping shadow-lg shadow-primary" style={{ animationDelay: '1s', animationDuration: '2s' }} />
             <div className="absolute top-[55%] right-[40%] w-3 h-3 bg-accent rounded-full animate-ping shadow-lg shadow-accent" style={{ animationDelay: '1.5s', animationDuration: '2s' }} />
-            <div className="absolute top-[40%] left-[50%] w-2 h-2 bg-purple-400 rounded-full animate-ping shadow-lg shadow-purple-400" style={{ animationDelay: '0.75s', animationDuration: '2s' }} />
-            <div className="absolute bottom-[45%] right-[35%] w-2 h-2 bg-purple-400 rounded-full animate-ping shadow-lg shadow-purple-400" style={{ animationDelay: '1.25s', animationDuration: '2s' }} />
+            <div className="absolute top-[40%] left-[50%] w-2 h-2 bg-primary rounded-full animate-ping shadow-lg shadow-primary" style={{ animationDelay: '0.75s', animationDuration: '2s' }} />
+            <div className="absolute bottom-[45%] right-[35%] w-2 h-2 bg-primary rounded-full animate-ping shadow-lg shadow-primary" style={{ animationDelay: '1.25s', animationDuration: '2s' }} />
           </div>
         </>
       )}

@@ -13,10 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "jmarIA | Human strategy. Artificial intelligence.",
+  title: "AutomatikAI | Human strategy. Artificial intelligence.",
   description: "AI-powered digital marketing agency. We transform your digital presence with innovative strategies and measurable results.",
   keywords: ["digital marketing", "artificial intelligence", "AI", "automation", "growth hacking", "analytics"],
-  authors: [{ name: "jmarIA Agency" }],
+  authors: [{ name: "AutomatikAI Agency" }],
   icons: {
     icon: [
       { url: '/logo/logo.svg', type: 'image/svg+xml' },

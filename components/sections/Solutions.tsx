@@ -49,8 +49,11 @@ export function Solutions() {
           className="text-center mb-20"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            {t('title')} <span className="gradient-ia">{t('titleHighlight')}</span>
+            <span className="gradient-ia-animated">{t('title')}</span>
           </h2>
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            {t('subtitle')}
+          </h3>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             {t('description')}
           </p>

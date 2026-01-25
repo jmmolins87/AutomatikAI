@@ -7,6 +7,7 @@ export function useAutoHover<T extends HTMLElement = HTMLDivElement>(): [RefObje
   const ref = useRef<T | null>(null);
   const isInView = useInView(ref, { amount: 0.5, once: false });
   const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const checkTouchDevice = () => {
@@ -21,7 +22,23 @@ export function useAutoHover<T extends HTMLElement = HTMLDivElement>(): [RefObje
     setIsTouchDevice(checkTouchDevice());
   }, []);
 
-  const shouldAutoHover = isTouchDevice && isInView;
+  useEffect(() => {
+    const element = ref.current;
+    if (!element || !isTouchDevice) return;
+
+    const handleMouseEnter = () => setIsHovered(true);
+    const handleMouseLeave = () => setIsHovered(false);
+
+    element.addEventListener('mouseenter', handleMouseEnter);
+    element.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      element.removeEventListener('mouseenter', handleMouseEnter);
+      element.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, [isTouchDevice]);
+
+  const shouldAutoHover = isTouchDevice && isInView && !isHovered;
 
   return [ref, shouldAutoHover];
 }

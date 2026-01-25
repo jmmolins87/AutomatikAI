@@ -7,17 +7,20 @@ export function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [mouseX, setMouseX] = useState(0);
+  const [mouseY, setMouseY] = useState(0);
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Detectar si es dispositivo táctil
+    // Detectar si es dispositivo táctil o pantalla pequeña
     const checkTouchDevice = () => {
       return (
         'ontouchstart' in window ||
         navigator.maxTouchPoints > 0 ||
         // @ts-ignore
-        navigator.msMaxTouchPoints > 0
+        navigator.msMaxTouchPoints > 0 ||
+        window.innerWidth < 768 // Considerar tablets y móviles
       );
     };
 
@@ -28,6 +31,8 @@ export function CustomCursor() {
     }
 
     const updateMousePosition = (e: MouseEvent) => {
+      setMouseX(e.clientX);
+      setMouseY(e.clientY);
       if (!isVisible) setIsVisible(true);
 
       // Update cursor position instantly without animation
@@ -45,10 +50,10 @@ export function CustomCursor() {
     const handleHoverStart = () => {
       setIsHovering(true);
       if (dotRef.current) {
-        dotRef.current.style.transform = `translate(${dotRef.current.offsetLeft}px, ${dotRef.current.offsetTop}px) scale(0.5)`;
+        dotRef.current.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px) scale(0.5)`;
       }
       if (ringRef.current) {
-        ringRef.current.style.transform = `translate(${ringRef.current.offsetLeft}px, ${ringRef.current.offsetTop}px) scale(1.5)`;
+        ringRef.current.style.transform = `translate(${mouseX - 16}px, ${mouseY - 16}px) scale(1.5)`;
         ringRef.current.style.opacity = '0.6';
       }
     };
@@ -107,7 +112,7 @@ export function CustomCursor() {
           background: siteGradients.ia,
           mixBlendMode: 'difference',
           willChange: 'transform',
-          transition: 'transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+          transition: 'none',
         }}
       />
 
@@ -130,7 +135,7 @@ export function CustomCursor() {
           zIndex: 9998,
           opacity: 0.3,
           willChange: 'transform, opacity',
-          transition: 'transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.2s ease',
+          transition: 'none',
         }}
       />
     </>

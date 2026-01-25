@@ -71,7 +71,7 @@ export function AboutAgency() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              {t('title')} <span className="gradient-ia">{t('titleHighlight')}</span>
+              {t('title').replace('AI', '')}<span className="gradient-ia">AI</span>
             </h2>
           </motion.div>
 

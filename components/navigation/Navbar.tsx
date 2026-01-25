@@ -22,7 +22,7 @@ export function Navbar() {
 
   const navLinks = [
     { label: t('services'), href: `/${locale}/servicios` },
-    { label: t('about'), href: `/${locale}/nosotros` },
+    { label: t('about'), href: `/${locale}/about` },
     { label: t('contact'), href: `/${locale}/contacto` },
   ];
 
