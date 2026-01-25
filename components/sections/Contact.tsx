@@ -367,7 +367,7 @@ export function Contact() {
                   type="submit"
                   size="lg"
                   disabled={isSubmitting || !isFormValid()}
-                  className="w-full md:w-auto gradient-ia-bg text-white border-0 text-base h-12 px-8 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className={`w-full md:w-auto gradient-ia-bg text-white border-0 text-base h-12 px-8 ${isSubmitting ? 'opacity-100 cursor-wait' : '!opacity-100'} ${!isSubmitting && !isFormValid() ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
                   {isSubmitting ? (
                     <>

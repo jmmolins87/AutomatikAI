@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { Logo } from '@/components/branding/Logo';
 import { Button } from '@/components/ui/button';
 import { LocaleSwitch } from '@/components/navigation/LocaleSwitch';
+import { ThemeDropdown } from '@/components/ui/theme-dropdown';
 import { animations } from '@/lib/design-system';
 import type { Locale } from '@/i18n/config';
 
@@ -48,7 +49,10 @@ export function Navbar() {
   const backgroundColor = useTransform(
     scrollY,
     [0, 100],
-    ['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.8)']
+    [
+      'rgba(var(--background-rgb), 0)',
+      'rgba(var(--background-rgb), 0.85)'
+    ]
   );
 
   const backdropBlur = useTransform(scrollY, [0, 100], ['blur(0px)', 'blur(16px)']);
@@ -103,6 +107,7 @@ export function Navbar() {
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 gradient-ia-bg group-hover:w-full transition-all duration-300" />
                 </Link>
               ))}
+              <ThemeDropdown />
               <LocaleSwitch />
               <Link href={`/${locale}/contacto`}>
                 <Button size="sm" className="gradient-ia-bg text-white border-0">
@@ -113,6 +118,7 @@ export function Navbar() {
 
             {/* Mobile Menu Button alineado a la derecha */}
             <div className="flex items-center gap-4 lg:hidden">
+              <ThemeDropdown />
               <LocaleSwitch />
               <button
                 onClick={() => setIsOpen(!isOpen)}

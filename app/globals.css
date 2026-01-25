@@ -53,7 +53,9 @@
   --breakpoint-xxl: 1920px; /* >17" */
 }
 
-:root {
+ :root {
+  /* RGB para fondo claro */
+  --background-rgb: 255,255,255;
   /* Radios */
   --radius: 0.5rem;
   
@@ -148,7 +150,9 @@
   --sidebar-ring: oklch(0.45 0.15 240);
 }
 
-.dark {
+ .dark {
+  /* RGB para fondo oscuro */
+  --background-rgb: 18,18,28;
   /* Colores principales - Fondo oscuro tecnológico */
   --background: oklch(0.12 0.01 240);
   --foreground: oklch(0.95 0.005 240);
