@@ -1,0 +1,359 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "cases": "Success Stories",
+    "about": "About",
+    "features": "Features",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "getStarted": "Get Started"
+  },
+  "home": {
+    "slogan": "Human Strategy + AI = Results",
+    "hero": {
+      "slogan": "Human Strategy + AI = Results",
+      "title": "We Build Systems that",
+      "titleHighlight": "Sell While You Sleep",
+      "description": "We automate your sales with AI-powered smart systems.",
+      "descriptionHighlight": "Convert visitors into customers 24/7 without manual intervention.",
+      "cta": {
+        "primary": "Schedule Your Free Consultation",
+        "secondary": "View System Types"
+      },
+      "scrollDown": "Discover how"
+    },
+    "painPoints": {
+      "title": "Does this sound familiar?",
+      "subtitle": "Most entrepreneurs and businesses face these same obstacles.",
+      "subtitleHighlight": "You're not alone, and there is a solution.",
+      "items": {
+        "ads": {
+          "title": "You spend a lot on Ads with no return",
+          "description": "You invest thousands in advertising but sales don't come. Money goes out and you don't know why."
+        },
+        "time": {
+          "title": "You don't have time to sell",
+          "description": "You're stuck explaining the same thing over and over. You need to be in every sale."
+        },
+        "dependency": {
+          "title": "You depend on your presence",
+          "description": "If you're not there, there are no sales. Your business depends 100% on you and doesn't scale."
+        },
+        "traffic": {
+          "title": "Traffic that doesn't convert",
+          "description": "You have visits but no sales. Traffic arrives but leaves without buying."
+        },
+        "analytics": {
+          "title": "You don't know what's failing",
+          "description": "Everything seems fine but the numbers don't add up. No data, no answers."
+        },
+        "strategy": {
+          "title": "Strategies that don't work",
+          "description": "You try Instagram, YouTube tactics, but nothing generates consistent sales."
+        }
+      },
+      "conclusion": "The good news:",
+      "conclusionHighlight": "Every problem has a solution"
+    },
+    "solutions": {
+      "title": "Our",
+      "titleHighlight": "Solutions",
+      "description": "We transform every obstacle into a growth opportunity with proven strategies.",
+      "items": {
+        "optimization": {
+          "problem": "You spend a lot on Ads with no return",
+          "solution": "Optimized systems to convert",
+          "description": "We create sales processes that convert more with less traffic. Every visitor counts.",
+          "benefits": {
+            "roi": "Measurable ROI",
+            "investment": "Less advertising investment",
+            "targeting": "Better targeting"
+          }
+        },
+        "automation": {
+          "problem": "You don't have time to sell",
+          "solution": "Smart AI automation",
+          "description": "Your sales system works 24/7 while you focus on growing. No manual intervention.",
+          "benefits": {
+            "sales": "Automatic sales",
+            "scalable": "Infinitely scalable",
+            "independent": "Without depending on you"
+          }
+        },
+        "copy": {
+          "problem": "Traffic that doesn't convert",
+          "solution": "Proven copy and strategy",
+          "description": "We apply formulas that work: from the first word to checkout.",
+          "benefits": {
+            "persuasive": "Persuasive copy",
+            "validated": "Validated strategy",
+            "testing": "Continuous A/B testing"
+          }
+        },
+        "tracking": {
+          "problem": "You don't know what's failing",
+          "solution": "Complete analytics and tracking",
+          "description": "Dashboard with clear metrics. You know exactly where to optimize and improve.",
+          "benefits": {
+            "realtime": "Real-time data",
+            "insights": "Actionable insights",
+            "data": "Data-driven decisions"
+          }
+        }
+      }
+    },
+    "funnelTypes": {
+      "title": "Types of",
+      "titleHighlight": "Sales Systems",
+      "description": "Every business is unique. That's why we create the perfect system for your business model and specific objectives.",
+      "idealFor": "Ideal for:",
+      "notSure": "Not sure which system you need?",
+      "scheduleConsultation": "Schedule a Free Consultation"
+    },
+    "about": {
+      "title": "Meet",
+      "titleHighlight": "jmarIA",
+      "pillars": {
+        "ai": {
+          "title": "AI-Powered",
+          "description": "We use cutting-edge artificial intelligence to optimize every step of the sales process."
+        },
+        "proven": {
+          "title": "Proven Strategies",
+          "description": "We apply copywriting and marketing techniques that have generated millions in sales."
+        },
+        "automation": {
+          "title": "100% Automated",
+          "description": "Your system works 24/7 without needing your intervention. Scale without limits."
+        },
+        "support": {
+          "title": "Dedicated Support",
+          "description": "We accompany you every step. Continuous optimization based on real data."
+        }
+      }
+    },
+    "finalCta": {
+      "title": "Ready to",
+      "titleHighlight": "Automate Your Sales?",
+      "description": "Schedule a free 30-minute consultation. We'll analyze your business and show you exactly how we can help you sell more.",
+      "cta": "Schedule Free Consultation",
+      "guarantee": "No commitment. 100% free consultation.",
+      "badge": "Schedule Now - Limited Slots",
+      "preferEmail": "Prefer to write us first?",
+      "sendMessage": "Send us a message"
+    },
+    "services": {
+      "title": "Our Services",
+      "description": "Comprehensive AI-powered digital marketing solutions to take your business to the next level",
+      "viewAll": "View all services"
+    },
+    "stats": {
+      "projects": "Successful Projects",
+      "satisfaction": "Client Satisfaction",
+      "roi": "Average ROI",
+      "clients": "Active Clients"
+    },
+    "cases": {
+      "title": "Success Stories",
+      "description": "Real results that speak for themselves. Discover how we help our clients achieve their goals.",
+      "viewAll": "View all cases",
+      "viewCase": "View full case study"
+    },
+    "contact": {
+      "title": "Let's Talk About Your Project",
+      "description": "We're ready to transform your vision into reality. Tell us about your project and discover how we can help you.",
+      "cta": "Contact Us"
+    }
+  },
+  "services": {
+    "meta": {
+      "title": "Digital Marketing & AI Services | jmarIA",
+      "description": "Professional AI-powered digital marketing services. Automation, strategy, and measurable results."
+    },
+    "title": "Our Services",
+    "description": "Comprehensive AI-powered digital marketing solutions",
+    "items": {
+      "aiAutomation": {
+        "title": "AI Automation",
+        "description": "We implement artificial intelligence solutions that automate processes, optimize campaigns, and predict trends.",
+        "slug": "ai-automation"
+      },
+      "digitalMarketing": {
+        "title": "Digital Marketing",
+        "description": "Multi-channel strategies that boost your brand. SEO, SEM, Social Media, and content that converts.",
+        "slug": "digital-marketing"
+      },
+      "contentStrategy": {
+        "title": "Content Strategy",
+        "description": "We create narratives that connect. AI-optimized content for maximum engagement and conversion.",
+        "slug": "content-strategy"
+      },
+      "analytics": {
+        "title": "Analytics & Data",
+        "description": "We make data-driven decisions. Custom dashboards, real-time reports, and actionable insights.",
+        "slug": "analytics-data"
+      },
+      "growthHacking": {
+        "title": "Growth Hacking",
+        "description": "Accelerated growth with innovative techniques. Constant experimentation and funnel optimization.",
+        "slug": "growth-hacking"
+      },
+      "consulting": {
+        "title": "Digital Consulting",
+        "description": "Personalized strategic consulting. Digital transformation and marketing process optimization.",
+        "slug": "digital-consulting"
+      }
+    },
+    "learnMore": "Learn more"
+  },
+  "cases": {
+    "meta": {
+      "title": "Success Stories | jmarIA",
+      "description": "Portfolio of successful projects. Discover how we help our clients achieve their digital marketing goals."
+    },
+    "title": "Success Stories",
+    "description": "Real results that speak for themselves",
+    "filters": {
+      "all": "All",
+      "ecommerce": "E-commerce",
+      "b2b": "B2B",
+      "branding": "Branding"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "About Us | jmarIA",
+      "description": "Meet the jmarIA team. Our mission, values, and why we're your best choice in AI-powered digital marketing."
+    },
+    "title": "About jmarIA",
+    "mission": {
+      "title": "Our Mission",
+      "description": "To democratize the power of artificial intelligence in digital marketing, making the most advanced strategies accessible to businesses of all sizes."
+    },
+    "why": {
+      "title": "Why Choose Us",
+      "description": "We combine the best of human strategy with the power of artificial intelligence"
+    }
+  },
+  "pricing": {
+    "meta": {
+      "title": "Plans & Pricing | jmarIA",
+      "description": "Flexible AI-powered digital marketing plans. Find the perfect plan for your business."
+    },
+    "title": "Plans & Pricing",
+    "description": "Find the perfect plan for your business",
+    "plans": {
+      "basic": {
+        "name": "Basic",
+        "description": "Ideal for entrepreneurs and small businesses",
+        "cta": "Get Started"
+      },
+      "professional": {
+        "name": "Professional",
+        "description": "For growing businesses",
+        "cta": "Choose Plan"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "Custom solutions for large companies",
+        "cta": "Contact"
+      },
+      "custom": {
+        "name": "Custom",
+        "description": "Designed specifically for your needs",
+        "cta": "Talk to Expert"
+      }
+    },
+    "features": "Included features",
+    "compareThreshold": "Compare plans"
+  },
+  "faq": {
+    "meta": {
+      "title": "FAQ | jmarIA",
+      "description": "Answers to the most common questions about our AI-powered digital marketing services."
+    },
+    "title": "Frequently Asked Questions",
+    "description": "Find answers to the most common questions",
+    "search": "Search question...",
+    "categories": {
+      "general": "General",
+      "services": "Services",
+      "pricing": "Pricing & Billing",
+      "process": "Process & Timeline",
+      "support": "Support"
+    },
+    "contact": {
+      "title": "Didn't find what you were looking for?",
+      "description": "Contact us and we'll be happy to answer your questions",
+      "cta": "Contact Support"
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact | jmarIA",
+      "description": "Get in touch with jmarIA. We're ready to take your business to the next level with AI-powered digital marketing."
+    },
+    "title": "Let's Talk About Your Project",
+    "description": "We're ready to transform your vision into reality. Tell us about your project and discover how we can help you.",
+    "form": {
+      "name": "Full name",
+      "email": "Email",
+      "company": "Company",
+      "service": "Service of interest",
+      "message": "Tell us about your project",
+      "messagePlaceholder": "Briefly describe your project, goals, and how we can help you...",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "success": {
+        "title": "Message Sent!",
+        "description": "Thank you for contacting us. We'll get back to you very soon."
+      },
+      "errors": {
+        "nameMin": "Name must be at least 2 characters",
+        "emailInvalid": "Invalid email",
+        "messageMin": "Message must be at least 10 characters",
+        "required": "This field is required",
+        "emailFormat": "Please enter a valid email address"
+      },
+      "toast": {
+        "success": "Message sent successfully",
+        "successDescription": "We'll get back to you very soon",
+        "error": "Error sending message",
+        "errorDescription": "Please try again later"
+      }
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address"
+    }
+  },
+  "footer": {
+    "description": "We transform your digital presence with AI-powered strategies. Measurable results, limitless creativity.",
+    "services": "Services",
+    "company": "Company",
+    "legal": "Legal",
+    "links": {
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "cookies": "Cookies",
+      "blog": "Blog"
+    },
+    "copyright": "© 2026 jmarIA Agency. All rights reserved.",
+    "madeWith": "Made with"
+  },
+  "common": {
+    "readMore": "Read more",
+    "learnMore": "Learn more",
+    "getStarted": "Get Started",
+    "contact": "Contact",
+    "viewAll": "View all",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "loading": "Loading...",
+    "error": "An error occurred"
+  }
+}
