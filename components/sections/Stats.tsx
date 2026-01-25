@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { animate } from 'animejs';
+import { animate, Animation } from 'animejs';
 import { animations, spacing } from '@/lib/design-system';
 
 const stats = [
@@ -24,18 +24,27 @@ export function Stats() {
 
           // Animar contadores
           stats.forEach((stat, index) => {
-            const element = document.querySelector(`#stat-${index}`);
+            const element = document.querySelector(`#stat-${index}`) as HTMLElement;
             if (element) {
-              animate(element, {
-                innerHTML: [0, stat.value],
-                round: 1,
-                duration: 2000,
-                ease: 'outExpo',
-                onUpdate: function (anim) {
-                  const value = Math.round(anim.animations[0].currentValue);
-                  element.innerHTML = value.toString();
-                },
-              });
+              let current = 0;
+              const target = stat.value;
+              const duration = 2000;
+              const start = Date.now();
+
+              const animate = () => {
+                const elapsed = Date.now() - start;
+                const progress = Math.min(elapsed / duration, 1);
+                current = Math.round(target * progress);
+                element.innerHTML = current.toString();
+
+                if (progress < 1) {
+                  requestAnimationFrame(animate);
+                } else {
+                  element.innerHTML = target.toString();
+                }
+              };
+
+              animate();
             }
           });
         }
