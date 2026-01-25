@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
-import type p5Types from 'p5';
 
 const Sketch = dynamic(() => import('react-p5').then((mod) => mod.default), {
   ssr: false,
@@ -11,12 +10,12 @@ const Sketch = dynamic(() => import('react-p5').then((mod) => mod.default), {
 export function P5WaveBackground() {
   const canvasParentRef = useRef<HTMLDivElement>(null);
 
-  const setup = (p5: p5Types, canvasParentRef: Element) => {
+  const setup = (p5: any, canvasParentRef: Element) => {
     p5.createCanvas(p5.windowWidth, 300).parent(canvasParentRef);
     p5.noFill();
   };
 
-  const draw = (p5: p5Types) => {
+  const draw = (p5: any) => {
     p5.clear();
 
     const time = p5.frameCount * 0.01;
@@ -44,7 +43,7 @@ export function P5WaveBackground() {
     }
   };
 
-  const windowResized = (p5: p5Types) => {
+  const windowResized = (p5: any) => {
     p5.resizeCanvas(p5.windowWidth, 300);
   };
 

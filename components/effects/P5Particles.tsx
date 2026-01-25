@@ -2,7 +2,6 @@
 
 import { useRef } from 'react';
 import dynamic from 'next/dynamic';
-import type p5Types from 'p5';
 
 const Sketch = dynamic(() => import('react-p5').then((mod) => mod.default), {
   ssr: false,
@@ -22,7 +21,7 @@ let particles: Particle[] = [];
 export function P5Particles() {
   const canvasParentRef = useRef<HTMLDivElement>(null);
 
-  const setup = (p5: p5Types, canvasParentRef: Element) => {
+  const setup = (p5: any, canvasParentRef: Element) => {
     p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
 
     // Crear partículas
@@ -42,7 +41,7 @@ export function P5Particles() {
     }
   };
 
-  const draw = (p5: p5Types) => {
+  const draw = (p5: any) => {
     p5.clear();
 
     // Dibujar y actualizar partículas
@@ -74,7 +73,7 @@ export function P5Particles() {
     });
   };
 
-  const windowResized = (p5: p5Types) => {
+  const windowResized = (p5: any) => {
     p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
   };
 
