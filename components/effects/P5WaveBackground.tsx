@@ -48,7 +48,7 @@ export function P5WaveBackground() {
   };
 
   return (
-    <div ref={canvasParentRef} className="absolute inset-x-0 top-0 pointer-events-none opacity-30">
+    <div ref={canvasParentRef} className="absolute inset-x-0 top-0 pointer-events-none opacity-15 md:opacity-20">
       {typeof window !== 'undefined' && (
         <Sketch setup={setup} draw={draw} windowResized={windowResized} />
       )}

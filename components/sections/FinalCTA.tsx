@@ -1,4 +1,6 @@
 "use client";
+import dynamic from 'next/dynamic';
+const FloatingObject = dynamic(() => import('@/components/3d/FloatingObject').then(mod => ({ default: mod.FloatingObject })), { ssr: false });
 
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
@@ -15,6 +17,9 @@ export function FinalCTA() {
 
   return (
     <section className="py-16 md:py-24 relative overflow-hidden bg-linear-to-br from-orange-950/30 via-background to-amber-900/20">
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+        <FloatingObject geometry="box" colorVariant="purple" />
+      </div>
       {/* Animated Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,var(--color-purple-10),transparent_50%),radial-gradient(circle_at_70%_50%,var(--color-purple-10),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--color-purple-05),transparent_70%)]" />

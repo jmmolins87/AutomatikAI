@@ -199,7 +199,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, margin: '-100px' }}
           transition={{ duration: animations.durations.normal }}
-          className="text-center mb-16 backdrop-blur-md bg-background/30 rounded-2xl p-8 border border-border/30"
+          className="text-center mb-16 backdrop-blur-md bg-background/30 rounded-2xl p-8 border border-border/30 max-w-4xl mx-auto"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             <AnimatedText variant="wave" delay={200}>

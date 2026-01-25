@@ -64,13 +64,15 @@ function WaveParticles() {
           args={[positions, 3]}
         />
       </bufferGeometry>
-      <pointsMaterial
-        size={0.05}
-        color={siteColors.purpleAlt}
-        transparent
-        opacity={0.8}
-        sizeAttenuation
-      />
+        <pointsMaterial
+          attach="material"
+          color={siteColors.cyan}
+          size={0.16}
+          sizeAttenuation
+          transparent
+          opacity={typeof window !== 'undefined' && document.documentElement.classList.contains('dark') ? 0.38 : 0.38}
+          depthWrite={false}
+        />
     </points>
   );
 }

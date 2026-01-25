@@ -1,5 +1,9 @@
 "use client";
 
+
+import dynamic from 'next/dynamic';
+const NetworkGrid = dynamic(() => import('@/components/3d/NetworkGrid').then(mod => ({ default: mod.NetworkGrid })), { ssr: false });
+
 import { motion } from 'framer-motion';
 import { TrendingDown, Clock, DollarSign, Users, AlertCircle, Target } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -75,6 +79,9 @@ export function PainPoints() {
   ];
   return (
     <section id="pain-points" className="py-16 md:py-24 relative overflow-hidden bg-linear-to-br from-red-950/30 via-background to-red-900/20">
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+        <NetworkGrid />
+      </div>
       {/* Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--color-purple-10),transparent_70%)]" />
 

@@ -1,4 +1,7 @@
 "use client";
+ 
+import dynamic from 'next/dynamic';
+const GeometricShapes = dynamic(() => import('@/components/3d/GeometricShapes').then(mod => ({ default: mod.GeometricShapes })), { ssr: false });
 
 import { motion } from 'framer-motion';
 import {
@@ -52,6 +55,9 @@ export function FunnelTypes() {
 
   return (
     <section className="py-16 md:py-24 relative overflow-hidden bg-linear-to-br from-blue-950/30 via-background to-cyan-900/20">
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+        <GeometricShapes />
+      </div>
       {/* Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--color-cyan-10),transparent_70%)]" />
 

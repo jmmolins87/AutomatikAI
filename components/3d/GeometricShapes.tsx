@@ -22,38 +22,38 @@ function RotatingShapes() {
   }, []);
 
   useFrame((state) => {
-    const scrollFactor = scrollY.current * 0.001;
+    const scrollFactor = scrollY.current * 0.0003; // mucho más lento
 
     if (boxRef.current) {
-      boxRef.current.rotation.x += 0.01 + scrollFactor * 0.1;
-      boxRef.current.rotation.y += 0.01 + scrollFactor * 0.05;
-      boxRef.current.position.x = Math.sin(state.clock.elapsedTime * 0.5 + scrollFactor) * 2;
-      boxRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.3 + scrollFactor) * 1;
+      boxRef.current.rotation.x += 0.0025 + scrollFactor * 0.02;
+      boxRef.current.rotation.y += 0.0025 + scrollFactor * 0.01;
+      boxRef.current.position.x = Math.sin(state.clock.elapsedTime * 0.12 + scrollFactor) * 0.5;
+      boxRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.08 + scrollFactor) * 0.25;
     }
     if (torusRef.current) {
-      torusRef.current.rotation.x += 0.02 + scrollFactor * 0.08;
-      torusRef.current.rotation.z += 0.01 + scrollFactor * 0.03;
-      torusRef.current.position.y = Math.cos(state.clock.elapsedTime * 0.5 + scrollFactor) * 1.5;
-      torusRef.current.position.x = Math.sin(state.clock.elapsedTime * 0.4 + scrollFactor) * 1;
+      torusRef.current.rotation.x += 0.004 + scrollFactor * 0.015;
+      torusRef.current.rotation.z += 0.002 + scrollFactor * 0.008;
+      torusRef.current.position.y = Math.cos(state.clock.elapsedTime * 0.13 + scrollFactor) * 0.35;
+      torusRef.current.position.x = Math.sin(state.clock.elapsedTime * 0.09 + scrollFactor) * 0.18;
     }
     if (octaRef.current) {
-      octaRef.current.rotation.y += 0.015 + scrollFactor * 0.06;
-      octaRef.current.rotation.z += 0.01 + scrollFactor * 0.04;
-      octaRef.current.position.x = Math.cos(state.clock.elapsedTime * 0.5 + scrollFactor) * 2;
-      octaRef.current.position.z = Math.sin(state.clock.elapsedTime * 0.6 + scrollFactor) * 1;
+      octaRef.current.rotation.y += 0.003 + scrollFactor * 0.012;
+      octaRef.current.rotation.z += 0.002 + scrollFactor * 0.008;
+      octaRef.current.position.x = Math.cos(state.clock.elapsedTime * 0.11 + scrollFactor) * 0.5;
+      octaRef.current.position.z = Math.sin(state.clock.elapsedTime * 0.14 + scrollFactor) * 0.22;
     }
   });
 
   return (
     <>
       <Box ref={boxRef} args={[1, 1, 1]} position={[-2, 1, 0]}>
-        <meshStandardMaterial color={siteColors.indigo} metalness={0.6} roughness={0.2} />
+        <meshStandardMaterial color={siteColors.indigo} metalness={0.6} roughness={0.2} transparent opacity={typeof window !== 'undefined' && document.documentElement.classList.contains('dark') ? 0.25 : 0.12} />
       </Box>
       <Torus ref={torusRef} args={[0.8, 0.3, 16, 32]} position={[0, -1, 0]}>
-        <meshStandardMaterial color={siteColors.purple} metalness={0.7} roughness={0.3} />
+        <meshStandardMaterial color={siteColors.purple} metalness={0.7} roughness={0.3} transparent opacity={typeof window !== 'undefined' && document.documentElement.classList.contains('dark') ? 0.22 : 0.10} />
       </Torus>
       <Octahedron ref={octaRef} args={[1, 0]} position={[2, 0.5, 0]}>
-        <meshStandardMaterial color={siteColors.purpleAlt} metalness={0.5} roughness={0.4} />
+        <meshStandardMaterial color={siteColors.purpleAlt} metalness={0.5} roughness={0.4} transparent opacity={typeof window !== 'undefined' && document.documentElement.classList.contains('dark') ? 0.18 : 0.08} />
       </Octahedron>
     </>
   );

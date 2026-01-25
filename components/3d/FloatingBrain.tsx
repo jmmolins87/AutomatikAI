@@ -38,6 +38,8 @@ function AnimatedBrain() {
         speed={2}
         roughness={0.2}
         metalness={0.8}
+        transparent
+        opacity={typeof window !== 'undefined' && document.documentElement.classList.contains('dark') ? 0.22 : 0.10}
       />
     </Sphere>
   );

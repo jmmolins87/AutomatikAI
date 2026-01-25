@@ -43,9 +43,10 @@ function AnimatedPoints() {
       <PointMaterial
         transparent
         color={siteColors.purpleAlt}
-        size={0.05}
+        size={0.11}
         sizeAttenuation={true}
         depthWrite={false}
+        opacity={typeof window !== 'undefined' && document.documentElement.classList.contains('dark') ? 0.38 : 0.22}
       />
     </Points>
   );

@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -28,11 +29,7 @@ function AnimatedHeroLogo() {
     };
 
     // Initial check
-    handleScroll();
-
-    // Add scroll listener
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
+    // Removed duplicate import and declaration of dynamic and ParticleWaves
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -78,6 +75,9 @@ export function ValueProposition() {
 
   return (
     <section className="relative h-screen flex flex-col items-center justify-center overflow-x-hidden pt-20 pb-8">
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+        <ParticleWaves />
+      </div>
       {/* Three.js Particle Waves Background */}
       <ParticleWaves />
 

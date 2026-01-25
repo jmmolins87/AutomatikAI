@@ -1,5 +1,6 @@
 "use client";
-
+import dynamic from 'next/dynamic';
+const FloatingBrain = dynamic(() => import('@/components/3d/FloatingBrain').then(mod => ({ default: mod.FloatingBrain })), { ssr: false });
 import { motion } from 'framer-motion';
 import { Brain, Code, LineChart, Lightbulb } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -54,6 +55,9 @@ export function AboutAgency() {
   ];
   return (
     <section className="py-16 md:py-24 relative overflow-hidden bg-linear-to-br from-emerald-950/30 via-background to-teal-900/20">
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+        <FloatingBrain />
+      </div>
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--color-cyan-10),transparent_70%)]" />

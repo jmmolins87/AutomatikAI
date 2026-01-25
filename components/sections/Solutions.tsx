@@ -1,9 +1,12 @@
+
 "use client";
 
 import { motion } from 'framer-motion';
 import { Zap, BarChart3, Sparkles, TrendingUp, CheckCircle2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
+import { FloatingObject } from '@/components/3d/FloatingObject';
+
 
 const P5WaveBackground = dynamic(
   () => import('@/components/effects/P5WaveBackground').then(mod => ({ default: mod.P5WaveBackground })),
@@ -33,6 +36,9 @@ export function Solutions() {
   ];
   return (
     <section className="py-16 md:py-24 relative overflow-hidden bg-linear-to-br from-purple-950/30 via-background to-purple-900/20">
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+        <FloatingObject geometry="torus" colorVariant="cyan" />
+      </div>
       {/* P5 Wave Background */}
       <P5WaveBackground />
 
@@ -77,7 +83,7 @@ export function Solutions() {
                     <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                       <solution.icon className="w-8 h-8 text-primary" />
                     </div>
-                    <div className="text-sm text-destructive/70 font-medium max-w-[500px] text-center md:text-left">
+                    <div className="text-sm text-destructive/70 font-medium max-w-125 text-center md:text-left">
                       ❌ {t(`items.${solution.key}.problem`)}
                     </div>
                   </div>
