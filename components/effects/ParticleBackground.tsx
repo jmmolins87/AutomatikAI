@@ -87,9 +87,7 @@ function Particles() {
       />
       <bufferAttribute
         attach="geometry-attributes-color"
-        count={colors_array.length / 3}
-        array={colors_array}
-        itemSize={3}
+        args={[colors_array, 3]}
       />
     </Points>
   );
