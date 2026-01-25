@@ -67,7 +67,7 @@ function ServiceCard({ service, index }: { service: any; index: number }) {
   );
 }
 
-export function Services() {
+export function Services({ detailed }: { detailed?: boolean } = {}) {
   const t = useTranslations('services');
   const tItems = useTranslations('services.items');
 
