@@ -82,7 +82,7 @@ export function ValueProposition() {
       <ParticleWaves />
 
       {/* Fondo con gradiente */}
-      <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-background to-accent/15" />
+      <div className="absolute inset-0 bg-linear-to-br from-primary/30 via-background to-accent/25" />
 
       {/* Grid decorativo */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.05)_1px,transparent_1px)] bg-size-[64px_64px]" />

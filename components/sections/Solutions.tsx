@@ -32,12 +32,12 @@ export function Solutions() {
     },
   ];
   return (
-    <section className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-br from-purple-950/20 via-background to-purple-900/10">
+    <section className="py-16 md:py-24 relative overflow-hidden bg-linear-to-br from-purple-950/30 via-background to-purple-900/20">
       {/* P5 Wave Background */}
       <P5WaveBackground />
 
       {/* Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(168,85,247,0.1),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--color-purple-10),transparent_70%)]" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -135,7 +135,7 @@ export function Solutions() {
                 </div>
 
                 {/* Decorative gradient */}
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                <div className="absolute inset-0 bg-linear-to-r from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
               </div>
             </motion.div>
           ))}

@@ -25,35 +25,35 @@ export function FunnelTypes() {
       name: tServices('posicionamiento.title'),
       description: tServices('posicionamiento.description'),
       ideal: tServices('posicionamiento.ideal'),
-      color: 'from-blue-500 to-cyan-500',
+      color: 'gradient-seo',
     },
     {
       icon: Share2,
       name: tServices('redesSociales.title'),
       description: tServices('redesSociales.description'),
       ideal: tServices('redesSociales.ideal'),
-      color: 'from-green-500 to-emerald-500',
+      color: 'gradient-social',
     },
     {
       icon: Megaphone,
       name: tServices('publicidad.title'),
       description: tServices('publicidad.description'),
       ideal: tServices('publicidad.ideal'),
-      color: 'from-purple-500 to-pink-500',
+      color: 'gradient-ads',
     },
     {
       icon: Monitor,
       name: tServices('disenoWeb.title'),
       description: tServices('disenoWeb.description'),
       ideal: tServices('disenoWeb.ideal'),
-      color: 'from-violet-500 to-purple-500',
+      color: 'gradient-web',
     },
   ];
 
   return (
-    <section className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-br from-blue-950/20 via-background to-cyan-900/10">
+    <section className="py-16 md:py-24 relative overflow-hidden bg-linear-to-br from-blue-950/30 via-background to-cyan-900/20">
       {/* Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--color-cyan-10),transparent_70%)]" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -85,7 +85,7 @@ export function FunnelTypes() {
             >
               <div className="h-full p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/10">
                 {/* Icon with gradient */}
-                <div className={`w-14 h-14 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                <div className={`w-14 h-14 rounded-lg ${service.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                   <service.icon className="w-7 h-7 text-white" />
                 </div>
 
@@ -104,7 +104,7 @@ export function FunnelTypes() {
                 </div>
 
                 {/* Hover effect */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 rounded-xl transition-opacity pointer-events-none`} />
+                <div className={`absolute inset-0 ${service.color}-hover group-hover:opacity-5 rounded-xl transition-opacity pointer-events-none`} />
               </div>
             </motion.div>
           ))}

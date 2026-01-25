@@ -131,6 +131,12 @@
   --gradient-ia: linear-gradient(135deg, var(--color-purple) 0%, var(--color-cyan) 100%);
   --gradient-ia-reverse: linear-gradient(135deg, var(--color-cyan) 0%, var(--color-purple) 100%);
   
+  /* Gradientes para servicios */
+  --gradient-seo: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+  --gradient-social: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --gradient-ads: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  --gradient-web: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+  
   /* Sidebar */
   --sidebar: oklch(0.98 0 0);
   --sidebar-foreground: oklch(0.15 0.01 240);
@@ -268,7 +274,7 @@
 
 .gradient-ia-bg {
   background: var(--gradient-ia);
-  transition: background 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: background 2s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .gradient-ia-bg:hover {
@@ -342,4 +348,46 @@
   100% {
     background-position: 200% 0;
   }
+}
+
+/* Gradientes para servicios */
+.gradient-seo {
+  background: var(--gradient-seo);
+}
+
+.gradient-social {
+  background: var(--gradient-social);
+}
+
+.gradient-ads {
+  background: var(--gradient-ads);
+}
+
+.gradient-web {
+  background: var(--gradient-web);
+}
+
+/* Efectos hover con opacidad para servicios */
+.gradient-seo-hover {
+  background: var(--gradient-seo);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gradient-social-hover {
+  background: var(--gradient-social);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gradient-ads-hover {
+  background: var(--gradient-ads);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gradient-web-hover {
+  background: var(--gradient-web);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }

@@ -14,10 +14,10 @@ export function FinalCTA() {
   const t = useTranslations('home.finalCta');
 
   return (
-    <section className="py-16 md:py-24 relative overflow-hidden bg-linear-to-br from-orange-950/20 via-background to-amber-900/10">
+    <section className="py-16 md:py-24 relative overflow-hidden bg-linear-to-br from-orange-950/30 via-background to-amber-900/20">
       {/* Animated Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(249,115,22,0.1),transparent_50%),radial-gradient(circle_at_70%_50%,rgba(245,158,11,0.1),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(209,132,255,0.05),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,var(--color-purple-10),transparent_50%),radial-gradient(circle_at_70%_50%,var(--color-purple-10),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--color-purple-05),transparent_70%)]" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto">

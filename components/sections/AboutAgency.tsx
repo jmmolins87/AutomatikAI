@@ -53,10 +53,10 @@ export function AboutAgency() {
     },
   ];
   return (
-    <section className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-br from-emerald-950/20 via-background to-teal-900/10">
+    <section className="py-16 md:py-24 relative overflow-hidden bg-linear-to-br from-emerald-950/30 via-background to-teal-900/20">
       {/* Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.1),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--color-cyan-10),transparent_70%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
       </div>
 
