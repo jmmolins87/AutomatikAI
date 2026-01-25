@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -31,6 +31,31 @@ export function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasFocus, setHasFocus] = useState(false);
+  // Para mantener el focus si cualquier input o textarea está enfocado
+  const formRef = React.useRef<HTMLFormElement>(null);
+
+  React.useEffect(() => {
+    function handleFocusIn(e: FocusEvent) {
+      if (formRef.current && formRef.current.contains(e.target as Node)) {
+        setHasFocus(true);
+      }
+    }
+    function handleFocusOut(e: FocusEvent) {
+      // Si ningún input/textarea dentro del form está enfocado, quitamos el focus
+      setTimeout(() => {
+        if (formRef.current) {
+          const active = formRef.current.querySelector(':focus');
+          if (!active) setHasFocus(false);
+        }
+      }, 10);
+    }
+    window.addEventListener('focusin', handleFocusIn);
+    window.addEventListener('focusout', handleFocusOut);
+    return () => {
+      window.removeEventListener('focusin', handleFocusIn);
+      window.removeEventListener('focusout', handleFocusOut);
+    };
+  }, []);
   const [touched, setTouched] = useState({
     name: false,
     email: false,
@@ -214,11 +239,12 @@ export function Contact() {
         <div className="max-w-4xl mx-auto">
           <GlowCard
             glowColor="gradient"
+            active={hasFocus}
             className={`backdrop-blur-md bg-card/60 border-2 transition-all duration-300 ${
               hasFocus ? 'border-primary/70 shadow-lg shadow-primary/20' : ''
             }`}
           >
-            <form onSubmit={handleSubmit} className="p-8 md:p-12 space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="p-8 md:p-12 space-y-6">
               {/* Nombre y Email */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -351,7 +377,7 @@ export function Contact() {
                     setTouched({ ...touched, message: true });
                     validateField('message', true);
                   }}
-                  className={`w-full min-h-[150px] resize-none ${errors.message ? 'border-destructive' : ''}`}
+                  className={`w-full min-h-37.5 resize-none ${errors.message ? 'border-destructive' : ''}`}
                   disabled={isSubmitting}
                 />
                 {errors.message && (
@@ -367,7 +393,7 @@ export function Contact() {
                   type="submit"
                   size="lg"
                   disabled={isSubmitting || !isFormValid()}
-                  className={`w-full md:w-auto gradient-ia-bg text-white border-0 text-base h-12 px-8 ${isSubmitting ? 'opacity-100 cursor-wait' : '!opacity-100'} ${!isSubmitting && !isFormValid() ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  className={`w-full md:w-auto gradient-ia-bg text-white border-0 text-base h-12 px-8 ${isSubmitting ? 'opacity-100 cursor-wait' : 'opacity-100!'} ${!isSubmitting && !isFormValid() ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
                   {isSubmitting ? (
                     <>

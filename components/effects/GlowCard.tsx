@@ -11,6 +11,7 @@ interface GlowCardProps {
   className?: string;
   glowColor?: 'purple' | 'cyan' | 'gradient';
   animated?: boolean;
+  active?: boolean; // Nuevo: fuerza el efecto visual de hover
 }
 
 const glowStyles = {
@@ -24,12 +25,12 @@ const borderGlow = {
   cyan: 'hover:border-chart-2/50',
   gradient: 'hover:border-primary/50',
 };
-
 export function GlowCard({
   children,
   className,
   glowColor = 'gradient',
   animated = true,
+  active = false,
 }: GlowCardProps) {
   const CardWrapper = animated ? motion.div : 'div';
 
@@ -62,7 +63,10 @@ export function GlowCard({
       >
         {/* Gradiente de fondo sutil */}
         <div
-          className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+          className={cn(
+            "absolute inset-0 transition-opacity duration-500 pointer-events-none",
+            active ? "opacity-100" : "opacity-0 hover:opacity-100"
+          )}
           style={{
             background:
                   glowColor === 'purple'
