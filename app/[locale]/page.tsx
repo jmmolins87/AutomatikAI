@@ -7,12 +7,13 @@ import { AboutAgency } from '@/components/sections/AboutAgency';
 import { FunnelTypes } from '@/components/sections/FunnelTypes';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
+import { PageLoader } from '@/components/layouts/PageLoader';
 
 export default function Home() {
   useKeyboardShortcuts();
 
   return (
-    <>
+    <PageLoader>
       {/* 1. Propuesta Única de Valor */}
       <ValueProposition />
 
@@ -30,6 +31,6 @@ export default function Home() {
 
       {/* 6. Llamado a la Acción Final */}
       <FinalCTA />
-    </>
+    </PageLoader>
   );
 }

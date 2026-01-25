@@ -309,6 +309,19 @@
       "success": {
         "title": "Message Sent!",
         "description": "Thank you for contacting us. We'll get back to you very soon."
+      },
+      "errors": {
+        "nameMin": "Name must be at least 2 characters",
+        "emailInvalid": "Invalid email",
+        "messageMin": "Message must be at least 10 characters",
+        "required": "This field is required",
+        "emailFormat": "Please enter a valid email address"
+      },
+      "toast": {
+        "success": "Message sent successfully",
+        "successDescription": "We'll get back to you very soon",
+        "error": "Error sending message",
+        "errorDescription": "Please try again later"
       }
     },
     "info": {

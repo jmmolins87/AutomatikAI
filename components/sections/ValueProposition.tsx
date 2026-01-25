@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
@@ -15,6 +16,53 @@ const ParticleWaves = dynamic(
   () => import('@/components/3d/ParticleWaves').then(mod => ({ default: mod.ParticleWaves })),
   { ssr: false }
 );
+
+function AnimatedHeroLogo() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrolled = currentScrollY > 50;
+      setIsScrolled(scrolled);
+    };
+
+    // Initial check
+    handleScroll();
+
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  return (
+    <motion.div
+      className="hidden lg:block"
+      animate={{
+        position: isScrolled ? 'fixed' : 'relative',
+        top: isScrolled ? '20px' : 'auto',
+        left: isScrolled ? '32px' : 'auto',
+        scale: isScrolled ? 0.25 : 1,
+      }}
+      initial={false}
+      transition={{
+        duration: 0.5,
+        ease: [0.25, 0.1, 0.25, 1],
+      }}
+      style={{
+        transformOrigin: 'top left',
+        cursor: isScrolled ? 'pointer' : 'default',
+        zIndex: isScrolled ? 100 : 1,
+      }}
+      onClick={isScrolled ? () => window.scrollTo({ top: 0, behavior: 'smooth' }) : undefined}
+    >
+      <Logo size="xxl" animated={false} />
+    </motion.div>
+  );
+}
 
 export function ValueProposition() {
   const params = useParams();
@@ -34,10 +82,10 @@ export function ValueProposition() {
       <ParticleWaves />
 
       {/* Fondo con gradiente */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-accent/15" />
 
       {/* Grid decorativo */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.05)_1px,transparent_1px)] bg-[size:64px_64px]" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex-1 flex items-center">
         <div className="mx-auto text-center w-full">
@@ -49,7 +97,10 @@ export function ValueProposition() {
             transition={{ duration: 0.6 }}
             className="flex flex-col items-center mb-8"
           >
-            <Logo size="xxl" className="mb-6 hidden md:block" />
+            {/* Animated Logo */}
+            <div className="mb-6">
+              <AnimatedHeroLogo />
+            </div>
             <Slogan className="text-center" typingEffect={false} />
           </motion.div>
 

@@ -8,6 +8,7 @@ import { Footer } from '@/components/navigation/Footer';
 import { ClientEffects } from '@/components/effects/ClientEffects';
 import { CookieBanner } from '@/components/ui/cookie-banner';
 import { CustomCursor } from '@/components/effects/CustomCursor';
+import { Toaster } from 'sonner';
 
 export default async function LocaleLayout({
   children,
@@ -26,6 +27,12 @@ export default async function LocaleLayout({
       <CustomCursor />
       <ClientEffects />
       <CookieBanner />
+      <Toaster
+        position="bottom-right"
+        richColors
+        closeButton
+        theme="dark"
+      />
       <div className="min-h-screen flex flex-col relative">
         <Navbar />
         <main className="flex-1">{children}</main>

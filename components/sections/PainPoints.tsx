@@ -4,6 +4,33 @@ import { motion } from 'framer-motion';
 import { TrendingDown, Clock, DollarSign, Users, AlertCircle, Target } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { fadeInUp, viewportConfig, staggerContainer } from '@/lib/animations';
+import { useAutoHover } from '@/hooks/useAutoHover';
+
+function PainPointCard({ pain, t }: { pain: any; t: any }) {
+  const [ref, shouldAutoHover] = useAutoHover();
+
+  return (
+    <motion.div
+      ref={ref}
+      key={pain.titleKey}
+      variants={fadeInUp}
+      className={`relative group ${shouldAutoHover ? 'scale-105 border-destructive/40' : ''} transition-all`}
+    >
+      <div className="h-full p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-destructive/20 hover:border-destructive/40 transition-all">
+        <div className="w-14 h-14 rounded-lg bg-destructive/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <pain.icon className="w-7 h-7 text-destructive" />
+        </div>
+        <h3 className="text-sm md:text-base font-bold mb-3 text-foreground leading-tight whitespace-nowrap">
+          {t(`items.${pain.titleKey}`)}
+        </h3>
+        <p className="text-muted-foreground leading-relaxed">
+          {t(`items.${pain.descriptionKey}`)}
+        </p>
+        <div className="absolute top-0 right-0 w-20 h-20 bg-destructive/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity" />
+      </div>
+    </motion.div>
+  );
+}
 
 export function PainPoints() {
   const t = useTranslations('home.painPoints');
@@ -86,29 +113,7 @@ export function PainPoints() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
         >
           {painPoints.map((pain) => (
-            <motion.div
-              key={pain.titleKey}
-              variants={fadeInUp}
-              className="relative group"
-            >
-              <div className="h-full p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-destructive/20 hover:border-destructive/40 transition-all">
-                {/* Icon */}
-                <div className="w-14 h-14 rounded-lg bg-destructive/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <pain.icon className="w-7 h-7 text-destructive" />
-                </div>
-
-                {/* Content */}
-                <h3 className="text-sm md:text-base font-bold mb-3 text-foreground leading-tight whitespace-nowrap">
-                  {t(`items.${pain.titleKey}`)}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {t(`items.${pain.descriptionKey}`)}
-                </p>
-
-                {/* Decorative corner */}
-                <div className="absolute top-0 right-0 w-20 h-20 bg-destructive/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
-            </motion.div>
+            <PainPointCard key={pain.titleKey} pain={pain} t={t} />
           ))}
         </motion.div>
 

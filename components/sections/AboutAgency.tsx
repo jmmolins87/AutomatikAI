@@ -3,6 +3,33 @@
 import { motion } from 'framer-motion';
 import { Brain, Code, LineChart, Lightbulb } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useAutoHover } from '@/hooks/useAutoHover';
+
+function PillarCard({ pillar, index, t }: { pillar: any; index: number; t: any }) {
+  const [ref, shouldAutoHover] = useAutoHover();
+
+  return (
+    <motion.div
+      ref={ref}
+      key={pillar.key}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, margin: "-100px" }}
+      transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+      className={`group ${shouldAutoHover ? 'scale-105 border-primary/50' : ''} transition-all`}
+    >
+      <div className="h-full p-6 rounded-xl bg-card/30 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all text-center">
+        <div className="w-16 h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <pillar.icon className="w-8 h-8 text-primary" />
+        </div>
+        <h4 className="text-lg font-bold mb-3">{t(`pillars.${pillar.key}.title`)}</h4>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          {t(`pillars.${pillar.key}.description`)}
+        </p>
+      </div>
+    </motion.div>
+  );
+}
 
 export function AboutAgency() {
   const t = useTranslations('home.about');
@@ -57,24 +84,7 @@ export function AboutAgency() {
           >
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {pillars.map((pillar, index) => (
-                <motion.div
-                  key={pillar.key}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                  className="group"
-                >
-                  <div className="h-full p-6 rounded-xl bg-card/30 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all text-center">
-                    <div className="w-16 h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                      <pillar.icon className="w-8 h-8 text-primary" />
-                    </div>
-                    <h4 className="text-lg font-bold mb-3">{t(`pillars.${pillar.key}.title`)}</h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {t(`pillars.${pillar.key}.description`)}
-                    </p>
-                  </div>
-                </motion.div>
+                <PillarCard key={pillar.key} pillar={pillar} index={index} t={t} />
               ))}
             </div>
           </motion.div>

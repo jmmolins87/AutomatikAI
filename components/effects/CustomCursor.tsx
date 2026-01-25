@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useState, useRef } from 'react';
 
 export function CustomCursor() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const dotRef = useRef<HTMLDivElement>(null);
+  const ringRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Detectar si es dispositivo táctil
@@ -25,16 +25,39 @@ export function CustomCursor() {
     if (checkTouchDevice()) {
       return; // No inicializar el cursor en dispositivos táctiles
     }
+
     const updateMousePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
       if (!isVisible) setIsVisible(true);
+
+      // Update cursor position instantly without animation
+      if (dotRef.current) {
+        dotRef.current.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px) scale(${isHovering ? 0.5 : 1})`;
+      }
+      if (ringRef.current) {
+        ringRef.current.style.transform = `translate(${e.clientX - 16}px, ${e.clientY - 16}px) scale(${isHovering ? 1.5 : 1})`;
+      }
     };
 
     const handleMouseEnter = () => setIsVisible(true);
     const handleMouseLeave = () => setIsVisible(false);
 
-    const handleHoverStart = () => setIsHovering(true);
-    const handleHoverEnd = () => setIsHovering(false);
+    const handleHoverStart = () => {
+      setIsHovering(true);
+      if (dotRef.current) {
+        dotRef.current.style.transform = `translate(${dotRef.current.offsetLeft}px, ${dotRef.current.offsetTop}px) scale(0.5)`;
+      }
+      if (ringRef.current) {
+        ringRef.current.style.transform = `translate(${ringRef.current.offsetLeft}px, ${ringRef.current.offsetTop}px) scale(1.5)`;
+        ringRef.current.style.opacity = '0.6';
+      }
+    };
+
+    const handleHoverEnd = () => {
+      setIsHovering(false);
+      if (ringRef.current) {
+        ringRef.current.style.opacity = '0.3';
+      }
+    };
 
     // Track mouse movement
     window.addEventListener('mousemove', updateMousePosition);
@@ -61,26 +84,16 @@ export function CustomCursor() {
         el.removeEventListener('mouseleave', handleHoverEnd);
       });
     };
-  }, [isVisible, isTouchDevice]);
+  }, [isVisible, isTouchDevice, isHovering]);
 
   if (isTouchDevice || !isVisible) return null;
 
   return (
     <>
       {/* Main cursor dot */}
-      <motion.div
+      <div
+        ref={dotRef}
         className="custom-cursor-dot"
-        animate={{
-          x: mousePosition.x - 4,
-          y: mousePosition.y - 4,
-          scale: isHovering ? 0.5 : 1,
-        }}
-        transition={{
-          type: 'spring',
-          damping: 30,
-          stiffness: 400,
-          mass: 0.5,
-        }}
         style={{
           position: 'fixed',
           top: 0,
@@ -92,24 +105,15 @@ export function CustomCursor() {
           zIndex: 9999,
           background: 'linear-gradient(135deg, #d184ff 0%, #69eaff 100%)',
           mixBlendMode: 'difference',
+          willChange: 'transform',
+          transition: 'transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
         }}
       />
 
       {/* Cursor ring */}
-      <motion.div
+      <div
+        ref={ringRef}
         className="custom-cursor-ring"
-        animate={{
-          x: mousePosition.x - 16,
-          y: mousePosition.y - 16,
-          scale: isHovering ? 1.5 : 1,
-          opacity: isHovering ? 0.6 : 0.3,
-        }}
-        transition={{
-          type: 'spring',
-          damping: 20,
-          stiffness: 200,
-          mass: 0.8,
-        }}
         style={{
           position: 'fixed',
           top: 0,
@@ -123,6 +127,9 @@ export function CustomCursor() {
           backgroundClip: 'padding-box, border-box',
           pointerEvents: 'none',
           zIndex: 9998,
+          opacity: 0.3,
+          willChange: 'transform, opacity',
+          transition: 'transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.2s ease',
         }}
       />
     </>

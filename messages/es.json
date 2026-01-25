@@ -372,6 +372,19 @@
       "success": {
         "title": "¡Mensaje Enviado!",
         "description": "Gracias por contactarnos. Nos pondremos en contacto contigo muy pronto."
+      },
+      "errors": {
+        "nameMin": "El nombre debe tener al menos 2 caracteres",
+        "emailInvalid": "Email inválido",
+        "messageMin": "El mensaje debe tener al menos 10 caracteres",
+        "required": "Este campo es obligatorio",
+        "emailFormat": "Por favor, ingresa un email válido"
+      },
+      "toast": {
+        "success": "Mensaje enviado correctamente",
+        "successDescription": "Nos pondremos en contacto contigo muy pronto",
+        "error": "Error al enviar el mensaje",
+        "errorDescription": "Por favor, intenta de nuevo más tarde"
       }
     },
     "info": {
