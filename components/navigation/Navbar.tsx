@@ -76,20 +76,19 @@ export function Navbar() {
         }}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Logo - Hidden on desktop when on home page */}
-            {!isHomePage && (
-              <div
-                onClick={() => {
-                  window.location.href = `/${locale}`;
-                }}
-                className="cursor-pointer"
-              >
-                <Logo size="sm" />
-              </div>
-            )}
 
-            {/* Mobile logo - only visible on home page */}
+          <div className="flex items-center h-16 md:h-20">
+            {/* Logo - Siempre visible en desktop, a la izquierda */}
+            <div
+              onClick={() => {
+                window.location.href = `/${locale}`;
+              }}
+              className="cursor-pointer hidden lg:block"
+            >
+              <Logo size="sm" />
+            </div>
+
+            {/* Mobile logo - solo visible en home y mobile */}
             {isHomePage && (
               <div
                 onClick={() => {
@@ -101,8 +100,8 @@ export function Navbar() {
               </div>
             )}
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8">
+            {/* Desktop Navigation alineado a la derecha */}
+            <div className="hidden lg:flex items-center gap-8 ml-auto">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
