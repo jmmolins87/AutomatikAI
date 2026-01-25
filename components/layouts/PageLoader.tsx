@@ -23,21 +23,10 @@ export function PageLoader({ children }: PageLoaderProps) {
     return () => clearTimeout(timer);
   }, []);
 
-  // Prevent hydration mismatch by only showing content after mount
-  if (!isMounted) {
-    return (
-      <div className="min-h-screen" suppressHydrationWarning>
-        {children}
-      </div>
-    );
+  // Prevent hydration mismatch by only showing loader until loaded
+  if (!isMounted || isLoading) {
+    return <Loader isLoading={true} />;
   }
 
-  return (
-    <>
-      <AnimatePresence mode="wait">
-        {isLoading && <Loader key="loader" isLoading={isLoading} />}
-      </AnimatePresence>
-      {!isLoading && children}
-    </>
-  );
+  return children;
 }
