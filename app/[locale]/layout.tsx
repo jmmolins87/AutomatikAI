@@ -28,7 +28,7 @@ export default async function LocaleLayout({
       <ClientEffects />
       <CookieBanner />
       <Toaster
-        position="bottom-right"
+        position="top-right"
         richColors
         closeButton
         theme="dark"
