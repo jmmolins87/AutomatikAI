@@ -48,9 +48,8 @@ function WaveParticles() {
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
-          count={count}
-          array={positions}
-          itemSize={3}
+          // react-three-fiber expects args: [array, itemSize]
+          args={[positions, 3]}
         />
       </bufferGeometry>
       <pointsMaterial

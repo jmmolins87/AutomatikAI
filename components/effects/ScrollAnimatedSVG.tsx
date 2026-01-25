@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from 'react';
-import { animate } from 'animejs';
+import anime from 'animejs/lib/anime.es.js';
 import { useInView } from 'framer-motion';
 import { colors as siteColors } from '@/lib/colors';
 
@@ -26,29 +26,32 @@ export function ScrollAnimatedSVG({
 
     if (isInView) {
       // Animar paths cuando entran en vista
-      animate(pathElements, {
-        strokeDashoffset: [animate.setDashoffset, 0],
+      anime({
+        targets: pathElements,
+        strokeDashoffset: [anime.setDashoffset, 0],
         opacity: [0, 1],
         duration: 2000,
-        delay: (el, i) => i * 200,
-        ease: 'outExpo',
+        delay: (el: any, i: number) => i * 200,
+        easing: 'easeOutExpo',
       });
 
       // Animar fill después del stroke
-      animate(pathElements, {
+      anime({
+        targets: pathElements,
         fillOpacity: [0, 0.2],
         duration: 1000,
         delay: 2000,
-        ease: 'outQuad',
+        easing: 'easeOutQuad',
       });
     } else {
       // Reset cuando sale de vista
-      animate(pathElements, {
-        strokeDashoffset: animate.setDashoffset,
+      anime({
+        targets: pathElements,
+        strokeDashoffset: anime.setDashoffset,
         opacity: 0,
         fillOpacity: 0,
         duration: 500,
-        ease: 'inQuad',
+        easing: 'easeInQuad',
       });
     }
   }, [isInView]);

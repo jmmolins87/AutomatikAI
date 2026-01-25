@@ -14,7 +14,7 @@ export function FinalCTA() {
   const t = useTranslations('home.finalCta');
 
   return (
-    <section className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-br from-orange-950/20 via-background to-amber-900/10">
+    <section className="py-16 md:py-24 relative overflow-hidden bg-linear-to-br from-orange-950/20 via-background to-amber-900/10">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(249,115,22,0.1),transparent_50%),radial-gradient(circle_at_70%_50%,rgba(245,158,11,0.1),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(209,132,255,0.05),transparent_70%)]" />
@@ -30,7 +30,7 @@ export function FinalCTA() {
             className="relative p-8 md:p-12 lg:p-16 rounded-3xl bg-card/50 backdrop-blur-xl border border-primary/30 shadow-2xl shadow-primary/20"
           >
             {/* Glow effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl opacity-50" />
+            <div className="absolute -inset-1 bg-linear-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl opacity-50" />
 
             <div className="relative z-10">
               {/* Header */}
