@@ -122,7 +122,7 @@ export function ValueProposition() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+            className="text-4xl xxl:text-7xl font-bold mb-6 leading-tight"
           >
             {t('title')}
             <br />
@@ -135,7 +135,7 @@ export function ValueProposition() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-xl md:text-2xl text-muted-foreground mb-12 mx-auto leading-relaxed max-w-5xl text-center"
+            className="text-xl text-muted-foreground mx-auto leading-relaxed max-w-5xl text-center"
           >
             <p>{t('description')}</p>
             <p className="mt-2">{t('descriptionHighlight')}</p>
@@ -148,16 +148,16 @@ export function ValueProposition() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6 xxl:mt-12"
           >
             <Link href={`/${locale}/contacto`}>
-              <Button size="lg" className="gradient-ia-bg text-white border-0 text-lg px-8 py-6 group">
+              <Button size="lg" className="gradient-ia-bg text-white border-0 text-lg px-8 py-4 xxl:py-6 group">
                 {t('cta.primary')}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             <Link href={`/${locale}/servicios`}>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6">
+              <Button size="lg" variant="outline" className="text-lg px-8 py-4 xxl:py-6">
                 {t('cta.secondary')}
               </Button>
             </Link>
@@ -171,7 +171,7 @@ export function ValueProposition() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.6 }}
-        className="relative z-10 pb-8 cursor-pointer hidden md:block"
+        className="relative z-10 mt-6 cursor-pointer hidden md:block"
         onClick={scrollToNextSection}
       >
         <div className="flex flex-col items-center gap-2">

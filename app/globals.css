@@ -4,6 +4,11 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --breakpoint-sm: 640px;  /* mobile */
+  --breakpoint-md: 768px;  /* tablets */
+  --breakpoint-lg: 1280px; /* laptops 13" */
+  --breakpoint-xl: 1440px; /* laptops 15" */
+  --breakpoint-xxl: 1920px; /* >17" */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
