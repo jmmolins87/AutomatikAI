@@ -14,10 +14,14 @@ function PainPointCard({ pain, t }: { pain: any; t: any }) {
       ref={ref}
       key={pain.titleKey}
       variants={fadeInUp}
-      className={`relative group ${shouldAutoHover ? 'scale-105 border-destructive/40' : ''} transition-all`}
+      className={`relative group ${shouldAutoHover ? 'scale-105' : ''} transition-all`}
     >
-      <div className="h-full p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-destructive/20 hover:border-destructive/40 transition-all">
-        <div className="w-14 h-14 rounded-lg bg-destructive/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+      <div className={`h-full p-6 rounded-xl bg-card/50 backdrop-blur-sm border transition-all ${
+        shouldAutoHover ? 'border-destructive/40' : 'border-destructive/20 hover:border-destructive/40'
+      }`}>
+        <div className={`w-14 h-14 rounded-lg bg-destructive/10 flex items-center justify-center mb-4 transition-transform ${
+          shouldAutoHover ? 'scale-110' : 'group-hover:scale-110'
+        }`}>
           <pain.icon className="w-7 h-7 text-destructive" />
         </div>
         <h3 className="text-sm md:text-base font-bold mb-3 text-foreground leading-tight whitespace-nowrap">
@@ -26,7 +30,9 @@ function PainPointCard({ pain, t }: { pain: any; t: any }) {
         <p className="text-muted-foreground leading-relaxed">
           {t(`items.${pain.descriptionKey}`)}
         </p>
-        <div className="absolute top-0 right-0 w-20 h-20 bg-destructive/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity" />
+        <div className={`absolute top-0 right-0 w-20 h-20 bg-destructive/5 rounded-bl-full transition-opacity ${
+          shouldAutoHover ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+        }`} />
       </div>
     </motion.div>
   );
@@ -68,7 +74,7 @@ export function PainPoints() {
     },
   ];
   return (
-    <section id="pain-points" className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-br from-red-950/20 via-background to-red-900/10">
+    <section id="pain-points" className="py-16 md:py-24 relative overflow-hidden bg-linear-to-br from-red-950/20 via-background to-red-900/10">
       {/* Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(220,38,38,0.1),transparent_70%)]" />
 
@@ -86,7 +92,7 @@ export function PainPoints() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
+            className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6"
           >
             {t('title')}
           </motion.h2>

@@ -77,31 +77,22 @@ export function Navbar() {
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="flex items-center h-16 md:h-20">
-            {/* Logo - Siempre visible en desktop, a la izquierda */}
+          <div className="flex items-center h-16 md:h-20 w-full">
+            {/* Logo - siempre a la izquierda */}
             <div
               onClick={() => {
                 window.location.href = `/${locale}`;
               }}
-              className="cursor-pointer hidden lg:block"
+              className="cursor-pointer shrink-0"
             >
               <Logo size="sm" />
             </div>
 
-            {/* Mobile logo - solo visible en home y mobile */}
-            {isHomePage && (
-              <div
-                onClick={() => {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="cursor-pointer lg:hidden"
-              >
-                <Logo size="sm" />
-              </div>
-            )}
+            {/* Espaciador para separar logo del resto */}
+            <div className="flex-1" />
 
             {/* Desktop Navigation alineado a la derecha */}
-            <div className="hidden lg:flex items-center gap-8 ml-auto">
+            <div className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -120,7 +111,7 @@ export function Navbar() {
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button alineado a la derecha */}
             <div className="flex items-center gap-4 lg:hidden">
               <LocaleSwitch />
               <button

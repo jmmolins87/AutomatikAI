@@ -97,8 +97,8 @@ export function ValueProposition() {
             transition={{ duration: 0.6 }}
             className="flex flex-col items-center mb-8"
           >
-            {/* Logo Hero sin animación */}
-            <div className="mb-6">
+            {/* Logo Hero sin animación, solo visible en lg+ */}
+            <div className="mb-6 hidden lg:block">
               <Logo size="xxl" animated={false} />
             </div>
             <Slogan className="text-center" typingEffect={false} />
