@@ -359,18 +359,7 @@ export function Contact() {
                 )}
               </div>
 
-              {/* reCAPTCHA v3 Badge Info */}
-              <p className="text-xs text-muted-foreground text-center">
-                Este sitio está protegido por reCAPTCHA y aplican la{' '}
-                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline">
-                  Política de Privacidad
-                </a>{' '}
-                y los{' '}
-                <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline">
-                  Términos de Servicio
-                </a>{' '}
-                de Google.
-              </p>
+              {/* ...existing code... */}
 
               {/* Submit Button */}
               <div className="flex justify-start md:justify-end">
