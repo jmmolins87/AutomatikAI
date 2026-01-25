@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from 'react';
+import { gradients as siteGradients } from '@/lib/colors';
 
 export function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false);
@@ -103,7 +104,7 @@ export function CustomCursor() {
           borderRadius: '50%',
           pointerEvents: 'none',
           zIndex: 9999,
-          background: 'linear-gradient(135deg, #d184ff 0%, #69eaff 100%)',
+          background: siteGradients.ia,
           mixBlendMode: 'difference',
           willChange: 'transform',
           transition: 'transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
@@ -122,7 +123,7 @@ export function CustomCursor() {
           height: '32px',
           borderRadius: '50%',
           border: '2px solid transparent',
-          backgroundImage: 'linear-gradient(135deg, #d184ff 0%, #69eaff 100%)',
+          backgroundImage: siteGradients.ia,
           backgroundOrigin: 'border-box',
           backgroundClip: 'padding-box, border-box',
           pointerEvents: 'none',

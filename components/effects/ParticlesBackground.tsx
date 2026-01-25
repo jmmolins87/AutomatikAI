@@ -4,6 +4,7 @@ import { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
+import { colors as siteColors } from '@/lib/colors';
 
 function ParticlesCloud() {
   const ref = useRef<THREE.Points>(null);
@@ -34,7 +35,7 @@ function ParticlesCloud() {
     <Points ref={ref} positions={positions} stride={3} frustumCulled={false}>
       <PointMaterial
         transparent
-        color="#d184ff"
+        color={siteColors.purple}
         size={0.015}
         sizeAttenuation={true}
         depthWrite={false}

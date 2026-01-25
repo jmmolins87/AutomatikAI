@@ -3,6 +3,7 @@
 import { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
+import { colors as siteColors } from '@/lib/colors';
 
 function WaveParticles() {
   const pointsRef = useRef<THREE.Points>(null);
@@ -54,7 +55,7 @@ function WaveParticles() {
       </bufferGeometry>
       <pointsMaterial
         size={0.05}
-        color="#a855f7"
+        color={siteColors.purpleAlt}
         transparent
         opacity={0.6}
         sizeAttenuation

@@ -14,9 +14,9 @@ interface GlowCardProps {
 }
 
 const glowStyles = {
-  purple: 'hover:shadow-[0_0_30px_rgba(209,132,255,0.3)]',
-  cyan: 'hover:shadow-[0_0_30px_rgba(105,234,255,0.3)]',
-  gradient: 'hover:shadow-[0_0_40px_rgba(209,132,255,0.3),0_0_60px_rgba(105,234,255,0.2)]',
+  purple: 'glow-on-hover-purple',
+  cyan: 'glow-on-hover-cyan',
+  gradient: 'glow-on-hover-gradient',
 };
 
 const borderGlow = {
@@ -65,11 +65,11 @@ export function GlowCard({
           className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none"
           style={{
             background:
-              glowColor === 'purple'
-                ? 'radial-gradient(circle at 50% 0%, rgba(209, 132, 255, 0.05) 0%, transparent 70%)'
-                : glowColor === 'cyan'
-                ? 'radial-gradient(circle at 50% 0%, rgba(105, 234, 255, 0.05) 0%, transparent 70%)'
-                : 'radial-gradient(circle at 50% 0%, rgba(209, 132, 255, 0.05) 0%, rgba(105, 234, 255, 0.03) 50%, transparent 70%)',
+                  glowColor === 'purple'
+                    ? 'radial-gradient(circle at 50% 0%, var(--color-purple-05) 0%, transparent 70%)'
+                    : glowColor === 'cyan'
+                    ? 'radial-gradient(circle at 50% 0%, var(--color-cyan-05) 0%, transparent 70%)'
+                    : 'radial-gradient(circle at 50% 0%, var(--color-purple-05) 0%, var(--color-cyan-03) 50%, transparent 70%)',
           }}
         />
         <div className="relative z-10">{children}</div>

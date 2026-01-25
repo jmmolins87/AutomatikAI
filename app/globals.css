@@ -79,6 +79,21 @@
   
   /* Color primario - Morado vibrante (#D184FF) */
   --primary: oklch(0.70 0.20 310);
+  /* Variables de color centralizadas (hex + variantes rgba) */
+  --color-purple: #d184ff;
+  --color-purple-30: rgba(209, 132, 255, 0.3);
+  --color-purple-10: rgba(209, 132, 255, 0.1);
+  --color-purple-05: rgba(209, 132, 255, 0.05);
+  --color-purple-40: rgba(209, 132, 255, 0.4);
+  --color-purple-60: rgba(209, 132, 255, 0.6);
+  --color-purple-03: rgba(209, 132, 255, 0.03);
+  --color-cyan: #69eaff;
+  --color-cyan-30: rgba(105, 234, 255, 0.3);
+  --color-cyan-10: rgba(105, 234, 255, 0.1);
+  --color-cyan-05: rgba(105, 234, 255, 0.05);
+  --color-cyan-03: rgba(105, 234, 255, 0.03);
+  --color-cyan-20: rgba(105, 234, 255, 0.2);
+  --color-cyan-40: rgba(105, 234, 255, 0.4);
   --primary-hover: oklch(0.65 0.20 310);
   --primary-foreground: oklch(0.99 0 0);
   
@@ -111,8 +126,8 @@
   --chart-5: oklch(0.70 0.15 180);
 
   /* Gradiente para "IA" */
-  --gradient-ia: linear-gradient(135deg, #d184ff 0%, #69eaff 100%);
-  --gradient-ia-reverse: linear-gradient(135deg, #69eaff 0%, #d184ff 100%);
+  --gradient-ia: linear-gradient(135deg, var(--color-purple) 0%, var(--color-cyan) 100%);
+  --gradient-ia-reverse: linear-gradient(135deg, var(--color-cyan) 0%, var(--color-purple) 100%);
   
   /* Sidebar */
   --sidebar: oklch(0.98 0 0);
@@ -253,24 +268,35 @@
 
 /* Efectos de glow */
 .glow-purple {
-  box-shadow: 0 0 20px rgba(209, 132, 255, 0.3), 0 0 40px rgba(209, 132, 255, 0.1);
+  box-shadow: 0 0 20px var(--color-purple-30), 0 0 40px var(--color-purple-10);
 }
 
 .glow-cyan {
-  box-shadow: 0 0 20px rgba(105, 234, 255, 0.3), 0 0 40px rgba(105, 234, 255, 0.1);
+  box-shadow: 0 0 20px var(--color-cyan-30), 0 0 40px var(--color-cyan-10);
 }
 
 .glow-gradient {
-  box-shadow: 0 0 30px rgba(209, 132, 255, 0.4), 0 0 60px rgba(105, 234, 255, 0.2);
+  box-shadow: 0 0 30px var(--color-purple-40), 0 0 60px var(--color-cyan-20);
+}
+
+/* Hover-specific utility classes used by components */
+.glow-on-hover-purple:hover {
+  box-shadow: 0 0 20px var(--color-purple-30), 0 0 40px var(--color-purple-10);
+}
+.glow-on-hover-cyan:hover {
+  box-shadow: 0 0 20px var(--color-cyan-30), 0 0 40px var(--color-cyan-10);
+}
+.glow-on-hover-gradient:hover {
+  box-shadow: 0 0 30px var(--color-purple-40), 0 0 60px var(--color-cyan-20);
 }
 
 /* Animación de glow pulsante */
 @keyframes glow-pulse {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(209, 132, 255, 0.4), 0 0 40px rgba(105, 234, 255, 0.2);
+    box-shadow: 0 0 20px var(--color-purple-40), 0 0 40px var(--color-cyan-20);
   }
   50% {
-    box-shadow: 0 0 30px rgba(209, 132, 255, 0.6), 0 0 60px rgba(105, 234, 255, 0.4);
+    box-shadow: 0 0 30px var(--color-purple-60), 0 0 60px var(--color-cyan-40);
   }
 }
 

@@ -35,7 +35,7 @@ export function Hero() {
           className="absolute inset-0 blur-3xl opacity-30"
           style={{
             background:
-              'radial-gradient(circle, rgba(209, 132, 255, 0.6) 0%, rgba(105, 234, 255, 0.4) 50%, transparent 70%)',
+              'radial-gradient(circle, var(--color-purple-60) 0%, var(--color-cyan-40) 50%, transparent 70%)',
           }}
         />
         <Logo size="xl" animated />

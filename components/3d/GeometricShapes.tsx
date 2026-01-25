@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Box, Torus, Octahedron } from '@react-three/drei';
 import * as THREE from 'three';
+import { colors as siteColors } from '@/lib/colors';
 
 function RotatingShapes() {
   const boxRef = useRef<THREE.Mesh>(null);
@@ -31,13 +32,13 @@ function RotatingShapes() {
   return (
     <>
       <Box ref={boxRef} args={[1, 1, 1]} position={[-2, 1, 0]}>
-        <meshStandardMaterial color="#8b5cf6" metalness={0.6} roughness={0.2} />
+        <meshStandardMaterial color={siteColors.indigo} metalness={0.6} roughness={0.2} />
       </Box>
       <Torus ref={torusRef} args={[0.8, 0.3, 16, 32]} position={[0, -1, 0]}>
-        <meshStandardMaterial color="#d184ff" metalness={0.7} roughness={0.3} />
+        <meshStandardMaterial color={siteColors.purple} metalness={0.7} roughness={0.3} />
       </Torus>
       <Octahedron ref={octaRef} args={[1, 0]} position={[2, 0.5, 0]}>
-        <meshStandardMaterial color="#a855f7" metalness={0.5} roughness={0.4} />
+        <meshStandardMaterial color={siteColors.purpleAlt} metalness={0.5} roughness={0.4} />
       </Octahedron>
     </>
   );
@@ -49,7 +50,7 @@ export function GeometricShapes() {
       <Canvas camera={{ position: [0, 0, 7], fov: 50 }}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 5]} intensity={1} />
-        <pointLight position={[-10, 0, -5]} intensity={0.5} color="#d184ff" />
+        <pointLight position={[-10, 0, -5]} intensity={0.5} color={siteColors.purple} />
         <RotatingShapes />
       </Canvas>
     </div>

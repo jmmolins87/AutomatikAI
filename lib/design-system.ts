@@ -3,18 +3,20 @@
  * Colores, gradientes, animaciones y constantes de diseño
  */
 
-export const colors = {
-  // Colores principales
-  purple: '#d184ff',
-  cyan: '#69eaff',
+import { colors as baseColors, gradients as baseGradients, hexToRgba } from '@/lib/colors';
 
-  // Gradientes
+export const colors = {
+  // Colores principales (centralizados)
+  purple: baseColors.purple,
+  cyan: baseColors.cyan,
+
+  // Gradientes precompuestos
   gradient: {
-    ia: 'linear-gradient(135deg, #d184ff 0%, #69eaff 100%)',
-    iaReverse: 'linear-gradient(135deg, #69eaff 0%, #d184ff 100%)',
-    background: 'radial-gradient(circle at 50% 50%, rgba(209, 132, 255, 0.1) 0%, transparent 70%)',
-    backgroundCyan: 'radial-gradient(circle at 50% 50%, rgba(105, 234, 255, 0.1) 0%, transparent 70%)',
-    subtle: 'linear-gradient(180deg, rgba(209, 132, 255, 0.05) 0%, transparent 100%)',
+    ia: baseGradients.ia,
+    iaReverse: baseGradients.iaReverse,
+    background: baseGradients.background,
+    backgroundCyan: baseGradients.backgroundCyan,
+    subtle: baseGradients.subtle,
   },
 
   // Colores RGB para efectos (Three.js, Canvas, etc.)
@@ -23,10 +25,10 @@ export const colors = {
     cyan: { r: 105, g: 234, b: 255 },
   },
 
-  // Colores Hex para efectos
+  // Colores Hex para efectos (números para Three.js)
   hex: {
-    purple: 0xd184ff,
-    cyan: 0x69eaff,
+    purple: Number('0x' + baseColors.purple.replace('#', '')) as number,
+    cyan: Number('0x' + baseColors.cyan.replace('#', '')) as number,
   },
 } as const;
 
@@ -100,9 +102,9 @@ export const typography = {
 
 export const effects = {
   glow: {
-    purple: '0 0 20px rgba(209, 132, 255, 0.3), 0 0 40px rgba(209, 132, 255, 0.1)',
-    cyan: '0 0 20px rgba(105, 234, 255, 0.3), 0 0 40px rgba(105, 234, 255, 0.1)',
-    gradient: '0 0 30px rgba(209, 132, 255, 0.4), 0 0 60px rgba(105, 234, 255, 0.2)',
+    purple: `0 0 20px ${hexToRgba(baseColors.purple, 0.3)}, 0 0 40px ${hexToRgba(baseColors.purple, 0.1)}`,
+    cyan: `0 0 20px ${hexToRgba(baseColors.cyan, 0.3)}, 0 0 40px ${hexToRgba(baseColors.cyan, 0.1)}`,
+    gradient: `0 0 30px ${hexToRgba(baseColors.purple, 0.4)}, 0 0 60px ${hexToRgba(baseColors.cyan, 0.2)}`,
   },
   blur: {
     subtle: 'blur(8px)',

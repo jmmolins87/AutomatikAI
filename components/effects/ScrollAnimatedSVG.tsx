@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { animate } from 'animejs';
 import { useInView } from 'framer-motion';
+import { colors as siteColors } from '@/lib/colors';
 
 interface ScrollAnimatedSVGProps {
   paths: string[];
@@ -13,7 +14,7 @@ interface ScrollAnimatedSVGProps {
 export function ScrollAnimatedSVG({
   paths,
   className = '',
-  strokeColor = '#d184ff'
+  strokeColor = siteColors.purple
 }: ScrollAnimatedSVGProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const isInView = useInView(svgRef, { once: false, margin: "-100px" });

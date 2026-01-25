@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Sphere, MeshDistortMaterial } from '@react-three/drei';
 import * as THREE from 'three';
+import { colors as siteColors } from '@/lib/colors';
 
 function AnimatedBrain() {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -19,7 +20,7 @@ function AnimatedBrain() {
   return (
     <Sphere ref={meshRef} args={[1, 64, 64]} scale={2.5}>
       <MeshDistortMaterial
-        color="#a855f7"
+        color={siteColors.purpleAlt}
         attach="material"
         distort={0.4}
         speed={2}
@@ -36,7 +37,7 @@ export function FloatingBrain() {
       <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 5]} intensity={1} />
-        <pointLight position={[-10, -10, -5]} intensity={0.5} color="#d184ff" />
+        <pointLight position={[-10, -10, -5]} intensity={0.5} color={siteColors.purple} />
         <AnimatedBrain />
       </Canvas>
     </div>

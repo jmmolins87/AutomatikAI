@@ -4,6 +4,7 @@ import { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
+import { colors as siteColors } from '@/lib/colors';
 
 function AnimatedPoints() {
   const pointsRef = useRef<THREE.Points>(null);
@@ -29,7 +30,7 @@ function AnimatedPoints() {
     <Points ref={pointsRef} positions={particlesPosition} stride={3} frustumCulled={false}>
       <PointMaterial
         transparent
-        color="#a855f7"
+        color={siteColors.purpleAlt}
         size={0.05}
         sizeAttenuation={true}
         depthWrite={false}
