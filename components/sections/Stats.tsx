@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { animate, Animation } from 'animejs';
 import { animations, spacing } from '@/lib/design-system';
 
 const stats = [
