@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useLayoutEffect } from "react";
 import { Sun, Moon, Laptop2 } from "lucide-react";
 import {
   DropdownMenu,
@@ -13,12 +13,32 @@ const THEME_KEY = "theme-preference";
 type Theme = "light" | "dark" | "system";
 
 export function ThemeDropdown() {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window === "undefined") return "system";
-    return (localStorage.getItem(THEME_KEY) as Theme) || "system";
-  });
+  const [theme, setTheme] = useState<Theme>("system");
+  const [mounted, setMounted] = useState(false);
+
+  useLayoutEffect(() => {
+    const stored = (localStorage.getItem(THEME_KEY) as Theme) || "system";
+    const root = window.document.documentElement;
+    const applyTheme = (t: Theme) => {
+      if (t === "system") {
+        const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        root.classList.toggle("dark", isDark);
+      } else {
+        root.classList.toggle("dark", t === "dark");
+      }
+    };
+    applyTheme(stored);
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
+    if (!mounted) return;
+    const stored = (localStorage.getItem(THEME_KEY) as Theme) || "system";
+    setTheme(stored);
+  }, [mounted]);
+
+  useEffect(() => {
+    if (!mounted) return;
     const root = window.document.documentElement;
     const applyTheme = (t: Theme) => {
       if (t === "system") {
@@ -42,7 +62,7 @@ export function ThemeDropdown() {
       mq.addEventListener("change", handler);
       return () => mq.removeEventListener("change", handler);
     }
-  }, [theme]);
+  }, [theme, mounted]);
 
   const icon =
     theme === "light" ? <Sun className="w-5 h-5" /> :

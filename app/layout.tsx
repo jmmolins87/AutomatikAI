@@ -33,6 +33,28 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                let theme = localStorage.getItem('theme-preference');
+                if (!theme) {
+                  // Primera visita, detectar y guardar
+                  const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  theme = isDark ? 'dark' : 'light';
+                  localStorage.setItem('theme-preference', theme);
+                }
+                if (theme === 'dark') {
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning>
         {children}
       </body>
