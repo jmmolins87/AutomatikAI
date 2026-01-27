@@ -9,22 +9,49 @@ import { TrendingDown, Clock, DollarSign, Users, AlertCircle, Target } from 'luc
 import { useTranslations } from 'next-intl';
 import { fadeInUp, viewportConfig, staggerContainer } from '@/lib/animations';
 import { useAutoHover } from '@/hooks/useAutoHover';
+import { useRef, useEffect, useState } from 'react';
 
-function PainPointCard({ pain, t }: { pain: any; t: any }) {
-  const [ref, shouldAutoHover] = useAutoHover();
+function PainPointCard({ pain, t, index }: { pain: any; t: any; index: number }) {
+  const [hoverRef, shouldAutoHover] = useAutoHover();
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isCenter, setIsCenter] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !cardRef.current) return;
+    if (window.innerWidth >= 768) return; // Solo mobile
+    const handleScroll = () => {
+      const rect = cardRef.current!.getBoundingClientRect();
+      const vh = window.innerHeight;
+      // Consideramos "centrado" si el centro de la caja está cerca del centro de la pantalla
+      const cardCenter = rect.top + rect.height / 2;
+      setIsCenter(cardCenter > vh * 0.35 && cardCenter < vh * 0.65);
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <motion.div
-      ref={ref}
+      ref={cardRef}
       key={pain.titleKey}
       variants={fadeInUp}
-      className={`relative group ${shouldAutoHover ? 'scale-105' : ''} transition-all`}
+      className={`relative group transition-all duration-300
+        ${shouldAutoHover || isCenter ? 'scale-105 shadow-2xl z-20' : ''}
+        ${isCenter ? 'border-primary/60' : ''}
+      `}
+      style={{
+        boxShadow: isCenter ? '0 8px 32px 0 rgba(0,0,0,0.25)' : undefined,
+      }}
     >
-      <div className={`h-full p-6 rounded-xl bg-card/50 backdrop-blur-sm border transition-all ${
-        shouldAutoHover ? 'border-destructive/40' : 'border-destructive/20 hover:border-destructive/40'
-      }`}>
+      <div
+        ref={hoverRef}
+        className={`h-full p-6 rounded-xl bg-card/50 backdrop-blur-sm border transition-all ${
+          shouldAutoHover || isCenter ? 'border-destructive/40' : 'border-destructive/20 hover:border-destructive/40'
+        }`}
+      >
         <div className={`w-14 h-14 rounded-lg bg-destructive/10 flex items-center justify-center mb-4 transition-transform ${
-          shouldAutoHover ? 'scale-110' : 'group-hover:scale-110'
+          shouldAutoHover || isCenter ? 'scale-110' : 'group-hover:scale-110'
         }`}>
           <pain.icon className="w-7 h-7 text-destructive" />
         </div>
@@ -35,7 +62,7 @@ function PainPointCard({ pain, t }: { pain: any; t: any }) {
           {t(`items.${pain.descriptionKey}`)}
         </p>
         <div className={`absolute top-0 right-0 w-20 h-20 bg-destructive/5 rounded-bl-full transition-opacity ${
-          shouldAutoHover ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+          shouldAutoHover || isCenter ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
         }`} />
       </div>
     </motion.div>
@@ -79,10 +106,12 @@ export function PainPoints() {
   ];
   return (
     <section id="pain-points" className="py-16 md:py-24 relative overflow-hidden bg-linear-to-br from-red-950/30 via-background to-red-900/20">
-      {/* Fondos decorativos, todos z-0 y pointer-events-none */}
-      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
-        <NetworkGrid />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--color-purple-10),transparent_70%)] pointer-events-none" />
+      {/* Fondos decorativos, z-0, opacidad reducida en mobile, sin pointer-events-none */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        <div className="block md:block opacity-30 md:opacity-60 w-full h-full">
+          <NetworkGrid />
+        </div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--color-purple-10),transparent_70%)] opacity-20 md:opacity-40" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -125,8 +154,8 @@ export function PainPoints() {
           viewport={viewportConfig}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
         >
-          {painPoints.map((pain) => (
-            <PainPointCard key={pain.titleKey} pain={pain} t={t} />
+          {painPoints.map((pain, idx) => (
+            <PainPointCard key={pain.titleKey} pain={pain} t={t} index={idx} />
           ))}
         </motion.div>
 
