@@ -132,62 +132,63 @@ export function Navbar() {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu */}
-      <motion.div
-        initial={false}
-        animate={{
-          opacity: isOpen ? 1 : 0,
-          y: isOpen ? 0 : -20,
-          pointerEvents: isOpen ? 'auto' : 'none',
-        }}
-        transition={{ duration: animations.durations.fast }}
-        className="fixed inset-0 z-40 lg:hidden bg-background/95 backdrop-blur-xl"
-        style={{ paddingTop: '5rem' }}
-      >
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-col gap-6">
-            {navLinks.map((link, index) => (
+      {/* Mobile Menu Cortina */}
+      <>
+        {/* Capa de blur y oscurecimiento solo si el menú está abierto */}
+        {isOpen && (
+          <div className="fixed inset-0 z-50 bg-background/90 backdrop-blur-2xl flex flex-col min-h-screen w-screen lg:hidden">
+            {/* Botón X grande arriba a la derecha */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-6 right-6 text-foreground p-3 rounded-full hover:bg-muted/40 transition"
+              aria-label="Cerrar menú"
+            >
+              <X className="size-10" />
+            </button>
+            <div className="flex-1 flex flex-col justify-center items-center gap-10 w-full">
+              {navLinks.map((link, index) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{
+                    opacity: isOpen ? 1 : 0,
+                    y: isOpen ? 0 : -20,
+                  }}
+                  transition={{
+                    delay: 0.15 + index * 0.1,
+                    duration: 0.35,
+                  }}
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="text-4xl font-bold text-foreground hover:text-primary transition-colors block text-center"
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
               <motion.div
-                key={link.href}
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, y: -20 }}
                 animate={{
                   opacity: isOpen ? 1 : 0,
-                  x: isOpen ? 0 : -20,
+                  y: isOpen ? 0 : -20,
                 }}
                 transition={{
-                  delay: index * 0.1,
-                  duration: animations.durations.fast,
+                  delay: 0.15 + navLinks.length * 0.1,
+                  duration: 0.35,
                 }}
               >
-                <Link
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-2xl font-semibold text-foreground hover:text-primary transition-colors block"
-                >
-                  {link.label}
+                <Link href={`/${locale}/contacto`} onClick={() => setIsOpen(false)}>
+                  <Button size="lg" className="w-full text-2xl py-6 gradient-ia-bg text-white border-0">
+                    {t('getStarted')}
+                  </Button>
                 </Link>
               </motion.div>
-            ))}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{
-                opacity: isOpen ? 1 : 0,
-                x: isOpen ? 0 : -20,
-              }}
-              transition={{
-                delay: navLinks.length * 0.1,
-                duration: animations.durations.fast,
-              }}
-            >
-              <Link href={`/${locale}/contacto`} onClick={() => setIsOpen(false)}>
-                <Button size="lg" className="w-full gradient-ia-bg text-white border-0">
-                  {t('getStarted')}
-                </Button>
-              </Link>
-            </motion.div>
+            </div>
           </div>
-        </div>
-      </motion.div>
+        )}
+      </>
     </>
   );
 }
