@@ -79,11 +79,11 @@ export function PainPoints() {
   ];
   return (
     <section id="pain-points" className="py-16 md:py-24 relative overflow-hidden bg-linear-to-br from-red-950/30 via-background to-red-900/20">
+      {/* Fondos decorativos, todos z-0 y pointer-events-none */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <NetworkGrid />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--color-purple-10),transparent_70%)] pointer-events-none" />
       </div>
-      {/* Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--color-purple-10),transparent_70%)]" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
