@@ -75,17 +75,12 @@ export function ValueProposition() {
 
   return (
     <section className="relative h-screen flex flex-col items-center justify-center overflow-x-hidden pt-20 pb-8">
+      {/* Fondo 3D y decorativos, todos z-0 y pointer-events-none */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <ParticleWaves />
+        <div className="absolute inset-0 bg-linear-to-br from-primary/30 via-background to-accent/25 pointer-events-none" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.05)_1px,transparent_1px)] bg-size-[64px_64px] pointer-events-none" />
       </div>
-      {/* Three.js Particle Waves Background */}
-      <ParticleWaves />
-
-      {/* Fondo con gradiente */}
-      <div className="absolute inset-0 bg-linear-to-br from-primary/30 via-background to-accent/25" />
-
-      {/* Grid decorativo */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.05)_1px,transparent_1px)] bg-size-[64px_64px]" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex-1 flex items-center">
         <div className="mx-auto text-center w-full">
