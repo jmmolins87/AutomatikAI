@@ -1,10 +1,10 @@
 "use client";
 
+import React from 'react';
 import { useParams } from 'next/navigation';
 import { useTransition } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { Globe } from 'lucide-react';
-import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { type Locale } from '@/i18n/config';
 
@@ -17,7 +17,14 @@ export function LocaleSwitch() {
   const currentLocale = (params.locale as Locale) || 'es';
   const isEnglish = currentLocale === 'en';
 
-  const toggleLocale = (checked: boolean) => {
+  const [checked, setChecked] = React.useState(isEnglish);
+
+  React.useEffect(() => {
+    setChecked(isEnglish);
+  }, [isEnglish]);
+
+  const toggleLocale = React.useCallback((checked: boolean) => {
+    setChecked(checked);
     const newLocale: Locale = checked ? 'en' : 'es';
 
     if (newLocale === currentLocale) return;
@@ -37,7 +44,7 @@ export function LocaleSwitch() {
       const newPathname = '/' + segments.join('/');
       router.push(newPathname);
     });
-  };
+  }, [currentLocale, pathname, router, startTransition]);
 
   return (
     <div className="flex items-center gap-3">
@@ -46,13 +53,18 @@ export function LocaleSwitch() {
         <Label htmlFor="locale-switch" className="text-sm font-medium cursor-pointer">
           ES
         </Label>
-        <Switch
-          id="locale-switch"
-          checked={isEnglish}
-          onCheckedChange={toggleLocale}
-          disabled={isPending}
-          aria-label="Switch language"
-        />
+        <label className="relative inline-flex items-center cursor-pointer">
+          <input
+            id="locale-switch"
+            type="checkbox"
+            checked={checked}
+            onChange={(e) => toggleLocale(e.target.checked)}
+            disabled={isPending}
+            className="sr-only peer"
+            aria-label="Switch language"
+          />
+          <div className="w-11 h-6 bg-input peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary peer-focus:ring-offset-2 peer-focus:ring-offset-background rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+        </label>
         <Label htmlFor="locale-switch" className="text-sm font-medium cursor-pointer">
           EN
         </Label>

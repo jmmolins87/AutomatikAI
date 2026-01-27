@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { useParams } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { Logo } from '@/components/branding/Logo';
 import { Button } from '@/components/ui/button';
@@ -20,12 +20,55 @@ export function Navbar() {
   const t = useTranslations('nav');
   const params = useParams();
   const locale = params.locale as Locale;
+  const pathname = usePathname();
 
   const navLinks = [
     { label: t('services'), href: `/${locale}/servicios` },
     { label: t('about'), href: `/${locale}/about` },
     { label: t('contact'), href: `/${locale}/contacto` },
   ];
+
+  // Animated underline for active link
+  const [underline, setUnderline] = useState({ left: 0, width: 0 });
+  const navRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+    const idx = navLinks.findIndex(link => pathname.startsWith(link.href));
+    if (idx !== -1 && navRefs.current[idx]) {
+      const el = navRefs.current[idx];
+      const rect = el!.getBoundingClientRect();
+      const parentRect = el!.parentElement!.getBoundingClientRect();
+      const newLeft = rect.left - parentRect.left;
+      const newWidth = rect.width;
+      if (newLeft !== underline.left || newWidth !== underline.width) {
+        setUnderline({ left: newLeft, width: newWidth });
+      }
+    }
+  }, [pathname, mounted, navLinks, underline]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const idx = navLinks.findIndex(link => pathname.startsWith(link.href));
+      if (idx !== -1 && navRefs.current[idx]) {
+        const el = navRefs.current[idx];
+        const rect = el!.getBoundingClientRect();
+        const parentRect = el!.parentElement!.getBoundingClientRect();
+        const newLeft = rect.left - parentRect.left;
+        const newWidth = rect.width;
+        if (newLeft !== underline.left || newWidth !== underline.width) {
+          setUnderline({ left: newLeft, width: newWidth });
+        }
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [pathname, navLinks, underline]);
 
   // Check if we're on home page
   useEffect(() => {
@@ -96,15 +139,35 @@ export function Navbar() {
             <div className="flex-1" />
 
             {/* Desktop Navigation alineado a la derecha */}
-            <div className="hidden lg:flex items-center gap-8">
-              {navLinks.map((link) => (
+            <div className="hidden lg:flex items-center gap-8 relative">
+              {/* Animated underline */}
+              <motion.div
+                className="absolute bottom-0 z-10"
+                animate={{
+                  left: underline.left,
+                  width: underline.width,
+                  opacity: underline.width > 0 ? 1 : 0,
+                }}
+                transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                style={{
+                  height: '4px',
+                  borderRadius: '4px',
+                  background: 'linear-gradient(135deg, #d184ff 0%, #69eaff 100%)',
+                  boxShadow: '0 2px 12px 0 rgba(209,132,255,0.25)',
+                  pointerEvents: 'none',
+                }}
+              />
+              {navLinks.map((link, i) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
+                  ref={el => { navRefs.current[i] = el; }}
+                  className={`text-sm font-medium transition-colors relative px-1
+                    ${pathname.startsWith(link.href)
+                      ? 'text-foreground'
+                      : 'text-muted-foreground hover:text-foreground'}`}
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 gradient-ia-bg group-hover:w-full transition-all duration-300" />
                 </Link>
               ))}
               <ThemeDropdown />
