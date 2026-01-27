@@ -43,6 +43,7 @@ export function GlowCard({
           duration: animations.durations.normal,
           ease: animations.easings.smooth,
         },
+        animate: active ? { scale: 1.02 } : { scale: 1 },
         whileHover: {
           scale: 1.02,
           transition: { duration: animations.durations.fast },
@@ -58,6 +59,7 @@ export function GlowCard({
           'transition-all duration-300',
           glowStyles[glowColor],
           borderGlow[glowColor],
+          active && 'shadow-lg shadow-primary/20',
           className
         )}
       >
