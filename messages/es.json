@@ -229,7 +229,7 @@
         "Roadmap personalizado (sin compromisos)"
       ],
       "cta": "Reservar Mi Diagnóstico Ahora",
-      "guarantee": "Sin tarjeta de crédito. Sin letra chica. Solo insights accionables.",
+      "guarantee": "Sin tarjeta de crédito. Sin letra pequeña. Solo insights accionables.",
       "urgency": "Solo quedan 8 slots este mes",
       "badge": "Agenda Ahora - Cupos Limitados",
       "preferEmail": "¿Prefieres escribirnos primero?",
@@ -353,6 +353,26 @@
     "why": {
       "title": "Por Qué Elegirnos",
       "description": "Combinamos lo mejor de la estrategia humana con el poder de la inteligencia artificial"
+    }
+    ,
+    "values": {
+      "title": "Nuestros Valores",
+      "results": {
+        "title": "Orientados a Resultados",
+        "description": "Medimos el éxito con métricas claras y alcanzables."
+      },
+      "collaboration": {
+        "title": "Colaboración",
+        "description": "Trabajamos mano a mano contigo en cada paso del proceso."
+      },
+      "innovation": {
+        "title": "Innovación Constante",
+        "description": "Utilizamos las últimas tecnologías de IA para mantenerte a la vanguardia."
+      },
+      "passion": {
+        "title": "Pasión por lo que hacemos",
+        "description": "Cada proyecto es único y lo tratamos con dedicación total."
+      }
     }
   },
   "pricing": {

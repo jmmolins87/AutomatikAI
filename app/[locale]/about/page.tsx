@@ -50,7 +50,7 @@ export default function NosotrosPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: animations.durations.normal }}
-            className="text-center mb-20 backdrop-blur-md bg-background/30 rounded-2xl p-8 border border-border/30"
+            className="text-center lg:mx-auto lg:max-w-3/4 mb-20 backdrop-blur-md bg-background/30 rounded-2xl p-8 border border-border/30"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               {t('title')}<span className="gradient-ia-animated">{t('titleHighlight')}</span>
@@ -96,7 +96,7 @@ export default function NosotrosPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: animations.durations.normal }}
-            className="mt-20 text-center backdrop-blur-md bg-background/30 rounded-2xl p-8 border border-border/30"
+            className="mt-20 text-center lg:mx-auto lg:max-w-2/4 backdrop-blur-md bg-background/30 rounded-2xl p-8 border border-border/30"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               {t('why.title')}
