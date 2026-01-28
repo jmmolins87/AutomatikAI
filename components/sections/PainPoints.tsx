@@ -16,25 +16,32 @@ function PainPointCard({ pain, t, index }: { pain: any; t: any; index: number })
   const cardRef = useRef<HTMLDivElement>(null);
   const [isCenter, setIsCenter] = useState(false);
 
+  // Determinar si usar animaciones basado en el tamaño de pantalla
+  const [useMotion, setUseMotion] = useState(false);
+
   useEffect(() => {
-    if (typeof window === 'undefined' || !cardRef.current) return;
-    if (window.innerWidth >= 768) return; // Solo mobile
-    const handleScroll = () => {
-      const rect = cardRef.current!.getBoundingClientRect();
-      const vh = window.innerHeight;
-      // Consideramos "centrado" si el centro de la caja está cerca del centro de la pantalla
-      const cardCenter = rect.top + rect.height / 2;
-      setIsCenter(cardCenter > vh * 0.35 && cardCenter < vh * 0.65);
+    const checkScreenSize = () => {
+      setUseMotion(window.innerWidth >= 768); // md breakpoint
     };
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
+  const CardComponent = useMotion ? motion.div : 'div';
+  const cardProps = useMotion ? {
+    variants: fadeInUp,
+    initial: "hidden",
+    whileInView: "visible",
+    viewport: { once: false, margin: "-50px", amount: 0.3 }
+  } : {};
+
   return (
-    <div
+    <CardComponent
       ref={cardRef}
       key={pain.titleKey}
+      {...cardProps}
       className={`relative group transition-all duration-300 min-h-[200px] md:min-h-[180px] z-10
         ${shouldAutoHover || isCenter ? 'scale-105 shadow-2xl z-20' : ''}
         ${isCenter ? 'border-primary/60' : ''}
@@ -45,8 +52,8 @@ function PainPointCard({ pain, t, index }: { pain: any; t: any; index: number })
     >
       <div
         ref={hoverRef}
-        className={`h-full p-6 rounded-xl bg-white/95 dark:bg-gray-900/95 md:bg-card/70 backdrop-blur-sm border-2 border-destructive/40 transition-all ${
-          shouldAutoHover || isCenter ? 'border-destructive/60 bg-white dark:bg-gray-900' : 'hover:border-destructive/60'
+        className={`h-full p-6 rounded-xl bg-white/50 dark:bg-gray-900/50 md:bg-card/40 backdrop-blur-md border-2 border-destructive/40 transition-all ${
+          shouldAutoHover || isCenter ? 'border-destructive/60 bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg' : 'hover:border-destructive/60 hover:bg-white/60 dark:hover:bg-gray-900/60'
         }`}
       >
         <div className={`w-14 h-14 rounded-lg bg-destructive/10 flex items-center justify-center mb-4 transition-transform ${
@@ -64,12 +71,127 @@ function PainPointCard({ pain, t, index }: { pain: any; t: any; index: number })
           shouldAutoHover || isCenter ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
         }`} />
       </div>
-    </div>
+    </CardComponent>
   );
 }
 
 export function PainPoints() {
   const t = useTranslations('home.painPoints');
+  const [useMotion, setUseMotion] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setUseMotion(window.innerWidth >= 768); // md breakpoint
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  const renderHeader = () => {
+    if (useMotion) {
+      return (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+            className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6"
+          >
+            {t('title')}
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+            className="text-xl text-muted-foreground max-w-3xl mx-auto"
+          >
+            {t('subtitle')}
+            <span className="block mt-2 font-semibold text-foreground">
+              {t('subtitleHighlight')}
+            </span>
+          </motion.p>
+        </motion.div>
+      );
+    } else {
+      return (
+        <div className="text-center mb-16">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6">
+            {t('title')}
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            {t('subtitle')}
+            <span className="block mt-2 font-semibold text-foreground">
+              {t('subtitleHighlight')}
+            </span>
+          </p>
+        </div>
+      );
+    }
+  };
+
+  const renderGrid = () => {
+    if (useMotion) {
+      return (
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, margin: "-50px", amount: 0.3 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto"
+        >
+          {painPoints.map((pain, idx) => (
+            <PainPointCard key={pain.titleKey} pain={pain} t={t} index={idx} />
+          ))}
+        </motion.div>
+      );
+    } else {
+      return (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
+          {painPoints.map((pain, idx) => (
+            <PainPointCard key={pain.titleKey} pain={pain} t={t} index={idx} />
+          ))}
+        </div>
+      );
+    }
+  };
+
+  const renderCTA = () => {
+    if (useMotion) {
+      return (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-center mt-16"
+        >
+          <p className="text-2xl md:text-3xl font-bold">
+            {t('conclusion')}{' '}
+            <span className="gradient-ia">{t('conclusionHighlight')}</span>
+          </p>
+        </motion.div>
+      );
+    } else {
+      return (
+        <div className="text-center mt-16">
+          <p className="text-2xl md:text-3xl font-bold">
+            {t('conclusion')}{' '}
+            <span className="gradient-ia">{t('conclusionHighlight')}</span>
+          </p>
+        </div>
+      );
+    }
+  };
 
   const painPoints = [
     {
@@ -115,56 +237,13 @@ export function PainPoints() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6"
-          >
-            {t('title')}
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-xl text-muted-foreground max-w-3xl mx-auto"
-          >
-            {t('subtitle')}
-            <span className="block mt-2 font-semibold text-foreground">
-              {t('subtitleHighlight')}
-            </span>
-          </motion.p>
-        </motion.div>
+        {renderHeader()}
 
         {/* Pain Points Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
-          {painPoints.map((pain, idx) => (
-            <PainPointCard key={pain.titleKey} pain={pain} t={t} index={idx} />
-          ))}
-        </div>
+        {renderGrid()}
 
         {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-16"
-        >
-          <p className="text-2xl md:text-3xl font-bold">
-            {t('conclusion')}{' '}
-            <span className="gradient-ia">{t('conclusionHighlight')}</span>
-          </p>
-        </motion.div>
+        {renderCTA()}
       </div>
     </section>
   );
