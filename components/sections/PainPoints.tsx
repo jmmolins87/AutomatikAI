@@ -36,7 +36,7 @@ function PainPointCard({ pain, t, index }: { pain: any; t: any; index: number })
       ref={cardRef}
       key={pain.titleKey}
       variants={fadeInUp}
-      className={`relative group transition-all duration-300 min-h-[200px] md:min-h-[180px]
+      className={`relative group transition-all duration-300 min-h-[200px] md:min-h-[180px] z-10
         ${shouldAutoHover || isCenter ? 'scale-105 shadow-2xl z-20' : ''}
         ${isCenter ? 'border-primary/60' : ''}
       `}
@@ -46,8 +46,8 @@ function PainPointCard({ pain, t, index }: { pain: any; t: any; index: number })
     >
       <div
         ref={hoverRef}
-        className={`h-full p-6 rounded-xl bg-card/70 md:bg-card/50 backdrop-blur-sm border transition-all ${
-          shouldAutoHover || isCenter ? 'border-destructive/40' : 'border-destructive/20 hover:border-destructive/40'
+        className={`h-full p-6 rounded-xl bg-white/95 dark:bg-gray-900/95 md:bg-card/70 backdrop-blur-sm border-2 border-destructive/40 transition-all ${
+          shouldAutoHover || isCenter ? 'border-destructive/60 bg-white dark:bg-gray-900' : 'hover:border-destructive/60'
         }`}
       >
         <div className={`w-14 h-14 rounded-lg bg-destructive/10 flex items-center justify-center mb-4 transition-transform ${
@@ -105,13 +105,13 @@ export function PainPoints() {
     },
   ];
   return (
-    <section id="pain-points" className="py-16 md:py-24 relative overflow-hidden bg-linear-to-br from-red-950/30 via-background to-red-900/20">
+    <section id="pain-points" className="py-16 md:py-24 relative overflow-hidden bg-linear-to-br from-red-950/10 md:from-red-950/30 via-background to-red-900/5 md:to-red-900/20">
       {/* Fondos decorativos, z-0, opacidad reducida en mobile, sin pointer-events-none */}
-      <div className="absolute inset-0 w-full h-full z-0">
-        <div className="block md:block opacity-50 md:opacity-60 w-full h-full">
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+        <div className="hidden md:block opacity-50 w-full h-full">
           <NetworkGrid />
         </div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--color-purple-10),transparent_70%)] opacity-30 md:opacity-40" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--color-purple-10),transparent_70%)] opacity-10 md:opacity-40" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
