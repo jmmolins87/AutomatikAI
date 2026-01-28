@@ -55,10 +55,10 @@ function PainPointCard({ pain, t, index }: { pain: any; t: any; index: number })
         }`}>
           <pain.icon className="w-7 h-7 text-destructive" />
         </div>
-        <h3 className="text-sm md:text-base font-bold mb-3 text-foreground leading-tight">
+        <h3 className="text-sm md:text-base font-bold mb-3 text-gray-900 dark:text-gray-100 leading-tight">
           {t(`items.${pain.titleKey}`)}
         </h3>
-        <p className="text-muted-foreground leading-relaxed">
+        <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
           {t(`items.${pain.descriptionKey}`)}
         </p>
         <div className={`absolute top-0 right-0 w-20 h-20 bg-destructive/5 rounded-bl-full transition-opacity ${
