@@ -127,7 +127,7 @@ export function Services({ detailed }: { detailed?: boolean } = {}) {
           transition={{ duration: animations.durations.normal }}
           className="text-center mb-16 lg:mx-auto lg:max-w-2/4 backdrop-blur-md bg-background/30 rounded-2xl p-8 border border-border/30"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6">
             <AnimatedText variant="wave" delay={200}>
               {t('title')}
             </AnimatedText>

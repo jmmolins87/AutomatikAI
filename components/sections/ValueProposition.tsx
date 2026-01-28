@@ -117,7 +117,7 @@ export function ValueProposition() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-4xl xxl:text-7xl font-bold mb-6 leading-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl xxl:text-7xl font-bold mb-6 leading-tight"
           >
             {t('title')}
             <br />

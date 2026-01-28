@@ -64,7 +64,7 @@ export function Features() {
           transition={{ duration: animations.durations.normal }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6">
             <AnimatedText variant="wave" delay={200}>
               Por Qué Elegirnos
             </AnimatedText>
