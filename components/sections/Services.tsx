@@ -8,6 +8,7 @@ import { animations, spacing } from '@/lib/design-system';
 import { useTranslations } from 'next-intl';
 import { useAutoHover } from '@/hooks/useAutoHover';
 import dynamic from 'next/dynamic';
+import { useRef, useEffect, useState } from 'react';
 
 const GeometricShapes = dynamic(
   () => import('@/components/3d/GeometricShapes').then(mod => ({ default: mod.GeometricShapes })),
@@ -16,10 +17,27 @@ const GeometricShapes = dynamic(
 
 function ServiceCard({ service, index }: { service: any; index: number }) {
   const [ref, shouldAutoHover] = useAutoHover();
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isCenter, setIsCenter] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !cardRef.current) return;
+    if (window.innerWidth >= 768) return; // Solo mobile
+    const handleScroll = () => {
+      const rect = cardRef.current!.getBoundingClientRect();
+      const vh = window.innerHeight;
+      // Consideramos "centrado" si el centro de la caja está cerca del centro de la pantalla
+      const cardCenter = rect.top + rect.height / 2;
+      setIsCenter(cardCenter > vh * 0.35 && cardCenter < vh * 0.65);
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <motion.div
-      ref={ref}
+      ref={cardRef}
       key={service.title}
       initial={{ opacity: 0, y: 50, scale: 0.95 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -30,9 +48,9 @@ function ServiceCard({ service, index }: { service: any; index: number }) {
         ease: [0.25, 0.46, 0.45, 0.94]
       }}
       whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } }}
-      animate={shouldAutoHover ? { scale: 1.05, y: -5, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } } : { scale: 1, y: 0, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } }}
+      animate={shouldAutoHover || isCenter ? { scale: 1.05, y: -5, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } } : { scale: 1, y: 0, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } }}
     >
-      <GlowCard glowColor={service.color} className="h-full min-h-[320px] p-6 md:p-8 backdrop-blur-md bg-card/60 border-2 border-primary/50 hover:border-primary hover:shadow-lg hover:shadow-primary/25">
+      <GlowCard glowColor={service.color} className="h-full min-h-[320px] p-6 md:p-8 backdrop-blur-md bg-card/60 border-2 border-primary/50 hover:border-primary hover:shadow-lg hover:shadow-primary/25" active={shouldAutoHover || isCenter}>
         <motion.div
           initial={{ rotate: 0 }}
           whileInView={{ rotate: 360 }}

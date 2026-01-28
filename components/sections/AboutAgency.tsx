@@ -5,19 +5,37 @@ import { motion } from 'framer-motion';
 import { Brain, Code, LineChart, Lightbulb } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useAutoHover } from '@/hooks/useAutoHover';
+import { useRef, useEffect, useState } from 'react';
 
 function PillarCard({ pillar, index, t }: { pillar: any; index: number; t: any }) {
   const [ref, shouldAutoHover] = useAutoHover();
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isCenter, setIsCenter] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !cardRef.current) return;
+    if (window.innerWidth >= 768) return; // Solo mobile
+    const handleScroll = () => {
+      const rect = cardRef.current!.getBoundingClientRect();
+      const vh = window.innerHeight;
+      // Consideramos "centrado" si el centro de la caja está cerca del centro de la pantalla
+      const cardCenter = rect.top + rect.height / 2;
+      setIsCenter(cardCenter > vh * 0.35 && cardCenter < vh * 0.65);
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <motion.div
-      ref={ref}
+      ref={cardRef}
       key={pillar.key}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, margin: "-100px" }}
       transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-      className={`group ${shouldAutoHover ? 'scale-105 border-primary/50' : ''} transition-all`}
+      className={`group ${shouldAutoHover || isCenter ? 'scale-105 border-primary/50' : ''} transition-all`}
     >
       <div className="h-full p-6 rounded-xl bg-card/30 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all text-center">
         <div className="w-16 h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
