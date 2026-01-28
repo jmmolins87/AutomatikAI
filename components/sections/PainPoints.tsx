@@ -32,10 +32,9 @@ function PainPointCard({ pain, t, index }: { pain: any; t: any; index: number })
   }, []);
 
   return (
-    <motion.div
+    <div
       ref={cardRef}
       key={pain.titleKey}
-      variants={fadeInUp}
       className={`relative group transition-all duration-300 min-h-[200px] md:min-h-[180px] z-10
         ${shouldAutoHover || isCenter ? 'scale-105 shadow-2xl z-20' : ''}
         ${isCenter ? 'border-primary/60' : ''}
@@ -65,7 +64,7 @@ function PainPointCard({ pain, t, index }: { pain: any; t: any; index: number })
           shouldAutoHover || isCenter ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
         }`} />
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -147,17 +146,11 @@ export function PainPoints() {
         </motion.div>
 
         {/* Pain Points Grid */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportConfig}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
           {painPoints.map((pain, idx) => (
             <PainPointCard key={pain.titleKey} pain={pain} t={t} index={idx} />
           ))}
-        </motion.div>
+        </div>
 
         {/* Bottom CTA */}
         <motion.div
