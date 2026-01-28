@@ -36,7 +36,7 @@ function PainPointCard({ pain, t, index }: { pain: any; t: any; index: number })
       ref={cardRef}
       key={pain.titleKey}
       variants={fadeInUp}
-      className={`relative group transition-all duration-300
+      className={`relative group transition-all duration-300 min-h-[200px] md:min-h-[180px]
         ${shouldAutoHover || isCenter ? 'scale-105 shadow-2xl z-20' : ''}
         ${isCenter ? 'border-primary/60' : ''}
       `}
@@ -46,7 +46,7 @@ function PainPointCard({ pain, t, index }: { pain: any; t: any; index: number })
     >
       <div
         ref={hoverRef}
-        className={`h-full p-6 rounded-xl bg-card/50 backdrop-blur-sm border transition-all ${
+        className={`h-full p-6 rounded-xl bg-card/70 md:bg-card/50 backdrop-blur-sm border transition-all ${
           shouldAutoHover || isCenter ? 'border-destructive/40' : 'border-destructive/20 hover:border-destructive/40'
         }`}
       >
@@ -55,7 +55,7 @@ function PainPointCard({ pain, t, index }: { pain: any; t: any; index: number })
         }`}>
           <pain.icon className="w-7 h-7 text-destructive" />
         </div>
-        <h3 className="text-sm md:text-base font-bold mb-3 text-foreground leading-tight whitespace-nowrap">
+        <h3 className="text-sm md:text-base font-bold mb-3 text-foreground leading-tight">
           {t(`items.${pain.titleKey}`)}
         </h3>
         <p className="text-muted-foreground leading-relaxed">
@@ -108,10 +108,10 @@ export function PainPoints() {
     <section id="pain-points" className="py-16 md:py-24 relative overflow-hidden bg-linear-to-br from-red-950/30 via-background to-red-900/20">
       {/* Fondos decorativos, z-0, opacidad reducida en mobile, sin pointer-events-none */}
       <div className="absolute inset-0 w-full h-full z-0">
-        <div className="block md:block opacity-30 md:opacity-60 w-full h-full">
+        <div className="block md:block opacity-50 md:opacity-60 w-full h-full">
           <NetworkGrid />
         </div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--color-purple-10),transparent_70%)] opacity-20 md:opacity-40" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--color-purple-10),transparent_70%)] opacity-30 md:opacity-40" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
